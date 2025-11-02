@@ -69,6 +69,12 @@
   <p>Automating Finance with Excel (VBA + Power Query)</p>
   <p><strong>Free 2025 Finance Forecaster</strong> – Launching in the coming days</p>
 
+  <!-- Progress Bar -->
+  <div style="width:80%; max-width:500px; margin:20px auto; background:#334155; border-radius:8px; overflow:hidden;">
+    <div id="progressBar" style="height:12px; width:0%; background:var(--accent); transition:width .6s ease;"></div>
+  </div>
+  <p style="font-size:0.9rem; opacity:0.8;">Launch Progress</p>
+
   <!-- Countdown -->
   <div id="countdown">
     <div class="cd-box"><span id="days">00</span><span>Days</span></div>
@@ -83,17 +89,31 @@
 
   <footer>© 2025 ExcelAutomate.pro | Built by G vdHarten</footer>
 
-  <!-- ==== JavaScript (all inline, no external deps) ==== -->
+  <!-- Confetti Canvas (hidden until launch) -->
+  <canvas id="confettiCanvas" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; opacity:0;"></canvas>
+
+  <!-- ==== JavaScript ==== -->
   <script>
-    /* ---------- Countdown ---------- */
-    const launch = new Date('2025-12-01T00:00:00').getTime(); // <-- CHANGE THIS DATE
-    function updateCountdown() {
+    /* ---------- Launch Date (CHANGE THIS) ---------- */
+    const launch = new Date('2025-12-01T00:00:00').getTime(); // Set your real date!
+
+    /* ---------- Countdown + Progress + Confetti ---------- */
+    let launched = false;
+    function updateTimer() {
       const now = Date.now();
       const diff = launch - now;
-      if (diff <= 0) {
-        document.getElementById('countdown').innerHTML = '<p style="font-size:1.5rem;color:var(--accent);">Launched!</p>';
+      const totalDuration = launch - new Date().setFullYear(2025, 0, 1); // from Jan 1
+      const elapsed = totalDuration - diff;
+
+      if (diff <= 0 && !launched) {
+        launched = true;
+        document.getElementById('countdown').innerHTML = '<p style="font-size:1.8rem; color:var(--accent); margin:20px 0;">Launched!</p>';
+        document.getElementById('progressBar').style.width = '100%';
+        triggerConfetti();
         return;
       }
+
+      // Countdown
       const d = Math.floor(diff / (1000*60*60*24));
       const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
       const m = Math.floor((diff % (1000*60*60)) / (1000*60));
@@ -102,9 +122,71 @@
       document.getElementById('hours').textContent = h.toString().padStart(2,'0');
       document.getElementById('mins').textContent  = m.toString().padStart(2,'0');
       document.getElementById('secs').textContent  = s.toString().padStart(2,'0');
+
+      // Progress bar
+      const percent = Math.min(100, (elapsed / totalDuration) * 100);
+      document.getElementById('progressBar').style.width = percent + '%';
     }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    /* ---------- Confetti Explosion ---------- */
+    function triggerConfetti() {
+      const canvas = document.getElementById('confettiCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      canvas.style.opacity = '1';
+
+      const confetti = [];
+      const colors = ['#10b981', '#34d399', '#059669', '#f59e0b', '#ef4444'];
+
+      for (let i = 0; i < 300; i++) {
+        confetti.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - 100,
+          r: Math.random() * 4 + 1,
+          d: Math.random() * 300 + 100,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          tilt: Math.random() * 10 - 10,
+          tiltAngle: 0,
+          tiltAngleIncrement: Math.random() * 0.07 + 0.05
+        });
+      }
+
+      let animationFrame;
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        confetti.forEach((c, i) => {
+          c.tiltAngle += c.tiltAngleIncrement;
+          c.y += (Math.cos(c.d) + 3 + c.r / 2) / 2;
+          c.tilt = Math.sin(c.tiltAngle) * 15;
+
+          if (c.y > canvas.height) confetti.splice(i, 1);
+          else {
+            ctx.beginPath();
+            ctx.lineWidth = c.r;
+            ctx.strokeStyle = c.color;
+            ctx.moveTo(c.x + c.tilt + c.r / 4, c.y);
+            ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r / 4);
+            ctx.stroke();
+          }
+        });
+
+        if (confetti.length > 0) {
+          animationFrame = requestAnimationFrame(draw);
+        } else {
+          canvas.style.opacity = '0';
+        }
+      }
+      draw();
+
+      // Cleanup after 5 seconds
+      setTimeout(() => {
+        cancelAnimationFrame(animationFrame);
+        canvas.style.opacity = '0';
+      }, 5000);
+    }
 
     /* ---------- Dark / Light toggle ---------- */
     const toggle = document.getElementById('themeToggle');
@@ -122,8 +204,6 @@
       const newTheme = html.dataset.theme === 'light' ? 'dark' : 'light';
       setTheme(newTheme);
     });
-
-    // Load saved preference (default dark)
     const saved = localStorage.getItem('theme') || 'dark';
     setTheme(saved);
 
@@ -137,7 +217,7 @@
         btn.textContent = 'Copied!';
         setTimeout(() => btn.textContent = orig, 1500);
       } catch (e) {
-        alert('Copy failed – select the email and copy manually.');
+        alert('Copy failed – select and copy manually.');
       }
     });
   </script>
