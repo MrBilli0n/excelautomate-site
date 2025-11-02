@@ -102,7 +102,7 @@
     function updateTimer() {
       const now = Date.now();
       const diff = launch - now;
-      const totalDuration = launch - new Date().setFullYear(2025, 0, 1); // from Jan 1
+      const totalDuration = launch - new Date('2025-11-01').getTime(); // or any start date
       const elapsed = totalDuration - diff;
 
       if (diff <= 0 && !launched) {
