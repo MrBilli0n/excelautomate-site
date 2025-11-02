@@ -1,236 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Coming Soon | Excel Automation Consulting</title>
+<title>ExcelAutomate.pro – Coming Soon</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg-light: #f4f4f9;
-    --bg-dark: #0b0b0b;
-    --text-light: #0b0b0b;
-    --text-dark: #f4f4f9;
-    --accent: #00c896;
-  }
+:root {
+  --bg: #0f172a;
+  --text: #e2e8f0;
+  --accent: #10b981;
+  --accent-light: #34d399;
+  --footer: #94a3b8;
+}
 
+/* Light mode overrides */
+[data-theme="light"] {
+  --bg: #f8fafc;
+  --text: #1e293b;
+  --accent: #059669;
+  --accent-light: #10b981;
+  --footer: #64748b;
+}
+
+body {
+  margin:0;
+  padding-top:80px; /* adds space below toggle */
+  height:100vh;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  transition:background .3s,color .3s;
+  max-width:100vw;
+  overflow-x:hidden;
+}
+
+h1 {
+  font-size:3rem;
+  margin:0;
+  color:var(--accent);
+}
+
+p {
+  font-size:1.2rem;
+  max-width:500px;
+  margin:20px 0;
+}
+
+.email {
+  color:var(--accent-light);
+  font-weight:bold;
+  cursor:pointer;
+}
+
+footer {
+  position:absolute;
+  bottom:20px;
+  font-size:0.9rem;
+  color:var(--footer);
+}
+
+/* Countdown */
+#countdown {
+  display:flex;
+  gap:15px;
+  margin:25px 0;
+  font-weight:600;
+}
+
+.cd-box {
+  background:var(--accent);
+  color:white;
+  padding:12px 8px;
+  border-radius:8px;
+  min-width:60px;
+}
+
+.cd-box span {
+  display:block;
+  font-size:0.8rem;
+  margin-top:4px;
+  opacity:0.9;
+}
+
+/* Buttons */
+.btn {
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+  margin:8px;
+  transition:background .2s;
+}
+
+.btn:hover {
+  background:var(--accent-light);
+}
+
+.btn.secondary {
+  background:transparent;
+  border:2px solid var(--accent);
+  color:var(--accent);
+}
+
+.btn.secondary:hover {
+  background:rgba(16,185,129,.1);
+}
+
+/* Theme toggle */
+#themeToggle {
+  position:absolute;
+  top:20px;
+  right:20px;
+  width:40px;
+  height:40px;
+}
+
+/* ---------- Responsive for Mobile ---------- */
+@media (max-width: 600px) {
   body {
-    margin: 0;
-    font-family: 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg-light);
-    color: var(--text-light);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    text-align: center;
-    overflow: hidden;
-    transition: background 0.5s, color 0.5s;
-    max-width: 100vw;
-    overflow-x: hidden;
-    padding-top: 60px; /* shifted content down slightly */
-  }
-
-  body.dark-mode {
-    background: var(--bg-dark);
-    color: var(--text-dark);
-  }
-
-  .toggle-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: none;
-    border: 2px solid var(--accent);
-    border-radius: 30px;
-    color: var(--accent);
-    cursor: pointer;
-    padding: 6px 10px;
-    font-size: 0.9rem;
-    transition: all 0.3s;
-    z-index: 100;
-  }
-
-  .toggle-btn:hover {
-    background: var(--accent);
-    color: white;
+    padding: 20px;
+    justify-content: flex-start;
   }
 
   h1 {
-    font-size: 2.8rem;
-    margin: 0 0 15px;
-    padding-top: 30px; /* added space below toggle */
+    font-size:2rem;
+    line-height:1.2;
+    padding-top:30px; /* extra space below toggle on mobile */
   }
 
   p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin-bottom: 30px;
+    font-size:1rem;
+    max-width:90%;
   }
 
   #countdown {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-bottom: 25px;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px;
   }
 
   .cd-box {
-    background: var(--accent);
-    color: white;
-    border-radius: 10px;
-    padding: 10px 14px;
-    font-weight: bold;
-    font-size: 1rem;
+    min-width:55px;
+    padding:8px 6px;
+    font-size:0.9rem;
   }
 
   .btn {
-    background: var(--accent);
-    border: none;
-    border-radius: 8px;
-    color: white;
-    cursor: pointer;
-    padding: 10px 20px;
-    font-size: 1rem;
-    transition: all 0.3s;
-    margin: 0 8px;
-  }
-
-  .btn:hover {
-    transform: scale(1.05);
+    padding:8px 14px;
+    font-size:0.9rem;
+    margin:4px;
   }
 
   footer {
-    position: absolute;
-    bottom: 15px;
-    font-size: 0.9rem;
+    font-size:0.8rem;
+    bottom:10px;
+    text-align:center;
+    width:100%;
   }
 
-  /* Floating icons animation */
-  .floating-icons {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
+  .floating-icons > * {
+    width:40px !important;
+    height:40px !important;
+    opacity:0.25 !important;
   }
-
-  .floating-icons img {
-    position: absolute;
-    width: 50px;
-    opacity: 0.2;
-    animation: float 12s infinite ease-in-out;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
-
-  /* ---------- Responsive for Mobile ---------- */
-  @media (max-width: 600px) {
-    body {
-      padding: 20px;
-      justify-content: flex-start;
-    }
-
-    h1 {
-      font-size: 2rem;
-      line-height: 1.2;
-      padding-top: 20px; /* spacing under toggle on mobile */
-    }
-
-    p {
-      font-size: 1rem;
-      max-width: 90%;
-    }
-
-    #countdown {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .cd-box {
-      min-width: 55px;
-      padding: 8px 6px;
-      font-size: 0.9rem;
-    }
-
-    .btn {
-      padding: 8px 14px;
-      font-size: 0.9rem;
-      margin: 4px;
-    }
-
-    footer {
-      font-size: 0.8rem;
-      bottom: 10px;
-      text-align: center;
-      width: 100%;
-    }
-
-    .floating-icons > * {
-      width: 40px !important;
-      height: 40px !important;
-      opacity: 0.25 !important;
-    }
-  }
+}
 </style>
 </head>
+
 <body>
-  <button class="toggle-btn" onclick="toggleMode()">☀️ / 🌙</button>
-  <div class="floating-icons">
-    <img src="https://img.icons8.com/fluency/48/microsoft-excel-2019.png" style="top:10%;left:5%;">
-    <img src="https://img.icons8.com/fluency/48/pie-chart.png" style="top:40%;left:80%;">
-    <img src="https://img.icons8.com/fluency/48/line-chart.png" style="top:70%;left:30%;">
-    <img src="https://img.icons8.com/fluency/48/automation.png" style="top:20%;left:60%;">
-  </div>
+<!-- Theme toggle -->
+<button id="themeToggle" class="btn secondary" title="Toggle dark/light mode">
+  <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="5"/>
+    <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42m12.72-12.72l1.42-1.42"/>
+  </svg>
+  <svg id="moon" style="display:none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+</button>
 
-  <h1>Excel Automation Consulting</h1>
-  <p>We’re crafting something powerful — an automation hub to simplify Excel, Power Query, VBA, and SAP-based reporting. Launching soon!</p>
+<!-- Animated Icons (background) -->
+<div class="floating-icons">
+  <!-- Excel Grid -->
+  <svg class="icon-grid" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="8" width="48" height="48" fill="none" stroke="var(--accent)" stroke-width="2"/>
+    <path d="M8 16h48M8 24h48M8 32h48M8 40h48M8 48h48M16 8v48M24 8v48M32 8v48M40 8v48M48 8v48" stroke="var(--accent)" stroke-width="1.5" opacity="0.6"/>
+  </svg>
+  <!-- Line Chart -->
+  <svg class="icon-chart" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <polyline points="10,50 20,35 30,40 40,25 54,30" fill="none" stroke="var(--accent-light)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="10" cy="50" r="3" fill="var(--accent-light)"/>
+    <circle cx="20" cy="35" r="3" fill="var(--accent-light)"/>
+    <circle cx="30" cy="40" r="3" fill="var(--accent-light)"/>
+    <circle cx="40" cy="25" r="3" fill="var(--accent-light)"/>
+    <circle cx="54" cy="30" r="3" fill="var(--accent-light)"/>
+  </svg>
+  <!-- Formula Bar -->
+  <div class="icon-formula"><span>=SUM(A1:A10)</span></div>
+</div>
 
-  <div id="countdown">
-    <div class="cd-box"><span id="days"></span> Days</div>
-    <div class="cd-box"><span id="hours"></span> Hrs</div>
-    <div class="cd-box"><span id="minutes"></span> Min</div>
-    <div class="cd-box"><span id="seconds"></span> Sec</div>
-  </div>
+<h1>ExcelAutomate.pro</h1>
+<p>Automating Finance with Excel (VBA + Power Query)</p>
+<p><strong>Free 2025 Finance Forecaster</strong> – Launching in the coming days</p>
 
-  <div>
-    <button class="btn">Notify Me</button>
-    <button class="btn">Learn More</button>
-  </div>
+<!-- Progress Bar -->
+<div style="width:80%; max-width:500px; margin:20px auto; background:#334155; border-radius:8px; overflow:hidden;">
+  <div id="progressBar" style="height:12px; width:0%; background:var(--accent); transition:width .6s ease;"></div>
+</div>
+<p style="font-size:0.9rem; opacity:0.8;">Launch Progress</p>
 
-  <footer>© 2025 Excel Automation Consulting | All rights reserved</footer>
+<!-- Countdown -->
+<div id="countdown">
+  <div class="cd-box"><span id="days">00</span><span>Days</span></div>
+  <div class="cd-box"><span id="hours">00</span><span>Hours</span></div>
+  <div class="cd-box"><span id="mins">00</span><span>Minutes</span></div>
+  <div class="cd-box"><span id="secs">00</span><span>Seconds</span></div>
+</div>
 
-  <script>
-    function toggleMode() {
-      document.body.classList.toggle('dark-mode');
-    }
+<p>Email <span class="email" id="email">info@excelautomate.pro</span>
+  <button id="copyBtn" class="btn" style="margin-left:8px; padding:6px 12px; font-size:0.9rem;">Copy</button>
+</p>
 
-    // Countdown timer (example: 60 days from now)
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 60);
+<footer>© 2025 ExcelAutomate.pro | Built by G vdHarten</footer>
 
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
+<!-- Confetti Canvas -->
+<canvas id="confettiCanvas" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; opacity:0;"></canvas>
 
-      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const s = Math.floor((distance % (1000 * 60)) / 1000);
+<!-- ==== JavaScript ==== -->
+<script>
+/* ---------- Launch Date ---------- */
+const launch = new Date('2025-12-01T00:00:00').getTime();
 
-      document.getElementById('days').textContent = d;
-      document.getElementById('hours').textContent = h;
-      document.getElementById('minutes').textContent = m;
-      document.getElementById('seconds').textContent = s;
-    };
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
+/* ---------- Countdown + Progress + Confetti ---------- */
+let launched = false;
+function updateTimer() {
+  const now = Date.now();
+  const diff = launch - now;
+  const totalDuration = launch - new Date('2025-01-01').getTime();
+  const elapsed = totalDuration - diff;
+
+  if (diff <= 0 && !launched) {
+    launched = true;
+    document.getElementById('countdown').innerHTML = '<p style="font-size:1.8rem; color:var(--accent); margin:20px 0;">Launched!</p>';
+    document.getElementById('progressBar').style.width = '100%';
+    triggerConfetti();
+    return;
+  }
+
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+  const s = Math.floor((diff % (1000*60)) / 1000);
+
+  document.getElementById('days').textContent = d.toString().padStart(2,'0');
+  document.getElementById('hours').textContent = h.toString().padStart(2,'0');
+  document.getElementById('mins').textContent = m.toString().padStart(2,'0');
+  document.getElementById('secs').textContent = s.toString().padStart(2,'0');
+
+  const percent = Math.min(100, (elapsed / totalDuration) * 100);
+  document.getElementById('progressBar').style.width = percent + '%';
+}
+setInterval(updateTimer, 1000);
+updateTimer();
+
+/* ---------- Confetti ---------- */
+function triggerConfetti() {
+  const canvas = document.getElementById('confettiCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  canvas.style.opacity = '1';
+  const confetti = [];
+  const colors = ['#10b981', '#34d399', '#059669', '#f59e0b', '#ef4444'];
+
+  for (let i = 0; i < 300; i++) {
+    confetti.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - 100,
+      r: Math.random() * 4 + 1,
+      d: Math.random() * 300 + 100,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      tilt: Math.random() * 10 - 10,
+      tiltAngle: 0,
+      tiltAngleIncrement: Math.random() * 0.07 + 0.05
+    });
+  }
+
+  let animationFrame;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    confetti.forEach((c, i) => {
+      c.tiltAngle += c.tiltAngleIncrement;
+      c.y += (Math.cos(c.d) + 3 + c.r / 2) / 2;
+      c.tilt = Math.sin(c.tiltAngle) * 15;
+      if (c.y > canvas.height) confetti.splice(i, 1);
+      else {
+        ctx.beginPath();
+        ctx.lineWidth = c.r;
+        ctx.strokeStyle = c.color;
+        ctx.moveTo(c.x + c.tilt + c.r / 4, c.y);
+        ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r / 4);
+        ctx.stroke();
+      }
+    });
+    if (confetti.length > 0) animationFrame = requestAnimationFrame(draw);
+    else canvas.style.opacity = '0';
+  }
+  draw();
+  setTimeout(() => { cancelAnimationFrame(animationFrame); canvas.style.opacity = '0'; }, 5000);
+}
+
+/* ---------- Dark / Light toggle ---------- */
+const toggle = document.getElementById('themeToggle');
+const sun = document.getElementById('sun');
+const moon = document.getElementById('moon');
+const html = document.documentElement;
+
+function setTheme(theme) {
+  html.dataset.theme = theme;
+  sun.style.display = theme === 'light' ? 'none' : 'block';
+  moon.style.display = theme === 'light' ? 'block' : 'none';
+  localStorage.setItem('theme', theme);
+}
+
+toggle.addEventListener('click', () => {
+  const newTheme = html.dataset.theme === 'light' ? 'dark' : 'light';
+  setTheme(newTheme);
+});
+
+const saved = localStorage.getItem('theme') || 'dark';
+setTheme(saved);
+
+/* ---------- Copy email ---------- */
+document.getElementById('copyBtn').addEventListener('click', async () => {
+  const email = document.getElementById('email').textContent;
+  try {
+    await navigator.clipboard.writeText(email);
+    const btn = document.getElementById('copyBtn');
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = orig, 1500);
+  } catch (e) {
+    alert('Copy failed – select and copy manually.');
+  }
+});
+
+/* ---------- Animated Icons ---------- */
+document.querySelectorAll('.floating-icons > *').forEach((icon, i) => {
+  const delay = i * 1.5;
+  const duration = 8 + Math.random() * 4;
+  const x = 10 + Math.random() * 80;
+  const y = 10 + Math.random() * 70;
+  icon.style.cssText = `
+    position:absolute;
+    width:70px;
+    height:70px;
+    opacity:0.35;
+    pointer-events:none;
+    animation:float ${duration}s ease-in-out infinite;
+    animation-delay:${delay}s;
+    left:${x}%;
+    top:${y}%;
+    filter:drop-shadow(0 0 6px rgba(16,185,129,0.4));
+    transform-origin:center;
+  `;
+});
+
+/* ---------- Formula typing ---------- */
+const formulaText = "=SUM(A1:A10)";
+const formulaEl = document.querySelector('.icon-formula span');
+let idx = 0;
+setInterval(() => {
+  idx = (idx + 1) % (formulaText.length + 10);
+  formulaEl.textContent = formulaText.substring(0, idx) + (idx < formulaText.length ? '|' : '');
+}, 200);
+</script>
+
+<!-- ==== CSS for Icons ==== -->
+<style>
+.floating-icons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(5deg); }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.6);
+  }
+}
+
+.icon-formula {
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--accent-light);
+  background: rgba(15,23,42,0.9);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.icon-formula span::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+</style>
 </body>
 </html>
