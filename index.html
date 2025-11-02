@@ -12,7 +12,7 @@
     :root {
       --bg: #0f172a;      /* dark background */
       --text: #e2e8f0;    /* light text */
-      --accent: #10b981; /* green */
+      --accent: #10b981;  /* green */
       --accent-light: #34d399;
       --footer: #94a3b8;
     }
@@ -32,6 +32,7 @@
       display:flex; flex-direction:column;
       justify-content:center; align-items:center;
       text-align:center; transition:background .3s,color .3s;
+      max-width:100vw; overflow-x:hidden;
     }
     h1 { font-size:3rem; margin:0; color:var(--accent); }
     p { font-size:1.2rem; max-width:500px; margin:20px 0; }
@@ -39,7 +40,7 @@
     footer { position:absolute; bottom:20px; font-size:0.9rem; color:var(--footer); }
 
     /* Countdown */
-    #countdown { display:flex; gap:15px; margin:25px 0; font-weight:600; }
+    #countdown { display:flex; gap:15px; margin:25px 0; font-weight:600; flex-wrap:nowrap; justify-content:center; }
     .cd-box { background:var(--accent); color:white; padding:12px 8px; border-radius:8px; min-width:60px; }
     .cd-box span { display:block; font-size:0.8rem; margin-top:4px; opacity:0.9; }
 
@@ -55,6 +56,57 @@
 
     /* Theme toggle */
     #themeToggle { position:absolute; top:20px; right:20px; width:40px; height:40px; }
+
+    /* ---------- Responsive for Mobile ---------- */
+    @media (max-width: 600px) {
+      body {
+        padding: 20px;
+        justify-content: flex-start;
+      }
+
+      h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+      }
+
+      p {
+        font-size: 1rem;
+        max-width: 90%;
+      }
+
+      #countdown {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .cd-box {
+        min-width: 55px;
+        padding: 8px 6px;
+        font-size: 0.9rem;
+      }
+
+      .btn {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+        margin: 4px;
+      }
+
+      footer {
+        font-size: 0.8rem;
+        bottom: 10px;
+        text-align: center;
+        width: 100%;
+      }
+
+      /* Reduce background icon size and density */
+      .floating-icons > * {
+        width: 40px !important;
+        height: 40px !important;
+        opacity: 0.25 !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -113,24 +165,18 @@
 
   <footer>© 2025 ExcelAutomate.pro | Built by G vdHarten</footer>
 
-  <!-- Confetti Canvas -->
   <canvas id="confettiCanvas" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; opacity:0;"></canvas>
 
-  <!-- ==== JavaScript (same + icon animations) ==== -->
   <script>
-    /* ---------- Launch Date ---------- */
     const launch = new Date('2025-12-01T00:00:00').getTime();
 
-    /* ---------- Countdown + Progress + Confetti ---------- */
-    let launched = false;
     function updateTimer() {
       const now = Date.now();
       const diff = launch - now;
       const totalDuration = launch - new Date('2025-01-01').getTime();
       const elapsed = totalDuration - diff;
 
-      if (diff <= 0 && !launched) {
-        launched = true;
+      if (diff <= 0) {
         document.getElementById('countdown').innerHTML = '<p style="font-size:1.8rem; color:var(--accent); margin:20px 0;">Launched!</p>';
         document.getElementById('progressBar').style.width = '100%';
         triggerConfetti();
@@ -152,14 +198,12 @@
     setInterval(updateTimer, 1000);
     updateTimer();
 
-    /* ---------- Confetti (same as before) ---------- */
     function triggerConfetti() {
       const canvas = document.getElementById('confettiCanvas');
       const ctx = canvas.getContext('2d');
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       canvas.style.opacity = '1';
-
       const confetti = [];
       const colors = ['#10b981', '#34d399', '#059669', '#f59e0b', '#ef4444'];
       for (let i = 0; i < 300; i++) {
@@ -174,7 +218,6 @@
           tiltAngleIncrement: Math.random() * 0.07 + 0.05
         });
       }
-
       let animationFrame;
       function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -199,12 +242,10 @@
       setTimeout(() => { cancelAnimationFrame(animationFrame); canvas.style.opacity = '0'; }, 5000);
     }
 
-    /* ---------- Dark / Light toggle ---------- */
     const toggle = document.getElementById('themeToggle');
     const sun = document.getElementById('sun');
     const moon = document.getElementById('moon');
     const html = document.documentElement;
-
     function setTheme(theme) {
       html.dataset.theme = theme;
       sun.style.display = theme === 'light' ? 'none' : 'block';
@@ -215,10 +256,8 @@
       const newTheme = html.dataset.theme === 'light' ? 'dark' : 'light';
       setTheme(newTheme);
     });
-    const saved = localStorage.getItem('theme') || 'dark';
-    setTheme(saved);
+    setTheme(localStorage.getItem('theme') || 'dark');
 
-    /* ---------- Copy email ---------- */
     document.getElementById('copyBtn').addEventListener('click', async () => {
       const email = document.getElementById('email').textContent;
       try {
@@ -227,31 +266,29 @@
         const orig = btn.textContent;
         btn.textContent = 'Copied!';
         setTimeout(() => btn.textContent = orig, 1500);
-      } catch (e) {
+      } catch {
         alert('Copy failed – select and copy manually.');
       }
     });
 
-    /* ---------- Animated Icons (CSS via JS for randomness) ---------- */
     document.querySelectorAll('.floating-icons > *').forEach((icon, i) => {
       const delay = i * 1.5;
       const duration = 8 + Math.random() * 4;
       const x = 10 + Math.random() * 80;
       const y = 10 + Math.random() * 70;
-        icon.style.cssText = `
-          position: absolute;
-          width: 70px; height: 70px;
-          opacity: 0.35;
-          pointer-events: none;
-          animation: float ${duration}s ease-in-out infinite;
-          animation-delay: ${delay}s;
-          left: ${x}%; top: ${y}%;
-          filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.4));
-          transform-origin: center;
-        `;
+      icon.style.cssText = `
+        position: absolute;
+        width: 70px; height: 70px;
+        opacity: 0.35;
+        pointer-events: none;
+        animation: float ${duration}s ease-in-out infinite;
+        animation-delay: ${delay}s;
+        left: ${x}%; top: ${y}%;
+        filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.4));
+        transform-origin: center;
+      `;
     });
 
-    // Formula typing animation
     const formulaText = "=SUM(A1:A10)";
     const formulaEl = document.querySelector('.icon-formula span');
     let idx = 0;
@@ -261,7 +298,6 @@
     }, 200);
   </script>
 
-  <!-- ==== CSS for Icons ==== -->
   <style>
     .floating-icons {
       position: fixed;
@@ -274,17 +310,17 @@
       50% { transform: translateY(-30px) rotate(5deg); }
     }
     @keyframes pulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 0 8px rgba(16, 185, 129, 0.3); }
-    50% { transform: scale(1.05); box-shadow: 0 0 16px rgba(16, 185, 129, 0.6); }
+      0%, 100% { transform: scale(1); box-shadow: 0 0 8px rgba(16, 185, 129, 0.3); }
+      50% { transform: scale(1.05); box-shadow: 0 0 16px rgba(16, 185, 129, 0.6); }
     }
-      .icon-formula {
-        font-family: 'Courier New', monospace; font-size: 16px; font-weight: bold;
-        color: var(--accent-light);
-        background: rgba(15,23,42,0.9); padding: 6px 10px; border-radius: 6px;
-        border: 1.5px solid var(--accent);
-        box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
-        animation: pulse 3s ease-in-out infinite;
-      }
+    .icon-formula {
+      font-family: 'Courier New', monospace; font-size: 16px; font-weight: bold;
+      color: var(--accent-light);
+      background: rgba(15,23,42,0.9); padding: 6px 10px; border-radius: 6px;
+      border: 1.5px solid var(--accent);
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+      animation: pulse 3s ease-in-out infinite;
+    }
     .icon-formula span::after { content: '|'; animation: blink 1s step-end infinite; }
     @keyframes blink { 50% { opacity: 0; } }
   </style>
