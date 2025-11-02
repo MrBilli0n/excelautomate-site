@@ -4,25 +4,142 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ExcelAutomate.pro – Coming Soon</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
-    body {
-      margin: 0; padding: 0; font-family: 'Inter', sans-serif;
-      background: #0f172a; color: #e2e8f0; height: 100vh;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center;
+    :root {
+      --bg: #0f172a;      /* dark background */
+      --text: #e2e8f0;    /* light text */
+      --accent: #10b981; /* green */
+      --accent-light: #34d399;
+      --footer: #94a3b8;
     }
-    h1 { font-size: 3rem; margin: 0; color: #10b981; }
-    p { font-size: 1.2rem; max-width: 500px; margin: 20px 0; }
-    .email { color: #34d399; font-weight: bold; }
-    footer { position: absolute; bottom: 20px; font-size: 0.9rem; color: #94a3b8; }
+    /* Light mode overrides */
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --text: #1e293b;
+      --accent: #059669;
+      --accent-light: #10b981;
+      --footer: #64748b;
+    }
+
+    body {
+      margin:0; padding:0; height:100vh;
+      font-family:'Inter',sans-serif;
+      background:var(--bg); color:var(--text);
+      display:flex; flex-direction:column;
+      justify-content:center; align-items:center;
+      text-align:center; transition:background .3s,color .3s;
+    }
+    h1 { font-size:3rem; margin:0; color:var(--accent); }
+    p { font-size:1.2rem; max-width:500px; margin:20px 0; }
+    .email { color:var(--accent-light); font-weight:bold; cursor:pointer; }
+    footer { position:absolute; bottom:20px; font-size:0.9rem; color:var(--footer); }
+
+    /* Countdown */
+    #countdown { display:flex; gap:15px; margin:25px 0; font-weight:600; }
+    .cd-box { background:var(--accent); color:white; padding:12px 8px; border-radius:8px; min-width:60px; }
+    .cd-box span { display:block; font-size:0.8rem; margin-top:4px; opacity:0.9; }
+
+    /* Buttons */
+    .btn {
+      background:var(--accent); color:white; border:none; padding:10px 20px;
+      border-radius:6px; cursor:pointer; font-weight:600; margin:8px;
+      transition:background .2s;
+    }
+    .btn:hover { background:var(--accent-light); }
+    .btn.secondary { background:transparent; border:2px solid var(--accent); color:var(--accent); }
+    .btn.secondary:hover { background:rgba(16,185,129,.1); }
+
+    /* Theme toggle */
+    #themeToggle { position:absolute; top:20px; right:20px; width:40px; height:40px; }
   </style>
 </head>
 <body>
+
+  <!-- Theme toggle (sun/moon) -->
+  <button id="themeToggle" class="btn secondary" title="Toggle dark/light mode">
+    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42m12.72-12.72l1.42-1.42"/></svg>
+    <svg id="moon" style="display:none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
   <h1>ExcelAutomate.pro</h1>
   <p>Automating Finance with Excel (VBA + Power Query)</p>
   <p><strong>Free 2025 Finance Forecaster</strong> – Launching in the coming days</p>
-  <p>Email <span class="email">info@excelautomate.pro</span> to get early access</p>
+
+  <!-- Countdown -->
+  <div id="countdown">
+    <div class="cd-box"><span id="days">00</span><span>Days</span></div>
+    <div class="cd-box"><span id="hours">00</span><span>Hours</span></div>
+    <div class="cd-box"><span id="mins">00</span><span>Minutes</span></div>
+    <div class="cd-box"><span id="secs">00</span><span>Seconds</span></div>
+  </div>
+
+  <p>Email <span class="email" id="email">info@excelautomate.pro</span>
+    <button id="copyBtn" class="btn" style="margin-left:8px; padding:6px 12px; font-size:0.9rem;">Copy</button>
+  </p>
+
   <footer>© 2025 ExcelAutomate.pro | Built by G vdHarten</footer>
+
+  <!-- ==== JavaScript (all inline, no external deps) ==== -->
+  <script>
+    /* ---------- Countdown ---------- */
+    const launch = new Date('2025-12-01T00:00:00').getTime(); // <-- CHANGE THIS DATE
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = launch - now;
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = '<p style="font-size:1.5rem;color:var(--accent);">Launched!</p>';
+        return;
+      }
+      const d = Math.floor(diff / (1000*60*60*24));
+      const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+      const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+      const s = Math.floor((diff % (1000*60)) / 1000);
+      document.getElementById('days').textContent  = d.toString().padStart(2,'0');
+      document.getElementById('hours').textContent = h.toString().padStart(2,'0');
+      document.getElementById('mins').textContent  = m.toString().padStart(2,'0');
+      document.getElementById('secs').textContent  = s.toString().padStart(2,'0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    /* ---------- Dark / Light toggle ---------- */
+    const toggle = document.getElementById('themeToggle');
+    const sun = document.getElementById('sun');
+    const moon = document.getElementById('moon');
+    const html = document.documentElement;
+
+    function setTheme(theme) {
+      html.dataset.theme = theme;
+      sun.style.display = theme === 'light' ? 'none' : 'block';
+      moon.style.display = theme === 'light' ? 'block' : 'none';
+      localStorage.setItem('theme', theme);
+    }
+    toggle.addEventListener('click', () => {
+      const newTheme = html.dataset.theme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+    });
+
+    // Load saved preference (default dark)
+    const saved = localStorage.getItem('theme') || 'dark';
+    setTheme(saved);
+
+    /* ---------- Copy email ---------- */
+    document.getElementById('copyBtn').addEventListener('click', async () => {
+      const email = document.getElementById('email').textContent;
+      try {
+        await navigator.clipboard.writeText(email);
+        const btn = document.getElementById('copyBtn');
+        const orig = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = orig, 1500);
+      } catch (e) {
+        alert('Copy failed – select the email and copy manually.');
+      }
+    });
+  </script>
 </body>
 </html>
