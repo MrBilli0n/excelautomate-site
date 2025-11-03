@@ -22,33 +22,20 @@
   <meta name="twitter:image" content="https://excelautomate.pro/preview.jpg">
 
   <style>
+    /* === Core Layout & Theme === */
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       margin: 0;
       padding: 0;
       transition: background-color 0.4s, color 0.4s;
     }
-    body.dark {
-      background-color: #0d1117;
-      color: #f0f6fc;
-    }
-    body.light {
-      background-color: #ffffff;
-      color: #1e1e1e;
-    }
-    header {
-      text-align: center;
-      padding: 6rem 1rem 2rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
+    body.dark  { background-color: #0d1117; color: #f0f6fc; }
+    body.light { background-color: #ffffff; color: #1e1e1e; }
+
+    header { text-align: center; padding: 6rem 1rem 2rem; }
+    h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
+    p  { font-size: 1.1rem; margin-bottom: 2rem; }
+
     .cta-button {
       background-color: #10b981;
       color: white;
@@ -60,9 +47,8 @@
       text-decoration: none;
       transition: background-color 0.3s;
     }
-    .cta-button:hover {
-      background-color: #059669;
-    }
+    .cta-button:hover { background-color: #059669; }
+
     .case-studies {
       display: flex;
       flex-wrap: wrap;
@@ -79,19 +65,12 @@
       text-align: center;
       transition: transform 0.3s;
     }
-    .case-study:hover {
-      transform: translateY(-5px);
-    }
-    .cta-section {
-      text-align: center;
-      padding: 3rem 1rem 5rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
+    .case-study:hover { transform: translateY(-5px); }
+
+    .cta-section { text-align: center; padding: 3rem 1rem 5rem; }
+    footer { text-align: center; padding: 2rem 1rem; font-size: 0.9rem; opacity: 0.7; }
+
+    /* === Floating Action Icons (Email, LinkedIn, X) === */
     .floating-icons {
       position: fixed;
       bottom: 1.2rem;
@@ -101,7 +80,8 @@
       gap: 0.6rem;
       z-index: 100;
     }
-    .floating-icons a {
+    .floating-icons a,
+    .floating-icons button {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -113,12 +93,17 @@
       color: #10b981;
       font-weight: bold;
       transition: background 0.3s, transform 0.3s;
+      border: none;
+      cursor: pointer;
     }
-    .floating-icons a:hover {
+    .floating-icons a:hover,
+    .floating-icons button:hover {
       background: #10b981;
       color: #fff;
       transform: scale(1.1);
     }
+
+    /* === Theme Toggle Button === */
     #theme-toggle {
       position: absolute;
       top: 1.5rem;
@@ -130,68 +115,188 @@
       padding: 0.4rem 0.6rem;
       font-size: 1.2rem;
     }
+
     @media (max-width: 600px) {
-      header {
-        padding-top: 7rem;
-      }
+      header { padding-top: 7rem; }
       #theme-toggle {
         position: static;
         display: block;
         margin: 1rem auto 0;
       }
     }
+
+    /* === Animated Background Excel Icons === */
+    .background-icons {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-30px) rotate(5deg); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 8px rgba(16,185,129,0.3); }
+      50%      { transform: scale(1.05); box-shadow: 0 0 16px rgba(16,185,129,0.6); }
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .icon-formula {
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      font-weight: bold;
+      color: #10b981;
+      background: rgba(15,23,42,0.9);
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1.5px solid #10b981;
+      box-shadow: 0 0 8px rgba(16,185,129,0.3);
+      animation: pulse 3s ease-in-out infinite;
+    }
+    body.light .icon-formula {
+      color: #059669;
+      background: rgba(255,255,255,0.9);
+      border-color: #059669;
+    }
+    .icon-formula span::after {
+      content: '|';
+      animation: blink 1s step-end infinite;
+    }
   </style>
 </head>
 <body class="dark">
-  <button id="theme-toggle" title="Toggle theme">🌙</button>
+
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" title="Toggle theme">Moon</button>
+
+  <!-- Animated Background Icons -->
+  <div class="background-icons">
+    <!-- Excel Grid -->
+    <svg class="icon-grid" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <rect x="8" y="8" width="48" height="48" fill="none" stroke="#10b981" stroke-width="2"/>
+      <path d="M8 16h48M8 24h48M8 32h48M8 40h48M8 48h48M16 8v48M24 8v48M32 8v48M40 8v48M48 8v48"
+            stroke="#10b981" stroke-width="1.5" opacity="0.6"/>
+    </svg>
+
+    <!-- Line Chart -->
+    <svg class="icon-chart" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="10,50 20,35 30,40 40,25 54,30"
+                fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="10" cy="50" r="3" fill="#34d399"/>
+      <circle cx="20" cy="35" r="3" fill="#34d399"/>
+      <circle cx="30" cy="40" r="3" fill="#34d399"/>
+      <circle cx="40" cy="25" r="3" fill="#34d399"/>
+      <circle cx="54" cy="30" r="3" fill="#34d399"/>
+    </svg>
+
+    <!-- Formula Bar -->
+    <div class="icon-formula"><span>=SUM(A1:A10)</span></div>
+  </div>
+
+  <!-- Main Content -->
   <header>
     <h1>Automate Excel. Save Hours. Scale Faster.</h1>
     <p>I build dashboards, reporting tools, and VBA automations that eliminate manual work.</p>
-    <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit" class="cta-button">Book Free Audit Call</a>
+    <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit"
+       class="cta-button">Book Free Audit Call</a>
   </header>
 
   <section class="case-studies">
     <div class="case-study">
-      <h3>💼 Finance Team Dashboard</h3>
+      <h3>Finance Team Dashboard</h3>
       <p>Reduced 6 hours of manual reporting to 15 minutes using a Power Query automation.</p>
     </div>
     <div class="case-study">
-      <h3>🏗️ Construction Cost Tracker</h3>
+      <h3>Construction Cost Tracker</h3>
       <p>Automated cost roll-ups across 12 regions using Excel VBA macros.</p>
     </div>
     <div class="case-study">
-      <h3>🛒 E-commerce Sales Report</h3>
+      <h3>E-commerce Sales Report</h3>
       <p>Built dynamic dashboards pulling live CSVs from Amazon FBA exports.</p>
     </div>
   </section>
 
   <section class="cta-section">
     <h2>Ready to automate your reporting?</h2>
-    <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit" class="cta-button">Get Your Free Excel Audit</a>
+    <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit"
+       class="cta-button">Get Your Free Excel Audit</a>
   </section>
 
   <footer>
     © 2025 ExcelAutomate.pro | Built by Excel Automation Expert GvdHarten
   </footer>
 
+  <!-- Floating Action Buttons -->
   <div class="floating-icons">
-    <a href="mailto:info@excelautomate.pro" title="Email">✉️</a>
+    <button id="emailBtn" title="Copy Email">Email</button>
     <a href="https://www.linkedin.com/in/gvdharten" target="_blank" title="LinkedIn">in</a>
-    <a href="https://x.com/MrBiIIion" target="_blank" title="X (Twitter)">𝕏</a>
+    <a href="https://x.com/MrBiIIion" target="_blank" title="X (Twitter)">X</a>
   </div>
 
+  <!-- JavaScript -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const body = document.body;
+      const body   = document.body;
       const toggle = document.getElementById("theme-toggle");
-      const savedTheme = localStorage.getItem("theme");
-      if (savedTheme === "light") body.classList.replace("dark", "light");
+      const saved  = localStorage.getItem("theme");
 
+      // Restore theme
+      if (saved === "light") body.classList.replace("dark", "light");
+
+      // Toggle handler
       toggle.addEventListener("click", () => {
         body.classList.toggle("dark");
         body.classList.toggle("light");
         localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
       });
+
+      // === Email Copy Button (works on PC & mobile) ===
+      const emailBtn = document.getElementById('emailBtn');
+      emailBtn.addEventListener('click', async () => {
+        const email = 'info@excelautomate.pro';
+        try {
+          await navigator.clipboard.writeText(email);
+          const orig = emailBtn.innerHTML;
+          emailBtn.innerHTML = 'Checkmark';
+          setTimeout(() => emailBtn.innerHTML = orig, 1500);
+        } catch (e) {
+          prompt('Copy this email:', email);
+        }
+      });
+
+      // === Floating Background Icons ===
+      document.querySelectorAll('.background-icons > *').forEach((icon, i) => {
+        const delay    = i * 1.5;
+        const duration = 8 + Math.random() * 4;
+        const x        = 10 + Math.random() * 80;
+        const y        = 10 + Math.random() * 70;
+        icon.style.cssText = `
+          position: absolute;
+          width: 70px; height: 70px;
+          opacity: 0.35;
+          pointer-events: none;
+          animation: float ${duration}s ease-in-out infinite;
+          animation-delay: ${delay}s;
+          left: ${x}%; top: ${y}%;
+          filter: drop-shadow(0 0 6px rgba(16,185,129,0.4));
+          transform-origin: center;
+        `;
+      });
+
+      // === Formula Typing Animation ===
+      const formulaText = "=SUM(A1:A10)";
+      const formulaEl   = document.querySelector('.icon-formula span');
+      if (formulaEl) {
+        let idx = 0;
+        setInterval(() => {
+          idx = (idx + 1) % (formulaText.length + 10);
+          formulaEl.textContent = formulaText.substring(0, idx) +
+                                 (idx < formulaText.length ? '|' : '');
+        }, 200);
+      }
     });
   </script>
 </body>
