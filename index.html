@@ -1,172 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ExcelAutomate.pro | Excel Automation Expert</title>
+
+  <!-- Basic SEO -->
+  <meta name="description" content="Excel automation expert helping businesses save 20+ hours per week with Power Query, VBA, and dashboard templates.">
+
+  <!-- Open Graph (LinkedIn, Facebook) -->
+  <meta property="og:title" content="ExcelAutomate.pro | Excel Automation Expert">
+  <meta property="og:description" content="Save 20+ hours a week — I build dashboards, VBA tools, and reporting automations for your business.">
+  <meta property="og:image" content="https://excelautomate.pro/preview.jpg">
+  <meta property="og:url" content="https://excelautomate.pro">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ExcelAutomate.pro | Excel Automation Expert">
+  <meta name="twitter:description" content="Save 20+ hours a week with Excel automation — dashboards, VBA tools, and reports that do the work for you.">
+  <meta name="twitter:image" content="https://excelautomate.pro/preview.jpg">
+
   <style>
-    :root {
-      --bg-color: #f9fafb;
-      --text-color: #111827;
-      --accent-color: #2563eb;
-      --card-bg: #ffffff;
-    }
-    [data-theme="dark"] {
-      --bg-color: #111827;
-      --text-color: #f9fafb;
-      --accent-color: #3b82f6;
-      --card-bg: #1f2937;
-    }
-
     body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 0 1rem;
+      padding: 0;
+      transition: background-color 0.4s, color 0.4s;
     }
-
+    body.dark {
+      background-color: #0d1117;
+      color: #f0f6fc;
+    }
+    body.light {
+      background-color: #ffffff;
+      color: #1e1e1e;
+    }
     header {
-      margin-top: 6rem;
+      text-align: center;
+      padding: 6rem 1rem 2rem;
     }
-
     h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
     }
-
-    p.subtitle {
+    p {
       font-size: 1.1rem;
-      color: var(--text-color);
-      opacity: 0.85;
       margin-bottom: 2rem;
     }
-
     .cta-button {
-      background-color: var(--accent-color);
+      background-color: #10b981;
       color: white;
       border: none;
-      padding: 0.8rem 1.6rem;
-      font-size: 1rem;
-      border-radius: 8px;
+      padding: 0.9rem 1.8rem;
+      border-radius: 9999px;
+      font-size: 1.1rem;
       cursor: pointer;
-      transition: background 0.3s;
       text-decoration: none;
+      transition: background-color 0.3s;
     }
     .cta-button:hover {
-      background-color: #1d4ed8;
+      background-color: #059669;
     }
-
     .case-studies {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      width: 100%;
-      max-width: 900px;
-      margin: 4rem 0;
-    }
-
-    .case-study {
-      background-color: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    }
-
-    .case-study h3 {
-      margin-bottom: 0.5rem;
-      color: var(--accent-color);
-    }
-
-    .cta-section {
-      margin-bottom: 4rem;
-    }
-
-    footer {
-      margin-top: auto;
-      padding: 1.5rem 0;
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-
-    /* Toggle button */
-    .theme-toggle {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: var(--card-bg);
-      border: 1px solid #ccc;
-      border-radius: 20px;
-      width: 50px;
-      height: 26px;
-      cursor: pointer;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 3rem 1rem;
     }
-    .toggle-circle {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--accent-color);
-      transition: transform 0.3s ease;
+    .case-study {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      max-width: 300px;
+      text-align: center;
+      transition: transform 0.3s;
     }
-    [data-theme="dark"] .toggle-circle {
-      transform: translateX(24px);
+    .case-study:hover {
+      transform: translateY(-5px);
     }
-
-    /* Floating social icons */
+    .cta-section {
+      text-align: center;
+      padding: 3rem 1rem 5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
     .floating-icons {
       position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
+      bottom: 1.2rem;
+      right: 1.2rem;
       display: flex;
       flex-direction: column;
       gap: 0.6rem;
+      z-index: 100;
     }
     .floating-icons a {
-      background-color: var(--accent-color);
-      color: white;
-      padding: 0.6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(16,185,129,0.2);
       border-radius: 50%;
       text-decoration: none;
-      font-size: 1.2rem;
-      transition: opacity 0.3s;
+      color: #10b981;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
     }
     .floating-icons a:hover {
-      opacity: 0.8;
+      background: #10b981;
+      color: #fff;
+      transform: scale(1.1);
     }
-
-    /* Responsive tweaks */
+    #theme-toggle {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      padding: 0.4rem 0.6rem;
+      font-size: 1.2rem;
+    }
     @media (max-width: 600px) {
       header {
-        margin-top: 8rem;
+        padding-top: 7rem;
       }
-      .theme-toggle {
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%);
-        top: 1.2rem;
+      #theme-toggle {
+        position: static;
+        display: block;
+        margin: 1rem auto 0;
       }
     }
   </style>
 </head>
-<body>
-
-  <!-- Theme toggle -->
-  <div class="theme-toggle" id="themeToggle">
-    <div class="toggle-circle"></div>
-  </div>
-
+<body class="dark">
+  <button id="theme-toggle" title="Toggle theme">🌙</button>
   <header>
     <h1>Automate Excel. Save Hours. Scale Faster.</h1>
-    <p class="subtitle">We build dashboards, reporting tools, and VBA automations that eliminate manual work.</p>
+    <p>I build dashboards, reporting tools, and VBA automations that eliminate manual work.</p>
     <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit" class="cta-button">Book Free Audit Call</a>
   </header>
 
@@ -194,19 +174,25 @@
     © 2025 ExcelAutomate.pro | Built by Excel Automation Expert GvdHarten
   </footer>
 
-<div class="floating-icons">
-  <a href="mailto:info@excelautomate.pro" title="Email">✉️</a>
-  <a href="https://www.linkedin.com/in/gvdharten" target="_blank" title="LinkedIn">in</a>
-  <a href="https://x.com/MrBiIIion" target="_blank" title="X (Twitter)">𝕏</a>
-</div>
+  <div class="floating-icons">
+    <a href="mailto:info@excelautomate.pro" title="Email">✉️</a>
+    <a href="https://www.linkedin.com/in/gvdharten" target="_blank" title="LinkedIn">in</a>
+    <a href="https://x.com/MrBiIIion" target="_blank" title="X (Twitter)">𝕏</a>
+  </div>
 
   <script>
-    const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    toggle.addEventListener('click', () => {
-      html.dataset.theme = html.dataset.theme === 'dark' ? '' : 'dark';
+    document.addEventListener("DOMContentLoaded", () => {
+      const body = document.body;
+      const toggle = document.getElementById("theme-toggle");
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light") body.classList.replace("dark", "light");
+
+      toggle.addEventListener("click", () => {
+        body.classList.toggle("dark");
+        body.classList.toggle("light");
+        localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
+      });
     });
   </script>
-
 </body>
 </html>
