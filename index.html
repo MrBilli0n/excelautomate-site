@@ -1,4 +1,4 @@
-html<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -170,7 +170,7 @@ html<!DOCTYPE html>
 <body class="dark">
 
   <!-- Theme Toggle -->
-  <button id="theme-toggle" title="Toggle theme">Moon</button>
+  <button id="theme-toggle" title="Toggle theme">🌙</button>
 
   <!-- Animated Background Icons -->
   <div class="background-icons">
@@ -206,15 +206,15 @@ html<!DOCTYPE html>
 
   <section class="case-studies">
     <div class="case-study">
-      <h3>Finance Team Dashboard</h3>
+      <h3>💼 Finance Team Dashboard</h3>
       <p>Reduced 6 hours of manual reporting to 15 minutes using a Power Query automation.</p>
     </div>
     <div class="case-study">
-      <h3>Construction Cost Tracker</h3>
+      <h3>🏗️ Construction Cost Tracker</h3>
       <p>Automated cost roll-ups across 12 regions using Excel VBA macros.</p>
     </div>
     <div class="case-study">
-      <h3>E-commerce Sales Report</h3>
+      <h3>🛒 E-commerce Sales Report</h3>
       <p>Built dynamic dashboards pulling live CSVs from Amazon FBA exports.</p>
     </div>
   </section>
@@ -232,9 +232,9 @@ html<!DOCTYPE html>
   <!-- Floating Action Buttons -->
   <div class="floating-icons">
     <!-- Email Button: Opens mail app + copies email -->
-    <button id="emailBtn" title="Open Email App & Copy Address">Email</button>
+    <button id="emailBtn" title="Open Email App & Copy Address">✉️</button>
     <a href="https://www.linkedin.com/in/gvdharten" target="_blank" title="LinkedIn">in</a>
-    <a href="https://x.com/MrBiIIion" target="_blank" title="X (Twitter)">X</a>
+    <a href="https://x.com/MrBiIIion" target="_blank" title="X (Twitter)">𝕏</a>
   </div>
 
   <!-- JavaScript -->
@@ -270,7 +270,7 @@ html<!DOCTYPE html>
           try {
             await navigator.clipboard.writeText(email);
             const orig = emailBtn.innerHTML;
-            emailBtn.innerHTML = 'Checkmark';
+            emailBtn.innerHTML = '✅';
             setTimeout(() => emailBtn.innerHTML = orig, 1500);
           } catch (err) {
             alert('Email copied to clipboard: ' + email);
@@ -280,7 +280,7 @@ html<!DOCTYPE html>
           try {
             await navigator.clipboard.writeText(email);
             const orig = emailBtn.innerHTML;
-            emailBtn.innerHTML = 'Checkmark';
+            emailBtn.innerHTML = '✅';
             setTimeout(() => emailBtn.innerHTML = orig, 1500);
           } catch (err) {
             // Silently fail if clipboard not available
