@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -231,7 +231,8 @@
 
   <!-- Floating Action Buttons -->
   <div class="floating-icons">
-    <button id="emailBtn" title="Copy Email">Email</button>
+    <!-- Email Button: Opens mail app + copies email -->
+    <button id="emailBtn" title="Open Email App & Copy Address">Email</button>
     <a href="https://www.linkedin.com/in/gvdharten" target="_blank" title="LinkedIn">in</a>
     <a href="https://x.com/MrBiIIion" target="_blank" title="X (Twitter)">X</a>
   </div>
@@ -253,17 +254,37 @@
         localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
       });
 
-      // === Email Copy Button (works on PC & mobile) ===
+      // === Email Button: Open mail app + copy address ===
       const emailBtn = document.getElementById('emailBtn');
-      emailBtn.addEventListener('click', async () => {
-        const email = 'info@excelautomate.pro';
-        try {
-          await navigator.clipboard.writeText(email);
-          const orig = emailBtn.innerHTML;
-          emailBtn.innerHTML = 'Checkmark';
-          setTimeout(() => emailBtn.innerHTML = orig, 1500);
-        } catch (e) {
-          prompt('Copy this email:', email);
+      const mailtoLink = 'mailto:info@excelautomate.pro?subject=Free Excel Automation Audit';
+      const email = 'info@excelautomate.pro';
+
+      emailBtn.addEventListener('click', async (e) => {
+        e.preventDefault(); // Prevent default button behavior
+
+        // Step 1: Try to open the default mail app
+        const opened = window.open(mailtoLink, '_blank');
+
+        // Step 2: If mailto fails (common on some desktop browsers), copy instead
+        if (!opened || opened === null || typeof opened === 'undefined') {
+          try {
+            await navigator.clipboard.writeText(email);
+            const orig = emailBtn.innerHTML;
+            emailBtn.innerHTML = 'Checkmark';
+            setTimeout(() => emailBtn.innerHTML = orig, 1500);
+          } catch (err) {
+            alert('Email copied to clipboard: ' + email);
+          }
+        } else {
+          // Optional: Show copy feedback even if mail opens
+          try {
+            await navigator.clipboard.writeText(email);
+            const orig = emailBtn.innerHTML;
+            emailBtn.innerHTML = 'Checkmark';
+            setTimeout(() => emailBtn.innerHTML = orig, 1500);
+          } catch (err) {
+            // Silently fail if clipboard not available
+          }
         }
       });
 
