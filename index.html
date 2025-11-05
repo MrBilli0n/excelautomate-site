@@ -68,13 +68,20 @@
 
     .hero {
       text-align: center;
-      padding: 4rem 1.5rem;
-      max-width: 700px;
+      padding: 3rem 1.5rem 4rem;
+      max-width: 800px;
       margin: 0 auto;
     }
 
+    .hero img {
+      width: 160px;
+      border-radius: 14px;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 20px rgba(0, 176, 80, 0.3);
+    }
+
     .hero-title {
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       font-weight: 700;
       margin-bottom: 0.8rem;
     }
@@ -93,11 +100,11 @@
       border-radius: 10px;
       text-decoration: none;
       font-weight: 600;
-      transition: background 0.3s ease;
+      transition: transform 0.2s ease, background 0.3s ease;
     }
-
     .cta-button:hover {
       background: #00d860;
+      transform: scale(1.05);
     }
 
     .section {
@@ -105,6 +112,17 @@
       max-width: 900px;
       margin: 0 auto;
       text-align: center;
+    }
+
+    .lead-magnet {
+      border-top: 1px solid #222;
+    }
+
+    .lead-magnet img {
+      width: 180px;
+      border-radius: 10px;
+      margin-top: 1.5rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
     .lead-magnet form {
@@ -150,6 +168,9 @@
       .hero-subtitle {
         font-size: 1rem;
       }
+      .lead-magnet img {
+        width: 140px;
+      }
     }
   </style>
 </head>
@@ -157,35 +178,49 @@
 <body>
 
   <header>
-    <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg" alt="ExcelAutomate.pro logo" width="100" style="border-radius:12px;">
+    <h1 style="font-size:1.5rem; font-weight:600;">Excel Automation Expert</h1>
   </header>
 
   <section id="hero" class="hero">
+    <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg" alt="ExcelAutomate.pro logo">
     <h1 class="hero-title">Automate Excel. Save Hours. Scale Faster.</h1>
     <p class="hero-subtitle">I build dashboards and automation systems that run your reports for you — saving you 20+ hours weekly.</p>
     <a href="#contact" class="cta-button">Book Free Audit Call</a>
   </section>
 
-  <section class="section lead-magnet">
-    <h2>Get My Free Excel Automation Guide</h2>
-    <p>Learn how to connect, clean, and automate reports using Power Query and VBA.</p>
-
-    <!-- Lead Capture Form -->
+  <!-- Lead Magnet 1 -->
+  <section class="section lead-magnet" id="guide">
+    <h2>📘 Free PDF: 7 Excel Automations You Can Build Today</h2>
+    <p>Learn how to simplify your work with real examples of time-saving Excel automations.</p>
+    <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg" alt="Excel Automation Guide Preview">
     <form action="https://formspree.io/f/yourcode" method="POST">
       <input type="email" name="email" placeholder="Enter your email" required />
-      <button type="submit">Get the Free PDF</button>
+      <button type="submit">Get Free PDF</button>
     </form>
   </section>
 
+  <!-- Lead Magnet 2 -->
+  <section class="section lead-magnet" id="tool">
+    <h2>⚙️ Free Excel Tool: Reporting Forecaster</h2>
+    <p>Download a ready-made Excel forecasting tool to automate your monthly reporting updates.</p>
+    <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg" alt="Excel Reporting Forecaster preview">
+    <form action="https://formspree.io/f/yourcode" method="POST">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Get Free Excel Tool</button>
+    </form>
+  </section>
+
+  <!-- Case Studies -->
   <section class="section" id="case-studies">
-    <h2>Success Stories</h2>
+    <h2>🚀 Success Stories</h2>
     <p>💼 <strong>Finance Dashboard:</strong> Automated 15+ recurring reports with Power Query, saving 6 hours weekly.<br>
        🏗️ <strong>Construction Tracker:</strong> Combined cost sheets from 12 regions automatically with VBA macros.<br>
        🛒 <strong>E-commerce Insights:</strong> Built a Power BI dashboard that updates directly from SAP FBL5N exports.</p>
   </section>
 
+  <!-- Contact -->
   <section class="section" id="contact">
-    <h2>Let's Talk</h2>
+    <h2>📩 Let's Talk</h2>
     <p>Have a process worth automating? Let's discuss your Excel challenges.</p>
     <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit&utm_source=website&utm_medium=cta" class="cta-button">Email Me</a>
   </section>
@@ -194,8 +229,8 @@
     <p>© <span id="year"></span> ExcelAutomate.pro | Built by GvdHarten</p>
   </footer>
 
-  <!-- GSAP Animation -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-yR8b6mKOlIG6A4YZwKxAAlD5OK2ngklPhUpb7/5fQlPjvV1ROfXEqoWAX2N64nG3Jzyd+Z/Iz3lCuPduC3k5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     window.addEventListener("load", () => {
       gsap.from(".hero-title", { duration: 1.2, y: 30, opacity: 0, ease: "power3.out" });
@@ -203,7 +238,7 @@
       gsap.from(".cta-button", { duration: 1, y: 10, opacity: 0, delay: 0.8, ease: "power3.out" });
     });
 
-    // Scroll-in reveal for sections
+    // Scroll reveal
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
