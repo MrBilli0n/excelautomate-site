@@ -1,47 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ExcelAutomate.pro | Excel Automation Expert</title>
+
   <!-- Basic SEO -->
-  <meta name="description" content="Excel automation expert helping businesses save 20+ hours per week with Power Query, VBA, and dashboard templates.">
-  <!-- Open Graph (LinkedIn, Facebook) -->
-  <meta property="og:title" content="ExcelAutomate.pro | Excel Automation Expert">
-  <meta property="og:description" content="Save 20+ hours a week — I build dashboards, VBA tools, and reporting automations for your business.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg">
-  <meta property="og:url" content="https://excelautomate.pro">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Excel automation expert helping businesses save 20+ hours per week with Power Query, VBA, and dashboard templates." />
+  <meta name="keywords" content="Excel automation, VBA expert, Power Query dashboards, Excel templates, Excel consulting" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ExcelAutomate.pro | Excel Automation Expert" />
+  <meta property="og:description" content="Save 20+ hours a week — I build dashboards, VBA tools, and reporting automations for your business." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg" />
+  <meta property="og:url" content="https://excelautomate.pro" />
+  <meta property="og:type" content="website" />
+
   <!-- Twitter / X Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ExcelAutomate.pro | Excel Automation Expert">
-  <meta name="twitter:description" content="Save 20+ hours a week with Excel automation — dashboards, VBA tools, and reports that do the work for you.">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ExcelAutomate.pro | Excel Automation Expert" />
+  <meta name="twitter:description" content="Save 20+ hours a week with Excel automation — dashboards, VBA tools, and reports that do the work for you." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg" />
+
+  <!-- Schema.org JSON-LD for rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ExcelAutomate.pro",
+    "url": "https://excelautomate.pro",
+    "logo": "https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg",
+    "email": "info@excelautomate.pro",
+    "sameAs": [
+      "https://www.linkedin.com/in/gvdharten",
+      "https://x.com/MrBiIIion"
+    ]
+  }
+  </script>
+
   <style>
-    /* === Core Layout & Theme === */
+    :root {
+      --accent: #10b981;
+      --accent-dark: #059669;
+      --bg-dark: #0d1117;
+      --bg-light: #ffffff;
+      --text-dark: #1e1e1e;
+      --text-light: #f0f6fc;
+      --max-width: 960px;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       margin: 0;
-      padding: 0;
+      line-height: 1.6;
       transition: background-color 0.4s, color 0.4s;
     }
-    body.dark { background-color: #0d1117; color: #f0f6fc; }
-    body.light { background-color: #ffffff; color: #1e1e1e; }
-    header { text-align: center; padding: 6rem 1rem 2rem; }
-    h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
-    p { font-size: 1.1rem; margin-bottom: 2rem; }
+
+    body.dark {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    body.light {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    header {
+      text-align: center;
+      padding: 6rem 1rem 3rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
     .cta-button {
-      background-color: #10b981;
+      background-color: var(--accent);
       color: white;
       border: none;
       padding: 0.9rem 1.8rem;
       border-radius: 9999px;
       font-size: 1.1rem;
-      cursor: pointer;
       text-decoration: none;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.2s;
+      display: inline-block;
     }
-    .cta-button:hover { background-color: #059669; }
+
+    .cta-button:hover {
+      background-color: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
     .case-studies {
       display: flex;
       flex-wrap: wrap;
@@ -49,19 +114,45 @@
       gap: 2rem;
       padding: 3rem 1rem;
     }
+
     .case-study {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 1rem;
       padding: 1.5rem;
       max-width: 300px;
       text-align: center;
       transition: transform 0.3s;
     }
-    .case-study:hover { transform: translateY(-5px); }
-    .cta-section { text-align: center; padding: 3rem 1rem 5rem; }
-    footer { text-align: center; padding: 2rem 1rem; font-size: 0.9rem; opacity: 0.7; }
-    /* === Floating Action Icons (Email, LinkedIn, X) === */
+
+    .case-study:hover {
+      transform: translateY(-5px);
+    }
+
+    .lead-section {
+      text-align: center;
+      padding: 3rem 1rem;
+      margin: 2rem 1rem;
+      border-radius: 1rem;
+      border: 2px solid var(--accent);
+      background: rgba(16, 185, 129, 0.08);
+    }
+
+    .lead-section img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
     .floating-icons {
       position: fixed;
       bottom: 1.2rem;
@@ -71,29 +162,30 @@
       gap: 0.6rem;
       z-index: 100;
     }
+
     .floating-icons a,
     .floating-icons button {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 40px;
-      height: 40px;
-      background: rgba(16,185,129,0.2);
+      width: 42px;
+      height: 42px;
+      background: rgba(16, 185, 129, 0.2);
       border-radius: 50%;
-      text-decoration: none;
-      color: #10b981;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.3s;
+      color: var(--accent);
       border: none;
+      font-weight: bold;
       cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
     }
+
     .floating-icons a:hover,
     .floating-icons button:hover {
-      background: #10b981;
+      background: var(--accent);
       color: #fff;
       transform: scale(1.1);
     }
-    /* === Theme Toggle Button === */
+
     #theme-toggle {
       position: absolute;
       top: 1.5rem;
@@ -105,56 +197,18 @@
       padding: 0.4rem 0.6rem;
       font-size: 1.2rem;
     }
+
     @media (max-width: 600px) {
       header { padding-top: 7rem; }
       #theme-toggle {
         position: static;
-        display: block;
         margin: 1rem auto 0;
       }
     }
-    /* === Animated Background Excel Icons === */
-    .background-icons {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50%      { transform: translateY(-30px) rotate(5deg); }
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 8px rgba(16,185,129,0.3); }
-      50%      { transform: scale(1.05); box-shadow: 0 0 16px rgba(16,185,129,0.6); }
-    }
-    @keyframes blink { 50% { opacity: 0; } }
-    .icon-formula {
-      font-family: 'Courier New', monospace;
-      font-size: 16px;
-      font-weight: bold;
-      color: #10b981;
-      background: rgba(15,23,42,0.9);
-      padding: 6px 10px;
-      border-radius: 6px;
-      border: 1.5px solid #10b981;
-      box-shadow: 0 0 8px rgba(16,185,129,0.3);
-      animation: pulse 3s ease-in-out infinite;
-    }
-    body.light .icon-formula {
-      color: #059669;
-      background: rgba(255,255,255,0.9);
-      border-color: #059669;
-    }
-    .icon-formula span::after {
-      content: '|';
-      animation: blink 1s step-end infinite;
-    }
   </style>
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX"></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2FVEYK24H3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -162,189 +216,96 @@
     gtag('config', 'G-2FVEYK24H3');
   </script>
 </head>
+
 <body class="dark">
-  <!-- Theme Toggle -->
   <button id="theme-toggle" title="Toggle theme">🌙</button>
-  <!-- Animated Background Icons -->
-  <div class="background-icons">
-    <!-- Excel Grid -->
-    <svg class="icon-grid" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-      <rect x="8" y="8" width="48" height="48" fill="none" stroke="#10b981" stroke-width="2"/>
-      <path d="M8 16h48M8 24h48M8 32h48M8 40h48M8 48h48M16 8v48M24 8v48M32 8v48M40 8v48M48 8v48"
-            stroke="#10b981" stroke-width="1.5" opacity="0.6"/>
-    </svg>
-    <!-- Line Chart -->
-    <svg class="icon-chart" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-      <polyline points="10,50 20,35 30,40 40,25 54,30"
-                fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round"/>
-      <circle cx="10" cy="50" r="3" fill="#34d399"/>
-      <circle cx="20" cy="35" r="3" fill="#34d399"/>
-      <circle cx="30" cy="40" r="3" fill="#34d399"/>
-      <circle cx="40" cy="25" r="3" fill="#34d399"/>
-      <circle cx="54" cy="30" r="3" fill="#34d399"/>
-    </svg>
-    <!-- Formula Bar -->
-    <div class="icon-formula"><span>=SUM(A1:A10)</span></div>
-  </div>
-  <!-- Main Content -->
+
   <header>
     <h1>Automate Excel. Save Hours. Scale Faster.</h1>
     <p>I build dashboards, reporting tools, and VBA automations that eliminate manual work.</p>
-    <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit"
-       class="cta-button">Book Free Audit Call</a>
+    <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit" class="cta-button">Book Free Audit Call</a>
   </header>
-  <section class="case-studies">
-    <div class="case-study">
-      <h3>💼 Finance Team Dashboard</h3>
-      <p>Reduced 6 hours of manual reporting to 15 minutes using a Power Query automation.</p>
-    </div>
-    <div class="case-study">
-      <h3>🏗️ Construction Cost Tracker</h3>
-      <p>Automated cost roll-ups across 12 regions using Excel VBA macros.</p>
-    </div>
-    <div class="case-study">
-      <h3>🛒 E-commerce Sales Report</h3>
-      <p>Built dynamic dashboards pulling live CSVs from Amazon FBA exports.</p>
-    </div>
-  </section>
-  <!-- LEAD MAGNET SECTION -->
-<section style="text-align:center; padding:3rem 1rem; background:rgba(16,185,129,0.1); margin:2rem 1rem; border-radius:1rem; border:2px solid #10b981;">
-  <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/lead-magnet-thumbnail.jpg"
-       alt="Free Excel Automation Guide"
-       style="width:100%; max-width:500px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.15); margin-bottom:1.5rem;">
- 
-  <h2 style="color:#10b981; margin:0 0 1rem;">Free Download: 7 Excel Automations That Save 20+ Hours/Week</h2>
-  <p style="font-size:1.1rem; max-width:600px; margin:0 auto 1.5rem;">
-    Get the exact VBA + Power Query setups used in real businesses. No fluff. Instant PDF.
-  </p>
- 
-  <a href="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/7 Excel Automations.pdf"
-     download
-     class="cta-button"
-     style="display:inline-block; font-size:1.2rem; padding:1rem 2rem;">
-     Download Free PDF Now
-  </a>
-</section>
- 
-  <!-- CASH FLOW FORECASTER LEAD MAGNET -->
-  <section style="background:#f0fdf4; padding:3rem 1rem; text-align:center; margin:2rem 1rem; border-radius:1rem; border:2px solid #10b981;">
-    <h2 style="color:#10b981;">Free: 12-Month Cash Flow Forecaster</h2>
-    <p>See your cash runway in 30 seconds. Red alert if <30 days.</p>
-    
-    <div style="background:#fff; padding:1rem; border-radius:8px; margin:1rem 0;">
-      [Paste Loom Embed Here]
-    </div>
-    
-    <a href="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-12-Month-Runway.xlsx" 
-       download class="cta-button" style="margin:0.5rem;">
-       Download Excel Tool
-    </a>
-    <a href="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Quick-Start.pdf" 
-       download class="cta-button" style="margin:0.5rem;">
-       Quick-Start Guide
-    </a>
-    <a href="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Understand-Your-Metrics.pdf" 
-       download class="cta-button" style="margin:0.5rem;">
-       Understand Metrics
-    </a>
-  </section>
 
-  <section class="cta-section">
-    <h2>Ready to automate your reporting?</h2>
-    <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit"
-       class="cta-button">Get Your Free Excel Audit</a>
-  </section>
+  <main>
+    <section class="case-studies">
+      <div class="case-study">
+        <h3>💼 Finance Team Dashboard</h3>
+        <p>Reduced 6 hours of manual reporting to 15 minutes using Power Query automation.</p>
+      </div>
+      <div class="case-study">
+        <h3>🏗️ Construction Cost Tracker</h3>
+        <p>Automated cost roll-ups across 12 regions using Excel VBA macros.</p>
+      </div>
+      <div class="case-study">
+        <h3>🛒 E-commerce Sales Report</h3>
+        <p>Built dynamic dashboards pulling live CSVs from Amazon FBA exports.</p>
+      </div>
+    </section>
+
+    <section class="lead-section">
+      <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/lead-magnet-thumbnail.jpg"
+           alt="Free Excel Automation Guide" loading="lazy" />
+      <h2 style="color:var(--accent)">Free Download: 7 Excel Automations That Save 20+ Hours/Week</h2>
+      <p>Get the exact VBA + Power Query setups used in real businesses. No fluff. Instant PDF.</p>
+      <a href="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/7 Excel Automations.pdf"
+         download class="cta-button">Download Free PDF Now</a>
+    </section>
+
+    <section class="lead-section" style="background:#f0fdf4;">
+      <h2 style="color:var(--accent)">Free: 12-Month Cash Flow Forecaster</h2>
+      <p>See your cash runway in 30 seconds. Red alert if &lt;30 days.</p>
+      <div style="background:#fff; padding:1rem; border-radius:8px; margin:1rem 0;">
+        [Insert Loom Embed Here]
+      </div>
+      <a href="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-12-Month-Runway.xlsx" 
+         download class="cta-button">Download Excel Tool</a>
+      <a href="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Quick-Start.pdf" 
+         download class="cta-button">Quick-Start Guide</a>
+      <a href="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Understand-Your-Metrics.pdf" 
+         download class="cta-button">Understand Metrics</a>
+    </section>
+
+    <section class="lead-section" style="background:none; border:none;">
+      <h2>Ready to automate your reporting?</h2>
+      <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit" class="cta-button">Get Your Free Excel Audit</a>
+    </section>
+  </main>
+
   <footer>
-    © 2025 ExcelAutomate.pro | Built by Excel Automation Expert GvdHarten
+    © 2025 ExcelAutomate.pro | Built by Excel Automation Expert GvdHarten<br />
+    <a href="mailto:info@excelautomate.pro">info@excelautomate.pro</a>
   </footer>
-  <!-- Floating Action Buttons -->
+
   <div class="floating-icons">
-    <!-- Email Button: Opens mail app + copies email -->
-    <button id="emailBtn" title="Open Email App & Copy Address">✉️</button>
+    <button id="emailBtn" title="Copy Email">✉️</button>
     <a href="https://www.linkedin.com/in/gvdharten" target="_blank" title="LinkedIn">in</a>
     <a href="https://x.com/MrBiIIion" target="_blank" title="X (Twitter)">𝕏</a>
   </div>
-  <!-- JavaScript -->
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const body   = document.body;
+      const body = document.body;
       const toggle = document.getElementById("theme-toggle");
-      const saved  = localStorage.getItem("theme");
-
-      // Restore theme
+      const saved = localStorage.getItem("theme");
       if (saved === "light") body.classList.replace("dark", "light");
 
-      // Toggle handler
       toggle.addEventListener("click", () => {
         body.classList.toggle("dark");
         body.classList.toggle("light");
         localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
       });
 
-      // === Email Button: Open mail app + copy address ===
-      const emailBtn = document.getElementById('emailBtn');
-      const mailtoLink = 'mailto:info@excelautomate.pro?subject=Free Excel Automation Audit';
-      const email = 'info@excelautomate.pro';
-
-      emailBtn.addEventListener('click', async (e) => {
-        e.preventDefault(); // Prevent default button behavior
-
-        // Step 1: Try to open the default mail app
-        const opened = window.open(mailtoLink, '_blank');
-
-        // Step 2: If mailto fails (common on some desktop browsers), copy instead
-        if (!opened || opened === null || typeof opened === 'undefined') {
-          try {
-            await navigator.clipboard.writeText(email);
-            const orig = emailBtn.innerHTML;
-            emailBtn.innerHTML = '✅';
-            setTimeout(() => emailBtn.innerHTML = orig, 1500);
-          } catch (err) {
-            alert('Email copied to clipboard: ' + email);
-          }
-        } else {
-          // Optional: Show copy feedback even if mail opens
-          try {
-            await navigator.clipboard.writeText(email);
-            const orig = emailBtn.innerHTML;
-            emailBtn.innerHTML = '✅';
-            setTimeout(() => emailBtn.innerHTML = orig, 1500);
-          } catch (err) {
-            // Silently fail if clipboard not available
-          }
+      const emailBtn = document.getElementById("emailBtn");
+      const email = "info@excelautomate.pro";
+      emailBtn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(email);
+          emailBtn.textContent = "✅";
+          setTimeout(() => (emailBtn.textContent = "✉️"), 1500);
+        } catch {
+          alert("Email copied to clipboard: " + email);
         }
       });
-
-      // === Floating Background Icons ===
-      document.querySelectorAll('.background-icons > *').forEach((icon, i) => {
-        const delay    = i * 1.5;
-        const duration = 8 + Math.random() * 4;
-        const x        = 10 + Math.random() * 80;
-        const y        = 10 + Math.random() * 70;
-        icon.style.cssText = `
-          position: absolute;
-          width: 70px; height: 70px;
-          opacity: 0.35;
-          pointer-events: none;
-          animation: float ${duration}s ease-in-out infinite;
-          animation-delay: ${delay}s;
-          left: ${x}%; top: ${y}%;
-          filter: drop-shadow(0 0 6px rgba(16,185,129,0.4));
-          transform-origin: center;
-        `;
-      });
-
-      // === Formula Typing Animation ===
-      const formulaText = "=SUM(A1:A10)";
-      const formulaEl   = document.querySelector('.icon-formula span');
-      if (formulaEl) {
-        let idx = 0;
-        setInterval(() => {
-          idx = (idx + 1) % (formulaText.length + 10);
-          formulaEl.textContent = formulaText.substring(0, idx) +
-                                 (idx < formulaText.length ? '|' : '');
-        }, 200);
-      }
     });
   </script>
 </body>
