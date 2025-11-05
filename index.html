@@ -3,249 +3,191 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ExcelAutomate.pro — Automate Excel workflows, dashboards, and reporting with Power Query, VBA, and expert consulting." />
-  <meta property="og:title" content="ExcelAutomate.pro — Excel Automation Expert" />
-  <meta property="og:description" content="Automate Excel. Save Hours. Scale Faster. I build dashboards and automations that save 20+ hours weekly." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg" />
-  <meta property="og:url" content="https://excelautomate.pro" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <link rel="icon" href="favicon.ico" />
-  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg" />
-
-  <title>ExcelAutomate.pro — Excel Automation Expert</title>
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "ExcelAutomate.pro",
-    "description": "Excel automation expert offering Power Query, VBA, and dashboard solutions.",
-    "url": "https://excelautomate.pro",
-    "logo": "https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg",
-    "email": "info@excelautomate.pro",
-    "sameAs": [
-      "https://www.linkedin.com/in/gvdharten",
-      "https://x.com/MrBiIIion"
-    ]
-  }
-  </script>
-
-  <!-- Styles -->
+  <title>ExcelAutomate.pro | Automate Excel. Save Hours. Scale Faster.</title>
+  <meta name="description" content="Automate Excel reporting with VBA, Power Query, and Dashboards. Save time and scale your business faster with ExcelAutomate.pro." />
+  <link rel="icon" type="image/png" href="favicon.png" />
   <style>
     :root {
-      --bg: #0e1111;
-      --text: #f5f5f5;
-      --accent: #00b050;
-      --gray: #aaa;
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --accent: #0078ff;
+      --card-bg: #f5f5f5;
     }
-
+    [data-theme="dark"] {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --accent: #38bdf8;
+      --card-bg: #1e293b;
+    }
     body {
-      font-family: "Inter", sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
       margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      overflow-x: hidden;
+      transition: background 0.3s, color 0.3s;
     }
-
-    header, section, footer {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease;
-    }
-    header.visible, section.visible, footer.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     header {
-      text-align: center;
-      padding: 2.5rem 1rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
     }
-
+    .logo {
+      height: 48px;
+      width: auto;
+      border-radius: 8px;
+    }
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--text);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1rem;
+      cursor: pointer;
+      color: var(--text);
+      transition: background 0.3s;
+    }
+    .theme-toggle:hover {
+      background: var(--card-bg);
+    }
     .hero {
       text-align: center;
-      padding: 3rem 1.5rem 4rem;
-      max-width: 800px;
-      margin: 0 auto;
+      padding: 4rem 2rem;
     }
-
-    .hero img {
-      width: 160px;
-      border-radius: 14px;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 20px rgba(0, 176, 80, 0.3);
-    }
-
     .hero-title {
-      font-size: 2.3rem;
+      font-size: 2.5rem;
       font-weight: 700;
-      margin-bottom: 0.8rem;
     }
-
     .hero-subtitle {
-      font-size: 1.2rem;
-      color: var(--gray);
-      margin-bottom: 2rem;
+      max-width: 600px;
+      margin: 1rem auto 2rem;
+      font-size: 1.1rem;
+      line-height: 1.5;
     }
-
     .cta-button {
       display: inline-block;
       background: var(--accent);
-      color: white;
-      padding: 0.9rem 1.8rem;
-      border-radius: 10px;
+      color: #fff;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
-      transition: transform 0.2s ease, background 0.3s ease;
+      transition: background 0.3s;
     }
     .cta-button:hover {
-      background: #00d860;
-      transform: scale(1.05);
+      background: #005ecc;
     }
-
-    .section {
-      padding: 3rem 1.5rem;
-      max-width: 900px;
+    section {
+      max-width: 1000px;
       margin: 0 auto;
+      padding: 2rem;
+    }
+    .preview {
       text-align: center;
+      padding-top: 1rem;
     }
-
-    .lead-magnet {
-      border-top: 1px solid #222;
+    .preview img {
+      width: 80%;
+      max-width: 500px;
+      border-radius: 12px;
     }
-
-    .lead-magnet img {
-      width: 180px;
-      border-radius: 10px;
-      margin-top: 1.5rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    .lead-magnets {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
-
-    .lead-magnet form {
-      margin-top: 1rem;
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.2s;
     }
-
-    .lead-magnet input[type="email"] {
-      padding: 0.8rem;
-      border: 1px solid #444;
+    .card:hover {
+      transform: translateY(-4px);
+    }
+    .card img {
+      width: 100%;
       border-radius: 8px;
-      width: 250px;
-      background: #1a1a1a;
-      color: var(--text);
+      margin-bottom: 1rem;
     }
-
-    .lead-magnet button {
-      margin-left: 0.5rem;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .lead-magnet button:hover {
-      background: #00d860;
-    }
-
     footer {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2rem;
       font-size: 0.9rem;
-      color: var(--gray);
-      border-top: 1px solid #222;
-    }
-
-    @media (max-width: 600px) {
-      .hero-title {
-        font-size: 1.8rem;
-      }
-      .hero-subtitle {
-        font-size: 1rem;
-      }
-      .lead-magnet img {
-        width: 140px;
-      }
+      color: #888;
     }
   </style>
 </head>
-
 <body>
-
   <header>
-    <h1 style="font-size:1.5rem; font-weight:600;">Excel Automation Expert</h1>
+    <img src="Logo1.jpg" alt="ExcelAutomate.pro Logo" class="logo">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">☀️</button>
   </header>
 
   <section id="hero" class="hero">
-    <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg" alt="ExcelAutomate.pro logo">
     <h1 class="hero-title">Automate Excel. Save Hours. Scale Faster.</h1>
     <p class="hero-subtitle">I build dashboards and automation systems that run your reports for you — saving you 20+ hours weekly.</p>
     <a href="#contact" class="cta-button">Book Free Audit Call</a>
   </section>
 
-  <!-- Lead Magnet 1 -->
-  <section class="section lead-magnet" id="guide">
-    <h2>📘 Free PDF: 7 Excel Automations You Can Build Today</h2>
-    <p>Learn how to simplify your work with real examples of time-saving Excel automations.</p>
-    <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg" alt="Excel Automation Guide Preview">
-    <form action="https://formspree.io/f/yourcode" method="POST">
-      <input type="email" name="email" placeholder="Enter your email" required />
-      <button type="submit">Get Free PDF</button>
-    </form>
+  <section class="preview">
+    <img src="preview.jpg" alt="ExcelAutomate Dashboard Preview">
   </section>
 
-  <!-- Lead Magnet 2 -->
-  <section class="section lead-magnet" id="tool">
-    <h2>⚙️ Free Excel Tool: Reporting Forecaster</h2>
-    <p>Download a ready-made Excel forecasting tool to automate your monthly reporting updates.</p>
-    <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg" alt="Excel Reporting Forecaster preview">
-    <form action="https://formspree.io/f/yourcode" method="POST">
-      <input type="email" name="email" placeholder="Enter your email" required />
-      <button type="submit">Get Free Excel Tool</button>
-    </form>
+  <section>
+    <h2 style="text-align:center;">Free Lead Magnets</h2>
+    <div class="lead-magnets">
+      <div class="card">
+        <img src="excel-template.jpg" alt="Excel File Template">
+        <h3>Free Excel Automation Template</h3>
+        <p>Download a ready-to-use Excel file that automates repetitive reporting tasks instantly.</p>
+        <a href="#" class="cta-button">Get the Excel File</a>
+      </div>
+
+      <div class="card">
+        <img src="automations-guide.jpg" alt="7 Excel Automations PDF">
+        <h3>7 Excel Automations for Business Efficiency</h3>
+        <p>Discover the top 7 time-saving Excel automation examples that streamline business workflows.</p>
+        <a href="#" class="cta-button">Get the PDF Guide</a>
+      </div>
+    </div>
   </section>
 
-  <!-- Case Studies -->
-  <section class="section" id="case-studies">
-    <h2>🚀 Success Stories</h2>
-    <p>💼 <strong>Finance Dashboard:</strong> Automated 15+ recurring reports with Power Query, saving 6 hours weekly.<br>
-       🏗️ <strong>Construction Tracker:</strong> Combined cost sheets from 12 regions automatically with VBA macros.<br>
-       🛒 <strong>E-commerce Insights:</strong> Built a Power BI dashboard that updates directly from SAP FBL5N exports.</p>
-  </section>
-
-  <!-- Contact -->
-  <section class="section" id="contact">
-    <h2>📩 Let's Talk</h2>
-    <p>Have a process worth automating? Let's discuss your Excel challenges.</p>
-    <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit&utm_source=website&utm_medium=cta" class="cta-button">Email Me</a>
+  <section id="contact" style="text-align:center;">
+    <h2>Book Your Free Audit Call</h2>
+    <p>Let’s explore how Excel automation can save your team hours every week.</p>
+    <a href="mailto:info@excelautomate.pro" class="cta-button">Email Us</a>
   </section>
 
   <footer>
-    <p>© <span id="year"></span> ExcelAutomate.pro | Built by GvdHarten</p>
+    © 2025 ExcelAutomate.pro | Built with ❤️ and VBA Magic
   </footer>
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- GSAP Animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-yR8b6mKOlIG6A4YZwKxAAlD5OK2ngklPhUpb7/5fQlPjvV1ROfXEqoWAX2N64nG3Jzyd+Z/Iz3lCuPduC3k5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <script>
+    // GSAP animations
     window.addEventListener("load", () => {
       gsap.from(".hero-title", { duration: 1.2, y: 30, opacity: 0, ease: "power3.out" });
       gsap.from(".hero-subtitle", { duration: 1, y: 20, opacity: 0, delay: 0.4, ease: "power3.out" });
       gsap.from(".cta-button", { duration: 1, y: 10, opacity: 0, delay: 0.8, ease: "power3.out" });
     });
 
-    // Scroll reveal
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('header, section, footer').forEach(el => observer.observe(el));
-
-    // Auto year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Dark/Light theme toggle
+    const toggle = document.getElementById("theme-toggle");
+    toggle.addEventListener("click", () => {
+      const currentTheme = document.body.getAttribute("data-theme");
+      if (currentTheme === "dark") {
+        document.body.removeAttribute("data-theme");
+        toggle.textContent = "☀️";
+      } else {
+        document.body.setAttribute("data-theme", "dark");
+        toggle.textContent = "🌙";
+      }
+    });
   </script>
 </body>
 </html>
