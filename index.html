@@ -22,14 +22,14 @@
   <meta name="twitter:description" content="Save 20+ hours a week with Excel automation — dashboards, VBA tools, and reports that do the work for you." />
   <meta name="twitter:image" content="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg" />
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD for rich results -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "ExcelAutomate.pro",
     "url": "https://excelautomate.pro",
-    "logo": "https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Logo1.jpg",
+    "logo": "https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview.jpg",
     "email": "info@excelautomate.pro",
     "sameAs": [
       "https://www.linkedin.com/in/gvdharten",
@@ -56,8 +56,15 @@
       transition: background-color 0.4s, color 0.4s;
     }
 
-    body.dark { background-color: var(--bg-dark); color: var(--text-light); }
-    body.light { background-color: var(--bg-light); color: var(--text-dark); }
+    body.dark {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    body.light {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+    }
 
     header {
       text-align: center;
@@ -66,21 +73,16 @@
       margin: 0 auto;
     }
 
-    header img.logo {
-      width: 180px;
-      max-width: 90%;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
     h1 {
       font-size: clamp(2rem, 4vw, 2.8rem);
       font-weight: 700;
       margin-bottom: 1rem;
     }
 
-    p { font-size: 1.1rem; margin-bottom: 1.5rem; }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
 
     .cta-button {
       background-color: var(--accent);
@@ -123,7 +125,9 @@
       transition: transform 0.3s;
     }
 
-    .case-study:hover { transform: translateY(-5px); }
+    .case-study:hover {
+      transform: translateY(-5px);
+    }
 
     .lead-section {
       text-align: center;
@@ -142,11 +146,40 @@
       margin-bottom: 1.5rem;
     }
 
+    .forecaster-section {
+      background-color: var(--bg-light);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 2rem 1rem;
+      margin: 2rem 1rem;
+      text-align: center;
+      color: var(--text-dark);
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    body.dark .forecaster-section {
+      background-color: #161b22;
+      color: var(--text-light);
+    }
+
+    .forecaster-section a {
+      margin: 0.5rem;
+    }
+
     footer {
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
       opacity: 0.8;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--accent-dark);
     }
 
     .floating-icons {
@@ -194,15 +227,6 @@
       font-size: 1.2rem;
     }
 
-    footer a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: var(--accent-dark);
-}
-    
     @media (max-width: 600px) {
       header { padding-top: 7rem; }
       #theme-toggle {
@@ -226,7 +250,7 @@ footer a:hover {
   <button id="theme-toggle" title="Toggle theme">🌙</button>
 
   <header>
-    <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Logo1.jpg" alt="ExcelAutomate.pro Logo" class="logo" loading="eager" />
+    <img src="Logo1.jpg" alt="ExcelAutomate.pro Logo" style="max-width:200px; margin-bottom:1rem;">
     <h1>Automate Excel. Save Hours. Scale Faster.</h1>
     <p>I build dashboards, reporting tools, and VBA automations that eliminate manual work.</p>
     <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit" class="cta-button">Book Free Audit Call</a>
@@ -257,12 +281,9 @@ footer a:hover {
          download class="cta-button">Download Free PDF Now</a>
     </section>
 
-    <section class="lead-section" style="background:#f0fdf4;">
+    <section class="forecaster-section">
       <h2 style="color:var(--accent)">Free: 12-Month Cash Flow Forecaster</h2>
       <p>See your cash runway in 30 seconds. Red alert if &lt;30 days.</p>
-      <div style="background:#fff; padding:1rem; border-radius:8px; margin:1rem 0;">
-        [Insert Loom Embed Here]
-      </div>
       <a href="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-12-Month-Runway.xlsx" 
          download class="cta-button">Download Excel Tool</a>
       <a href="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Quick-Start.pdf" 
