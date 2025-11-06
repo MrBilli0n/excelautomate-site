@@ -188,14 +188,64 @@
 
     .email-form button:hover { background: var(--accent-dark); }
 
-    /* Invisible iframe for Google Form submission */
+    /* Visual Comparison Table */
+    .comparison-section {
+      margin: 4rem 1rem;
+      text-align: center;
+    }
+
+    .comparison-section table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    .comparison-section th, .comparison-section td {
+      padding: 0.8rem 1rem;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    .comparison-section th {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .comparison-section tr:nth-child(even) { background-color: rgba(16,185,129,0.05); }
+
+    .badge {
+      padding: 0.3rem 0.6rem;
+      border-radius: 12px;
+      color: white;
+      font-weight: bold;
+      display: inline-block;
+      min-width: 70px;
+    }
+
+    .time-low { background-color: #a3a3a3; }
+    .time-medium { background-color: #3b82f6; }
+    .time-high { background-color: #10b981; }
+    .time-veryhigh { background-color: #f59e0b; }
+
+    .complexity-low { background-color: #10b981; }
+    .complexity-medium { background-color: #f59e0b; }
+    .complexity-high { background-color: #ef4444; }
+
+    .roi-low { background-color: #ef4444; }
+    .roi-medium { background-color: #f59e0b; }
+    .roi-mediumhigh { background-color: #3b82f6; }
+    .roi-high { background-color: #10b981; }
+
+    @media (max-width: 768px) {
+      .comparison-section table, th, td { font-size: 0.85rem; }
+    }
+
     #hiddenIframe { display: none; }
   </style>
 </head>
 
 <body class="dark">
 
-  <!-- Dark/Light Theme toggle with label -->
   <div id="theme-toggle-wrapper">
     <span>Dark/Light Theme</span>
     <button id="theme-toggle" title="Toggle theme">🌙</button>
@@ -215,7 +265,6 @@
       <div class="case-study"><h3>🛒 E-commerce Sales Report</h3><p>Built dynamic dashboards pulling live CSVs from Amazon FBA exports.</p></div>
     </section>
 
-    <!-- Lead Magnet -->
     <section class="lead-section">
       <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/lead-magnet-thumbnail.jpg" alt="Free Excel Automation Guide" loading="lazy" />
       <h2 style="color:var(--accent)">Free Download: 7 Excel Automations That Save 20+ Hours/Week</h2>
@@ -227,12 +276,10 @@
       </form>
     </section>
 
-    <!-- Forecaster Section -->
     <section class="forecaster-section">
       <h2 style="color:var(--accent)">Free: 12-Month Cash Flow Forecaster</h2>
       <p>See your cash runway in 30 seconds. Red alert if &lt;30 days.</p>
 
-      <!-- One email field for all 3 downloads -->
       <form class="email-form" id="forecaster-email-form">
         <input type="email" placeholder="Enter your email" required />
       </form>
@@ -242,6 +289,43 @@
         <button class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Quick-Start.pdf')">Quick-Start Guide</button>
         <button class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Understand-Your-Metrics.pdf')">Understand Metrics</button>
       </div>
+    </section>
+
+    <!-- Comparison Table Section -->
+    <section class="comparison-section">
+      <h2 style="color:var(--accent)">Excel vs. Robotics vs. AI vs. Software</h2>
+      <p>See how small businesses can achieve the same automation power at a fraction of the cost. Excel-based solutions often provide 80–90% of the efficiency of AI or Robotics tools — at 10–20% of the price.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Project</th>
+            <th>Approach</th>
+            <th>Cost (USD)</th>
+            <th>Time Savings</th>
+            <th>Complexity</th>
+            <th>ROI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td rowspan="4">Inventory & Replenishment Tracker</td><td>Excel</td><td>$50–$150</td><td><span class="badge time-medium">Medium</span></td><td><span class="badge complexity-low">Low</span></td><td><span class="badge roi-high">High</span></td></tr>
+          <tr><td>Third-Party Software</td><td>$300–$1,000/year</td><td><span class="badge time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge roi-medium">Medium</span></td></tr>
+          <tr><td>AI / Generative Tools</td><td>$400–$1,200</td><td><span class="badge time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge roi-mediumhigh">Med-High</span></td></tr>
+          <tr><td>Robotics / RPA</td><td>$500–$1,500</td><td><span class="badge time-veryhigh">Very High</span></td><td><span class="badge complexity-high">High</span></td><td><span class="badge roi-mediumhigh">Med-High</span></td></tr>
+
+          <tr><td rowspan="4">Cash Flow & Runway Tracker</td><td>Excel</td><td>$50–$120</td><td><span class="badge time-medium">Medium</span></td><td><span class="badge complexity-low">Low</span></td><td><span class="badge roi-high">High</span></td></tr>
+          <tr><td>Third-Party Software</td><td>$200–$800/year</td><td><span class="badge time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge roi-medium">Medium</span></td></tr>
+          <tr><td>AI / Generative Tools</td><td>$300–$900</td><td><span class="badge time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge roi-mediumhigh">Med-High</span></td></tr>
+          <tr><td>Robotics / RPA</td><td>$400–$1,200</td><td><span class="badge time-veryhigh">Very High</span></td><td><span class="badge complexity-high">High</span></td><td><span class="badge roi-mediumhigh">Med-High</span></td></tr>
+
+          <tr><td rowspan="4">Sales Dashboard</td><td>Excel</td><td>$40–$100</td><td><span class="badge time-medium">Medium</span></td><td><span class="badge complexity-low">Low</span></td><td><span class="badge roi-high">High</span></td></tr>
+          <tr><td>Third-Party Software</td><td>$250–$700/year</td><td><span class="badge time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge roi-medium">Medium</span></td></tr>
+          <tr><td>AI / Generative Tools</td><td>$300–$800</td><td><span class="badge time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge roi-mediumhigh">Med-High</span></td></tr>
+          <tr><td>Robotics / RPA</td><td>$400–$1,000</td><td><span class="badge time-veryhigh">Very High</span></td><td><span class="badge complexity-high">High</span></td><td><span class="badge roi-mediumhigh">Med-High</span></td></tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top:1.5rem; font-size:0.95rem;">💡 Excel offers unmatched flexibility and cost-efficiency for small businesses. In most cases, it delivers up to <strong>90% of the benefits of automation tools</strong> at a fraction of the cost.</p>
     </section>
 
     <section class="lead-section" style="background:none; border:none;">
@@ -261,7 +345,6 @@
     <a href="https://x.com/MrBiIIion" target="_blank" title="X (Twitter)">𝕏</a>
   </div>
 
-  <!-- Hidden iframe for Google Form submission -->
   <iframe id="hiddenIframe" name="hiddenIframe"></iframe>
 
   <script>
@@ -274,7 +357,6 @@
       const email = form.querySelector("input").value;
       if (!email) return;
 
-      // Submit via hidden iframe
       const iframe = document.getElementById("hiddenIframe");
       const tempForm = document.createElement("form");
       tempForm.action = FORM_PREFILL_URL;
@@ -302,7 +384,6 @@
         return;
       }
 
-      // Submit email to Google Form
       const iframe = document.getElementById("hiddenIframe");
       const tempForm = document.createElement("form");
       tempForm.action = FORM_PREFILL_URL;
