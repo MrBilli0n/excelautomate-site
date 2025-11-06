@@ -133,10 +133,20 @@
     .floating-icons a:hover,
     .floating-icons button:hover { background: var(--accent); color: #fff; transform: scale(1.1); }
 
-    #theme-toggle {
+    #theme-toggle-wrapper {
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    #theme-toggle-wrapper span {
+      font-size: 0.9rem;
+    }
+
+    #theme-toggle {
       cursor: pointer;
       background: none;
       border: 2px solid currentColor;
@@ -147,7 +157,7 @@
 
     @media (max-width: 600px) {
       header { padding-top: 7rem; }
-      #theme-toggle { position: static; margin: 1rem auto 0; }
+      #theme-toggle-wrapper { position: static; margin: 1rem auto 0; justify-content: center; }
     }
 
     /* Email form */
@@ -184,7 +194,12 @@
 </head>
 
 <body class="dark">
-  <button id="theme-toggle" title="Toggle theme">🌙</button>
+
+  <!-- Dark/Light Theme toggle with label -->
+  <div id="theme-toggle-wrapper">
+    <span>Dark/Light Theme</span>
+    <button id="theme-toggle" title="Toggle theme">🌙</button>
+  </div>
 
   <header>
     <img src="Logo1.jpg" alt="ExcelAutomate.pro Logo" style="max-width:200px; margin-bottom:1rem;">
@@ -217,20 +232,16 @@
       <h2 style="color:var(--accent)">Free: 12-Month Cash Flow Forecaster</h2>
       <p>See your cash runway in 30 seconds. Red alert if &lt;30 days.</p>
 
-      <form class="email-form" onsubmit="submitEmailForm(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-12-Month-Runway.xlsx')">
+      <!-- One email field for all 3 downloads -->
+      <form class="email-form" id="forecaster-email-form">
         <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Get Download</button>
       </form>
 
-      <form class="email-form" onsubmit="submitEmailForm(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Quick-Start.pdf')">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Get Download</button>
-      </form>
-
-      <form class="email-form" onsubmit="submitEmailForm(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Understand-Your-Metrics.pdf')">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Get Download</button>
-      </form>
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem; margin-top:0.5rem;">
+        <button class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-12-Month-Runway.xlsx')">Download Excel Tool</button>
+        <button class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Quick-Start.pdf')">Quick-Start Guide</button>
+        <button class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Understand-Your-Metrics.pdf')">Understand Metrics</button>
+      </div>
     </section>
 
     <section class="lead-section" style="background:none; border:none;">
@@ -263,7 +274,7 @@
       const email = form.querySelector("input").value;
       if (!email) return;
 
-      // Create a hidden iframe form submission
+      // Submit via hidden iframe
       const iframe = document.getElementById("hiddenIframe");
       const tempForm = document.createElement("form");
       tempForm.action = FORM_PREFILL_URL;
@@ -280,7 +291,34 @@
       tempForm.submit();
       document.body.removeChild(tempForm);
 
-      // Proceed with download
+      window.location.href = fileUrl;
+    }
+
+    function submitForecaster(fileUrl) {
+      const form = document.getElementById("forecaster-email-form");
+      const email = form.querySelector("input").value;
+      if (!email) {
+        alert("Please enter your email to download.");
+        return;
+      }
+
+      // Submit email to Google Form
+      const iframe = document.getElementById("hiddenIframe");
+      const tempForm = document.createElement("form");
+      tempForm.action = FORM_PREFILL_URL;
+      tempForm.method = "POST";
+      tempForm.target = "hiddenIframe";
+
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = FIELD_NAME;
+      input.value = email;
+      tempForm.appendChild(input);
+
+      document.body.appendChild(tempForm);
+      tempForm.submit();
+      document.body.removeChild(tempForm);
+
       window.location.href = fileUrl;
     }
 
