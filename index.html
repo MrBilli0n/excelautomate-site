@@ -94,20 +94,6 @@
 
     body.dark .forecaster-section { background-color: #161b22; color: var(--text-light); }
 
-    .email-field {
-      margin: 1rem 0;
-      display: flex;
-      justify-content: center;
-    }
-
-    .email-field input {
-      padding: 0.6rem 1rem;
-      border-radius: 9999px;
-      border: 1px solid var(--accent);
-      width: 80%;
-      max-width: 300px;
-    }
-
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -165,9 +151,13 @@
       font-size: 1.2rem;
     }
 
-    #theme-toggle-label {
-      font-size: 0.9rem;
-      white-space: nowrap;
+    .email-input {
+      padding: 0.6rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid var(--accent);
+      width: 80%;
+      max-width: 300px;
+      margin-bottom: 1rem;
     }
 
     @media (max-width: 600px) {
@@ -182,7 +172,7 @@
 
 <body class="dark">
   <div id="theme-toggle-container">
-    <span id="theme-toggle-label">Dark / Light Theme</span>
+    <span style="font-size: 0.9rem;">Dark/Light Theme</span>
     <button id="theme-toggle" title="Toggle theme">🌙</button>
   </div>
 
@@ -206,11 +196,7 @@
       <h2 style="color:var(--accent)">Free Download: 7 Excel Automations That Save 20+ Hours/Week</h2>
       <p>Get the exact VBA + Power Query setups used in real businesses. No fluff. Instant PDF.</p>
 
-      <!-- Email field for this section -->
-      <div class="email-field">
-        <input type="email" id="emailInputLead" placeholder="Enter your email" required />
-      </div>
-
+      <input type="email" id="emailInputLead" class="email-input" placeholder="Enter your email" required />
       <a href="#" class="cta-button" onclick="submitEmailAndDownload(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/7%20Excel%20Automations.pdf', 'emailInputLead')">Download Free PDF Now</a>
     </section>
 
@@ -219,14 +205,12 @@
       <h2 style="color:var(--accent)">Free: 12-Month Cash Flow Forecaster</h2>
       <p>See your cash runway in 30 seconds. Red alert if &lt;30 days.</p>
 
-      <!-- Single email field for all 3 downloads -->
-      <div class="email-field">
-        <input type="email" id="emailInputForecaster" placeholder="Enter your email" required />
+      <input type="email" id="emailInputForecaster" class="email-input" placeholder="Enter your email" required />
+      <div style="display:flex; flex-direction:column; gap:0.5rem;">
+        <a href="#" class="cta-button" onclick="submitEmailAndDownload(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-12-Month-Runway.xlsx', 'emailInputForecaster')">Download Excel Tool</a>
+        <a href="#" class="cta-button" onclick="submitEmailAndDownload(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Quick-Start.pdf', 'emailInputForecaster')">Quick-Start Guide</a>
+        <a href="#" class="cta-button" onclick="submitEmailAndDownload(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Understand-Your-Metrics.pdf', 'emailInputForecaster')">Understand Metrics</a>
       </div>
-
-      <a href="#" class="cta-button" onclick="submitEmailAndDownload(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-12-Month-Runway.xlsx', 'emailInputForecaster')">Download Excel Tool</a>
-      <a href="#" class="cta-button" onclick="submitEmailAndDownload(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Quick-Start.pdf', 'emailInputForecaster')">Quick-Start Guide</a>
-      <a href="#" class="cta-button" onclick="submitEmailAndDownload(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Understand-Your-Metrics.pdf', 'emailInputForecaster')">Understand Metrics</a>
     </section>
 
     <section class="lead-section" style="background:none; border:none;">
@@ -250,6 +234,7 @@
   <iframe id="hiddenIframe" name="hiddenIframe"></iframe>
 
   <script>
+    // Replace this with the pre-filled link from your Google Form
     const FORM_PREFILL_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeLdgU_O3TOT719-CZjlmZxEbOTAtHcvnToR96GQ_uhh0w37A/viewform?usp=pp_url&entry.1936655856=";
 
     function submitEmailAndDownload(e, fileUrl, emailInputId) {
