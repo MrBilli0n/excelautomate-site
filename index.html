@@ -94,6 +94,20 @@
 
     body.dark .forecaster-section { background-color: #161b22; color: var(--text-light); }
 
+    .email-field {
+      margin: 1rem 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .email-field input {
+      padding: 0.6rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid var(--accent);
+      width: 80%;
+      max-width: 300px;
+    }
+
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -133,10 +147,16 @@
     .floating-icons a:hover,
     .floating-icons button:hover { background: var(--accent); color: #fff; transform: scale(1.1); }
 
-    #theme-toggle {
+    #theme-toggle-container {
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    #theme-toggle {
       cursor: pointer;
       background: none;
       border: 2px solid currentColor;
@@ -145,38 +165,15 @@
       font-size: 1.2rem;
     }
 
+    #theme-toggle-label {
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
     @media (max-width: 600px) {
       header { padding-top: 7rem; }
-      #theme-toggle { position: static; margin: 1rem auto 0; }
+      #theme-toggle-container { position: static; margin: 1rem auto 0; }
     }
-
-    /* Email form */
-    .email-form {
-      margin-top: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .email-form input {
-      padding: 0.6rem 1rem;
-      border-radius: 9999px;
-      border: 1px solid var(--accent);
-      width: 80%;
-      max-width: 300px;
-    }
-
-    .email-form button {
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 9999px;
-      padding: 0.6rem 1.5rem;
-      cursor: pointer;
-    }
-
-    .email-form button:hover { background: var(--accent-dark); }
 
     /* Invisible iframe for Google Form submission */
     #hiddenIframe { display: none; }
@@ -184,7 +181,10 @@
 </head>
 
 <body class="dark">
-  <button id="theme-toggle" title="Toggle theme">🌙</button>
+  <div id="theme-toggle-container">
+    <span id="theme-toggle-label">Dark / Light Theme</span>
+    <button id="theme-toggle" title="Toggle theme">🌙</button>
+  </div>
 
   <header>
     <img src="Logo1.jpg" alt="ExcelAutomate.pro Logo" style="max-width:200px; margin-bottom:1rem;">
@@ -200,16 +200,18 @@
       <div class="case-study"><h3>🛒 E-commerce Sales Report</h3><p>Built dynamic dashboards pulling live CSVs from Amazon FBA exports.</p></div>
     </section>
 
-    <!-- Lead Magnet -->
+    <!-- Lead Magnet Section -->
     <section class="lead-section">
       <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/lead-magnet-thumbnail.jpg" alt="Free Excel Automation Guide" loading="lazy" />
       <h2 style="color:var(--accent)">Free Download: 7 Excel Automations That Save 20+ Hours/Week</h2>
       <p>Get the exact VBA + Power Query setups used in real businesses. No fluff. Instant PDF.</p>
 
-      <form class="email-form" onsubmit="submitEmailForm(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/7%20Excel%20Automations.pdf')">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Get Download</button>
-      </form>
+      <!-- Email field for this section -->
+      <div class="email-field">
+        <input type="email" id="emailInputLead" placeholder="Enter your email" required />
+      </div>
+
+      <a href="#" class="cta-button" onclick="submitEmailAndDownload(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/7%20Excel%20Automations.pdf', 'emailInputLead')">Download Free PDF Now</a>
     </section>
 
     <!-- Forecaster Section -->
@@ -217,20 +219,14 @@
       <h2 style="color:var(--accent)">Free: 12-Month Cash Flow Forecaster</h2>
       <p>See your cash runway in 30 seconds. Red alert if &lt;30 days.</p>
 
-      <form class="email-form" onsubmit="submitEmailForm(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-12-Month-Runway.xlsx')">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Get Download</button>
-      </form>
+      <!-- Single email field for all 3 downloads -->
+      <div class="email-field">
+        <input type="email" id="emailInputForecaster" placeholder="Enter your email" required />
+      </div>
 
-      <form class="email-form" onsubmit="submitEmailForm(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Quick-Start.pdf')">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Get Download</button>
-      </form>
-
-      <form class="email-form" onsubmit="submitEmailForm(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Understand-Your-Metrics.pdf')">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Get Download</button>
-      </form>
+      <a href="#" class="cta-button" onclick="submitEmailAndDownload(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-12-Month-Runway.xlsx', 'emailInputForecaster')">Download Excel Tool</a>
+      <a href="#" class="cta-button" onclick="submitEmailAndDownload(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Quick-Start.pdf', 'emailInputForecaster')">Quick-Start Guide</a>
+      <a href="#" class="cta-button" onclick="submitEmailAndDownload(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Understand-Your-Metrics.pdf', 'emailInputForecaster')">Understand Metrics</a>
     </section>
 
     <section class="lead-section" style="background:none; border:none;">
@@ -254,31 +250,21 @@
   <iframe id="hiddenIframe" name="hiddenIframe"></iframe>
 
   <script>
-    const FORM_PREFILL_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeLdgU_O3TOT719-CZjlmZxEbOTAtHcvnToR96GQ_uhh0w37A/formResponse";
-    const FIELD_NAME = "entry.1936655856";
+    const FORM_PREFILL_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeLdgU_O3TOT719-CZjlmZxEbOTAtHcvnToR96GQ_uhh0w37A/viewform?usp=pp_url&entry.1936655856=";
 
-    function submitEmailForm(e, fileUrl) {
+    function submitEmailAndDownload(e, fileUrl, emailInputId) {
       e.preventDefault();
-      const form = e.target;
-      const email = form.querySelector("input").value;
-      if (!email) return;
+      const emailInput = document.getElementById(emailInputId);
+      const email = emailInput.value.trim();
+      if (!email) {
+        alert("Please enter a valid email.");
+        emailInput.focus();
+        return;
+      }
 
-      // Create a hidden iframe form submission
+      // Submit email to Google Form in hidden iframe
       const iframe = document.getElementById("hiddenIframe");
-      const tempForm = document.createElement("form");
-      tempForm.action = FORM_PREFILL_URL;
-      tempForm.method = "POST";
-      tempForm.target = "hiddenIframe";
-
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = FIELD_NAME;
-      input.value = email;
-      tempForm.appendChild(input);
-
-      document.body.appendChild(tempForm);
-      tempForm.submit();
-      document.body.removeChild(tempForm);
+      iframe.src = FORM_PREFILL_URL + encodeURIComponent(email);
 
       // Proceed with download
       window.location.href = fileUrl;
