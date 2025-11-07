@@ -3,3 +3,11 @@ Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+Sitemap: https://excelautomate.pro/sitemap.xml
