@@ -253,24 +253,26 @@
       padding: 0.3rem 0.6rem;
       border-radius: 12px;
       color: white;
-      font-weight: bold;
+      font-weight: 600;
       display: inline-block;
       min-width: 70px;
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(8px);
     }
 
-    .time-low { background-color: #a3a3a3; }
-    .time-medium { background-color: #3b82f6; }
-    .time-high { background-color: #10b981; }
-    .time-veryhigh { background-color: #f59e0b; }
+    .time-low { background-color: rgba(163, 163, 163, 0.25); border-color: rgba(163, 163, 163, 0.5); }
+    .time-medium { background-color: rgba(59, 130, 246, 0.25); border-color: rgba(59, 130, 246, 0.5); }
+    .time-high { background-color: rgba(16, 185, 129, 0.25); border-color: rgba(16, 185, 129, 0.5); }
+    .time-veryhigh { background-color: rgba(245, 158, 11, 0.25); border-color: rgba(245, 158, 11, 0.5); }
 
-    .complexity-low { background-color: #10b981; }
-    .complexity-medium { background-color: #f59e0b; }
-    .complexity-high { background-color: #ef4444; }
+    .complexity-low { background-color: rgba(16, 185, 129, 0.25); border-color: rgba(16, 185, 129, 0.5); }
+    .complexity-medium { background-color: rgba(245, 158, 11, 0.25); border-color: rgba(245, 158, 11, 0.5); }
+    .complexity-high { background-color: rgba(239, 68, 68, 0.25); border-color: rgba(239, 68, 68, 0.5); }
 
-    .roi-low { background-color: #ef4444; }
-    .roi-medium { background-color: #f59e0b; }
-    .roi-mediumhigh { background-color: #3b82f6; }
-    .roi-high { background-color: #10b981; }
+    .roi-low { background-color: rgba(239, 68, 68, 0.25); border-color: rgba(239, 68, 68, 0.5); }
+    .roi-medium { background-color: rgba(245, 158, 11, 0.25); border-color: rgba(245, 158, 11, 0.5); }
+    .roi-mediumhigh { background-color: rgba(59, 130, 246, 0.25); border-color: rgba(59, 130, 246, 0.5); }
+    .roi-high { background-color: rgba(16, 185, 129, 0.25); border-color: rgba(16, 185, 129, 0.5); }
 
     @media (max-width: 768px) {
       .comparison-section table, th, td { font-size: 0.85rem; }
