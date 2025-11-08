@@ -178,6 +178,32 @@
       gap: 0.4rem;
     }
 
+    .language-toggle {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .lang-btn {
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 2px solid currentColor;
+      transition: all 0.3s;
+      opacity: 0.6;
+    }
+
+    .lang-btn:hover, .lang-btn.active {
+      opacity: 1;
+      background-color: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
     #theme-toggle-wrapper span {
       font-size: 0.9rem;
     }
@@ -192,8 +218,9 @@
     }
 
     @media (max-width: 600px) {
-      header { padding-top: 7rem; }
+      header { padding-top: 8rem; }
       #theme-toggle-wrapper { position: static; margin: 1rem auto 0; justify-content: center; }
+      .language-toggle { position: static; margin: 1rem auto 0; justify-content: center; }
     }
 
     /* Email form */
@@ -282,6 +309,11 @@
 </head>
 
 <body class="dark">
+
+  <div class="language-toggle">
+    <a href="index.html" class="lang-btn active">🇬🇧 EN</a>
+    <a href="index-ro.html" class="lang-btn">🇷🇴 RO</a>
+  </div>
 
   <div id="theme-toggle-wrapper">
     <span>Dark/Light Theme</span>
