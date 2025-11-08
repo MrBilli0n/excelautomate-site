@@ -391,7 +391,7 @@
   </footer>
 
   <div class="floating-icons">
-    <button id="emailBtn" title="Copy Email">✉️</button>
+    <a href="mailto:info@excelautomate.pro" title="Email" onclick="trackEmailClick()">✉️</a>
     <a href="https://www.linkedin.com/in/gvdharten" target="_blank" title="LinkedIn">in</a>
     <a href="https://x.com/MrBiIIion" target="_blank" title="X (Twitter)">𝕏</a>
   </div>
@@ -499,6 +499,17 @@
       }
     }
 
+    // ✅ Track Email Icon Click
+    function trackEmailClick() {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'email_icon_click', {
+          'event_category': 'Engagement',
+          'event_label': 'Floating Email Icon',
+          'value': 1
+        });
+      }
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
       const body = document.body;
       const toggle = document.getElementById("theme-toggle");
@@ -518,27 +529,6 @@
             'event_label': newTheme === 'dark' ? 'Dark Mode' : 'Light Mode',
             'value': 1
           });
-        }
-      });
-
-      const emailBtn = document.getElementById("emailBtn");
-      const email = "info@excelautomate.pro";
-      emailBtn.addEventListener("click", async () => {
-        // ✅ Track email copy
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'email_copy_click', {
-            'event_category': 'Engagement',
-            'event_label': 'Email Copy Button',
-            'value': 1
-          });
-        }
-
-        try {
-          await navigator.clipboard.writeText(email);
-          emailBtn.textContent = "✅";
-          setTimeout(() => (emailBtn.textContent = "✉️"), 1500);
-        } catch {
-          alert("Email copied to clipboard: " + email);
         }
       });
     });
