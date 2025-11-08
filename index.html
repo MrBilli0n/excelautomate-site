@@ -1,471 +1,592 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ExcelAutomate.pro | Excel Automation Expert</title>
-
-  <!-- ✅ Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
-
-  <!-- ✅ Primary SEO Meta Tags -->
-  <meta name="title" content="ExcelAutomate.pro | Excel Automation Expert" />
-  <meta name="description" content="Excel automation expert helping businesses save 20+ hours per week with Power Query, VBA, and dashboard templates." />
-  <meta name="keywords" content="Excel automation, Power Query expert, VBA dashboards, Excel consultant, business reporting automation, Excel tools, Excel dashboards, Excel templates, automate Excel tasks" />
-  <meta name="author" content="ExcelAutomate.pro" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://excelautomate.pro/" />
-
-  <!-- ✅ Open Graph / Facebook Preview -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://excelautomate.pro/" />
-  <meta property="og:title" content="ExcelAutomate.pro | Excel Automation Expert" />
-  <meta property="og:description" content="Automate Excel. Save hours. Scale faster. Dashboards, reporting tools, and VBA automations that eliminate manual work." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview2.jpg?v=2" />
-  <meta property="og:site_name" content="ExcelAutomate.pro" />
-
-  <!-- ✅ Twitter / X Preview -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://excelautomate.pro/" />
-  <meta name="twitter:title" content="ExcelAutomate.pro | Excel Automation Expert" />
-  <meta name="twitter:description" content="Excel dashboards, Power Query automation, and VBA tools that save 20+ hours per week." />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview2.jpg?v=2" />
-  <meta name="twitter:creator" content="@MrBiIIion" />
-
-  <!-- ✅ Browser & Mobile Appearance -->
-  <meta name="theme-color" content="#10b981" />
-
-  <style>
-    :root {
-      --accent: #10b981;
-      --accent-dark: #059669;
-      --bg-dark: #0d1117;
-      --bg-light: #ffffff;
-      --text-dark: #1e1e1e;
-      --text-light: #f0f6fc;
-      --max-width: 960px;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      margin: 0;
-      line-height: 1.6;
-      transition: background-color 0.4s, color 0.4s;
-    }
-
-    body.dark { background-color: var(--bg-dark); color: var(--text-light); }
-    body.light { background-color: var(--bg-light); color: var(--text-dark); }
-
-    header { text-align: center; padding: 6rem 1rem 3rem; max-width: var(--max-width); margin: 0 auto; }
-    h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 1rem; }
-    p { font-size: 1.1rem; margin-bottom: 1.5rem; }
-
-    .cta-button {
-      background-color: var(--accent);
-      color: white;
-      border: none;
-      padding: 0.9rem 1.8rem;
-      border-radius: 9999px;
-      font-size: 1.1rem;
-      text-decoration: none;
-      transition: background-color 0.3s, transform 0.2s;
-      display: inline-block;
-      cursor: pointer;
-    }
-
-    .cta-button:hover { background-color: var(--accent-dark); transform: translateY(-2px); }
-
-    main { max-width: var(--max-width); margin: 0 auto; padding: 1rem; }
-    .case-studies { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 3rem 1rem; }
-
-    .case-study {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      max-width: 300px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-
-    .case-study:hover { transform: translateY(-5px); }
-
-    .lead-section {
-      text-align: center;
-      padding: 3rem 1rem;
-      margin: 2rem 1rem;
-      border-radius: 1rem;
-      border: 2px solid var(--accent);
-      background: rgba(16,185,129,0.08);
-    }
-
-    .lead-section img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      margin-bottom: 1.5rem;
-    }
-
-    .forecaster-section {
-      background-color: var(--bg-light);
-      border: 2px solid var(--accent);
-      border-radius: 12px;
-      padding: 2rem 1rem;
-      margin: 2rem 1rem;
-      text-align: center;
-      color: var(--text-dark);
-      transition: background-color 0.4s, color 0.4s;
-    }
-
-    body.dark .forecaster-section { background-color: #161b22; color: var(--text-light); }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-
-    footer a { color: var(--accent); text-decoration: none; }
-    footer a:hover { color: var(--accent-dark); }
-
-    .floating-icons {
-      position: fixed;
-      bottom: 1.2rem;
-      right: 1.2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      z-index: 100;
-    }
-
-    .floating-icons a,
-    .floating-icons button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 42px;
-      height: 42px;
-      background: rgba(16,185,129,0.2);
-      border-radius: 50%;
-      color: var(--accent);
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-    }
-
-    .floating-icons a:hover,
-    .floating-icons button:hover { background: var(--accent); color: #fff; transform: scale(1.1); }
-
-    #theme-toggle-wrapper {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    #theme-toggle-wrapper span {
-      font-size: 0.9rem;
-    }
-
-    #theme-toggle {
-      cursor: pointer;
-      background: none;
-      border: 2px solid currentColor;
-      border-radius: 50%;
-      padding: 0.4rem 0.6rem;
-      font-size: 1.2rem;
-    }
-
-    @media (max-width: 600px) {
-      header { padding-top: 7rem; }
-      #theme-toggle-wrapper { position: static; margin: 1rem auto 0; justify-content: center; }
-    }
-
-    /* Email form */
-    .email-form {
-      margin-top: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .email-form input {
-      padding: 0.6rem 1rem;
-      border-radius: 9999px;
-      border: 1px solid var(--accent);
-      width: 80%;
-      max-width: 300px;
-    }
-
-    .email-form button {
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 9999px;
-      padding: 0.6rem 1.5rem;
-      cursor: pointer;
-    }
-
-    .email-form button:hover { background: var(--accent-dark); }
-
-    /* Visual Comparison Table */
-    .comparison-section {
-      margin: 4rem 1rem;
-      text-align: center;
-    }
-
-    .comparison-section table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 2rem;
-    }
-
-    .comparison-section th, .comparison-section td {
-      padding: 0.8rem 1rem;
-      text-align: center;
-      border: 1px solid #ddd;
-    }
-
-    .comparison-section th {
-      background-color: var(--accent);
-      color: white;
-    }
-
-    .comparison-section tr:nth-child(even) { background-color: rgba(16,185,129,0.05); }
-
-    .badge {
-      padding: 0.3rem 0.6rem;
-      border-radius: 12px;
-      color: white;
-      font-weight: bold;
-      display: inline-block;
-      min-width: 70px;
-    }
-
-    .time-low { background-color: #a3a3a3; }
-    .time-medium { background-color: #3b82f6; }
-    .time-high { background-color: #10b981; }
-    .time-veryhigh { background-color: #f59e0b; }
-
-    .complexity-low { background-color: #10b981; }
-    .complexity-medium { background-color: #f59e0b; }
-    .complexity-high { background-color: #ef4444; }
-
-    .roi-low { background-color: #ef4444; }
-    .roi-medium { background-color: #f59e0b; }
-    .roi-mediumhigh { background-color: #3b82f6; }
-    .roi-high { background-color: #10b981; }
-
-    @media (max-width: 768px) {
-      .comparison-section table, th, td { font-size: 0.85rem; }
-    }
-
-    #hiddenIframe { display: none; }
-  </style>
-</head>
-
-<body class="dark">
-
-  <div id="theme-toggle-wrapper">
-    <span>Dark/Light Theme</span>
-    <button id="theme-toggle" title="Toggle theme">🌙</button>
-  </div>
-
-  <header>
-    <img src="Logo1.jpg" alt="ExcelAutomate.pro Logo" style="max-width:200px; margin-bottom:1rem;">
-    <h1>Automate Excel. Save Hours. Scale Faster.</h1>
-    <p>I build dashboards, reporting tools, and VBA automations that eliminate manual work.</p>
-    <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit" class="cta-button">Book Free Audit Call</a>
-  </header>
-
-  <main>
-    <section class="case-studies">
-      <div class="case-study"><h3>💼 Finance Team Dashboard</h3><p>Reduced 6 hours of manual reporting to 15 minutes using Power Query automation.</p></div>
-      <div class="case-study"><h3>🏗️ Construction Cost Tracker</h3><p>Automated cost roll-ups across 12 regions using Excel VBA macros.</p></div>
-      <div class="case-study"><h3>🛒 E-commerce Sales Report</h3><p>Built dynamic dashboards pulling live CSVs from Amazon FBA exports.</p></div>
-    </section>
-
-    <section class="lead-section">
-      <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/lead-magnet-thumbnail.jpg" alt="Free Excel Automation Guide" loading="lazy" />
-      <h2 style="color:var(--accent)">Free Download: 7 Excel Automations That Save 20+ Hours/Week</h2>
-      <p>Get the exact VBA + Power Query setups used in real businesses. No fluff. Instant PDF.</p>
-
-      <form class="email-form" onsubmit="submitEmailForm(event, 'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/7%20Excel%20Automations.pdf')">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Get Download</button>
-      </form>
-    </section>
-
-    <section class="forecaster-section">
-      <h2 style="color:var(--accent)">Free: 12-Month Cash Flow Forecaster</h2>
-      <p>See your cash runway in 30 seconds. Red alert if &lt;30 days.</p>
-
-      <form class="email-form" id="forecaster-email-form">
-        <input type="email" placeholder="Enter your email" required />
-      </form>
-
-      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem; margin-top:0.5rem;">
-        <button class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-12-Month-Runway.xlsx')">Download Excel Tool</button>
-        <button class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Quick-Start.pdf')">Quick-Start Guide</button>
-        <button class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Understand-Your-Metrics.pdf')">Understand Metrics</button>
-      </div>
-    </section>
-
-    <!-- Comparison Table Section -->
-    <section class="comparison-section">
-      <h2 style="color:var(--accent)">Excel vs. Robotics vs. AI vs. Software</h2>
-      <p>See how small businesses can achieve the same automation power at a fraction of the cost. Excel-based solutions often provide 80–90% of the efficiency of AI or Robotics tools — at 10–20% of the price.</p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Project</th>
-            <th>Approach</th>
-            <th>Cost (USD)</th>
-            <th>Time Savings</th>
-            <th>Complexity</th>
-            <th>ROI</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td rowspan="4">Inventory & Replenishment Tracker</td><td>Excel</td><td>$50–$150</td><td><span class="badge time-medium">Medium</span></td><td><span class="badge complexity-low">Low</span></td><td><span class="badge roi-high">High</span></td></tr>
-          <tr><td>Third-Party Software</td><td>$300–$1,000/year</td><td><span class="badge time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge roi-medium">Medium</span></td></tr>
-          <tr><td>AI / Generative Tools</td><td>$400–$1,200</td><td><span class="badge time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge roi-mediumhigh">Med-High</span></td></tr>
-          <tr><td>Robotics / RPA</td><td>$500–$1,500</td><td><span class="badge time-veryhigh">Very High</span></td><td><span class="badge complexity-high">High</span></td><td><span class="badge roi-mediumhigh">Med-High</span></td></tr>
-
-          <tr><td rowspan="4">Cash Flow & Runway Tracker</td><td>Excel</td><td>$50–$120</td><td><span class="badge time-medium">Medium</span></td><td><span class="badge complexity-low">Low</span></td><td><span class="badge roi-high">High</span></td></tr>
-          <tr><td>Third-Party Software</td><td>$200–$800/year</td><td><span class="badge time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge roi-medium">Medium</span></td></tr>
-          <tr><td>AI / Generative Tools</td><td>$300–$900</td><td><span class="badge time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge roi-mediumhigh">Med-High</span></td></tr>
-          <tr><td>Robotics / RPA</td><td>$400–$1,200</td><td><span class="badge time-veryhigh">Very High</span></td><td><span class="badge complexity-high">High</span></td><td><span class="badge roi-mediumhigh">Med-High</span></td></tr>
-
-          <tr><td rowspan="4">Sales Dashboard</td><td>Excel</td><td>$40–$100</td><td><span class="badge time-medium">Medium</span></td><td><span class="badge complexity-low">Low</span></td><td><span class="badge roi-high">High</span></td></tr>
-          <tr><td>Third-Party Software</td><td>$250–$700/year</td><td><span class="badge time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge roi-medium">Medium</span></td></tr>
-          <tr><td>AI / Generative Tools</td><td>$300–$800</td><td><span class="badge time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge roi-mediumhigh">Med-High</span></td></tr>
-          <tr><td>Robotics / RPA</td><td>$400–$1,000</td><td><span class="badge time-veryhigh">Very High</span></td><td><span class="badge complexity-high">High</span></td><td><span class="badge roi-mediumhigh">Med-High</span></td></tr>
-        </tbody>
-      </table>
-
-      <p style="margin-top:1.5rem; font-size:0.95rem;">💡 Excel offers unmatched flexibility and cost-efficiency for small businesses. In most cases, it delivers up to <strong>90% of the benefits of automation tools</strong> at a fraction of the cost.</p>
-    </section>
-
-    <section class="lead-section" style="background:none; border:none;">
-      <h2>Ready to automate your reporting?</h2>
-      <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit" class="cta-button">Get Your Free Excel Audit</a>
-    </section>
-
-<!-- AUDIT BOOKING FORM -->
-<section class="lead-section" style="background:rgba(16,185,129,0.08); border:2px solid var(--accent); text-align:center;">
-  <h2 style="color:var(--accent);">Book Your Free 15-Min Excel Audit</h2>
-  <p>Answer 3 quick questions to We’ll review your files and show exactly how to save 20+ hours/week.</p>
-  
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIBOTAZYxnwxSkr2igrYE-4A-X0bjr9OQBKEzfZhbLGwZCoQ/viewform" 
-     target="_blank" 
-     class="cta-button" 
-     style="display:inline-block; margin-top:1rem;">
-     Open Audit Form
-  </a>
-</section>
-    
-  </main>
-
-  <footer>
-    © 2025 ExcelAutomate.pro | Built by Excel Automation Expert GvdHarten<br />
-    <a href="mailto:info@excelautomate.pro">info@excelautomate.pro</a>
-  </footer>
-
-  <div class="floating-icons">
-    <button id="emailBtn" title="Copy Email">✉️</button>
-    <a href="https://www.linkedin.com/in/gvdharten" target="_blank" title="LinkedIn">in</a>
-    <a href="https://x.com/MrBiIIion" target="_blank" title="X (Twitter)">𝕏</a>
-  </div>
-
-  <iframe id="hiddenIframe" name="hiddenIframe"></iframe>
-
-  <script>
-    const FORM_PREFILL_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeLdgU_O3TOT719-CZjlmZxEbOTAtHcvnToR96GQ_uhh0w37A/formResponse";
-    const FIELD_NAME = "entry.1936655856";
-
-    function submitEmailForm(e, fileUrl) {
-      e.preventDefault();
-      const form = e.target;
-      const email = form.querySelector("input").value;
-      if (!email) return;
-
-      const iframe = document.getElementById("hiddenIframe");
-      const tempForm = document.createElement("form");
-      tempForm.action = FORM_PREFILL_URL;
-      tempForm.method = "POST";
-      tempForm.target = "hiddenIframe";
-
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = FIELD_NAME;
-      input.value = email;
-      tempForm.appendChild(input);
-
-      document.body.appendChild(tempForm);
-      tempForm.submit();
-      document.body.removeChild(tempForm);
-
-      window.location.href = fileUrl;
-    }
-
-    function submitForecaster(fileUrl) {
-      const form = document.getElementById("forecaster-email-form");
-      const email = form.querySelector("input").value;
-      if (!email) {
-        alert("Please enter your email to download.");
-        return;
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2FVEYK24H3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-2FVEYK24H3');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ExcelAutomate.pro | Excel Automation Expert</title>
+
+    <!-- ✅ Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- ✅ Primary SEO Meta Tags -->
+    <meta name="title" content="ExcelAutomate.pro | Excel Automation Expert" />
+    <meta name="description" content="Excel automation expert helping businesses save 20+ hours per week with Power
+  Query, VBA, and dashboard templates." />
+    <meta name="keywords" content="Excel automation, Power Query expert, VBA dashboards, Excel consultant, business
+  reporting automation, Excel tools, Excel dashboards, Excel templates, automate Excel tasks" />
+    <meta name="author" content="ExcelAutomate.pro" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://excelautomate.pro/" />
+
+    <!-- ✅ Open Graph / Facebook Preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://excelautomate.pro/" />
+    <meta property="og:title" content="ExcelAutomate.pro | Excel Automation Expert" />
+    <meta property="og:description" content="Automate Excel. Save hours. Scale faster. Dashboards, reporting tools,
+  and VBA automations that eliminate manual work." />
+    <meta property="og:image"
+  content="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview2.jpg?v=2" />
+    <meta property="og:site_name" content="ExcelAutomate.pro" />
+
+    <!-- ✅ Twitter / X Preview -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://excelautomate.pro/" />
+    <meta name="twitter:title" content="ExcelAutomate.pro | Excel Automation Expert" />
+    <meta name="twitter:description" content="Excel dashboards, Power Query automation, and VBA tools that save 20+
+  hours per week." />
+    <meta name="twitter:image"
+  content="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Preview2.jpg?v=2" />
+    <meta name="twitter:creator" content="@MrBiIIion" />
+
+    <!-- ✅ Browser & Mobile Appearance -->
+    <meta name="theme-color" content="#10b981" />
+
+    <style>
+      :root {
+        --accent: #10b981;
+        --accent-dark: #059669;
+        --bg-dark: #0d1117;
+        --bg-light: #ffffff;
+        --text-dark: #1e1e1e;
+        --text-light: #f0f6fc;
+        --max-width: 960px;
       }
 
-      const iframe = document.getElementById("hiddenIframe");
-      const tempForm = document.createElement("form");
-      tempForm.action = FORM_PREFILL_URL;
-      tempForm.method = "POST";
-      tempForm.target = "hiddenIframe";
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        margin: 0;
+        line-height: 1.6;
+        transition: background-color 0.4s, color 0.4s;
+      }
 
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = FIELD_NAME;
-      input.value = email;
-      tempForm.appendChild(input);
+      body.dark { background-color: var(--bg-dark); color: var(--text-light); }
+      body.light { background-color: var(--bg-light); color: var(--text-dark); }
 
-      document.body.appendChild(tempForm);
-      tempForm.submit();
-      document.body.removeChild(tempForm);
+      header { text-align: center; padding: 6rem 1rem 3rem; max-width: var(--max-width); margin: 0 auto; }
+      h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 1rem; }
+      p { font-size: 1.1rem; margin-bottom: 1.5rem; }
 
-      window.location.href = fileUrl;
-    }
+      .cta-button {
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        padding: 0.9rem 1.8rem;
+        border-radius: 9999px;
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: background-color 0.3s, transform 0.2s;
+        display: inline-block;
+        cursor: pointer;
+      }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const body = document.body;
-      const toggle = document.getElementById("theme-toggle");
-      const saved = localStorage.getItem("theme");
-      if (saved === "light") body.classList.replace("dark", "light");
-      toggle.addEventListener("click", () => {
-        body.classList.toggle("dark");
-        body.classList.toggle("light");
-        localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
-      });
+      .cta-button:hover { background-color: var(--accent-dark); transform: translateY(-2px); }
 
-      const emailBtn = document.getElementById("emailBtn");
-      const email = "info@excelautomate.pro";
-      emailBtn.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(email);
-          emailBtn.textContent = "✅";
-          setTimeout(() => (emailBtn.textContent = "✉️"), 1500);
-        } catch {
-          alert("Email copied to clipboard: " + email);
+      main { max-width: var(--max-width); margin: 0 auto; padding: 1rem; }
+      .case-studies { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 3rem 1rem; }
+
+      .case-study {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        max-width: 300px;
+        text-align: center;
+        transition: transform 0.3s;
+      }
+
+      .case-study:hover { transform: translateY(-5px); }
+
+      .lead-section {
+        text-align: center;
+        padding: 3rem 1rem;
+        margin: 2rem 1rem;
+        border-radius: 1rem;
+        border: 2px solid var(--accent);
+        background: rgba(16,185,129,0.08);
+      }
+
+      .lead-section img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        margin-bottom: 1.5rem;
+      }
+
+      .forecaster-section {
+        background-color: var(--bg-light);
+        border: 2px solid var(--accent);
+        border-radius: 12px;
+        padding: 2rem 1rem;
+        margin: 2rem 1rem;
+        text-align: center;
+        color: var(--text-dark);
+        transition: background-color 0.4s, color 0.4s;
+      }
+
+      body.dark .forecaster-section { background-color: #161b22; color: var(--text-light); }
+
+      footer {
+        text-align: center;
+        padding: 2rem 1rem;
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      footer a { color: var(--accent); text-decoration: none; }
+      footer a:hover { color: var(--accent-dark); }
+
+      .floating-icons {
+        position: fixed;
+        bottom: 1.2rem;
+        right: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        z-index: 100;
+      }
+
+      .floating-icons a,
+      .floating-icons button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 42px;
+        height: 42px;
+        background: rgba(16,185,129,0.2);
+        border-radius: 50%;
+        color: var(--accent);
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+      }
+
+      .floating-icons a:hover,
+      .floating-icons button:hover { background: var(--accent); color: #fff; transform: scale(1.1); }
+
+      #theme-toggle-wrapper {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      #theme-toggle-wrapper span {
+        font-size: 0.9rem;
+      }
+
+      #theme-toggle {
+        cursor: pointer;
+        background: none;
+        border: 2px solid currentColor;
+        border-radius: 50%;
+        padding: 0.4rem 0.6rem;
+        font-size: 1.2rem;
+      }
+
+      @media (max-width: 600px) {
+        header { padding-top: 7rem; }
+        #theme-toggle-wrapper { position: static; margin: 1rem auto 0; justify-content: center; }
+      }
+
+      /* Email form */
+      .email-form {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .email-form input {
+        padding: 0.6rem 1rem;
+        border-radius: 9999px;
+        border: 1px solid var(--accent);
+        width: 80%;
+        max-width: 300px;
+      }
+
+      .email-form button {
+        background: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 9999px;
+        padding: 0.6rem 1.5rem;
+        cursor: pointer;
+      }
+
+      .email-form button:hover { background: var(--accent-dark); }
+
+      /* Visual Comparison Table */
+      .comparison-section {
+        margin: 4rem 1rem;
+        text-align: center;
+      }
+
+      .comparison-section table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 2rem;
+      }
+
+      .comparison-section th, .comparison-section td {
+        padding: 0.8rem 1rem;
+        text-align: center;
+        border: 1px solid #ddd;
+      }
+
+      .comparison-section th {
+        background-color: var(--accent);
+        color: white;
+      }
+
+      .comparison-section tr:nth-child(even) { background-color: rgba(16,185,129,0.05); }
+
+      .badge {
+        padding: 0.3rem 0.6rem;
+        border-radius: 12px;
+        color: white;
+        font-weight: bold;
+        display: inline-block;
+        min-width: 70px;
+      }
+
+      .time-low { background-color: #a3a3a3; }
+      .time-medium { background-color: #3b82f6; }
+      .time-high { background-color: #10b981; }
+      .time-veryhigh { background-color: #f59e0b; }
+
+      .complexity-low { background-color: #10b981; }
+      .complexity-medium { background-color: #f59e0b; }
+      .complexity-high { background-color: #ef4444; }
+
+      .roi-low { background-color: #ef4444; }
+      .roi-medium { background-color: #f59e0b; }
+      .roi-mediumhigh { background-color: #3b82f6; }
+      .roi-high { background-color: #10b981; }
+
+      @media (max-width: 768px) {
+        .comparison-section table, th, td { font-size: 0.85rem; }
+      }
+
+      #hiddenIframe { display: none; }
+    </style>
+  </head>
+
+  <body class="dark">
+
+    <div id="theme-toggle-wrapper">
+      <span>Dark/Light Theme</span>
+      <button id="theme-toggle" title="Toggle theme">🌙</button>
+    </div>
+
+    <header>
+      <img src="Logo1.jpg" alt="ExcelAutomate.pro Logo" style="max-width:200px; margin-bottom:1rem;">
+      <h1>Automate Excel. Save Hours. Scale Faster.</h1>
+      <p>I build dashboards, reporting tools, and VBA automations that eliminate manual work.</p>
+      <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit" class="cta-button"
+  onclick="trackAuditEmailClick()">Book Free Audit Call</a>
+    </header>
+
+    <main>
+      <section class="case-studies">
+        <div class="case-study"><h3>💼 Finance Team Dashboard</h3><p>Reduced 6 hours of manual reporting to 15
+  minutes using Power Query automation.</p></div>
+        <div class="case-study"><h3>🏗️ Construction Cost Tracker</h3><p>Automated cost roll-ups across 12 regions
+  using Excel VBA macros.</p></div>
+        <div class="case-study"><h3>🛒 E-commerce Sales Report</h3><p>Built dynamic dashboards pulling live CSVs
+  from Amazon FBA exports.</p></div>
+      </section>
+
+      <section class="lead-section">
+        <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/lead-magnet-thumbnail.jpg"
+  alt="Free Excel Automation Guide" loading="lazy" />
+        <h2 style="color:var(--accent)">Free Download: 7 Excel Automations That Save 20+ Hours/Week</h2>
+        <p>Get the exact VBA + Power Query setups used in real businesses. No fluff. Instant PDF.</p>
+
+        <form class="email-form" onsubmit="submitEmailForm(event,
+  'https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/7%20Excel%20Automations.pdf')">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit">Get Download</button>
+        </form>
+      </section>
+
+      <section class="forecaster-section">
+        <h2 style="color:var(--accent)">Free: 12-Month Cash Flow Forecaster</h2>
+        <p>See your cash runway in 30 seconds. Red alert if &lt;30 days.</p>
+
+        <form class="email-form" id="forecaster-email-form">
+          <input type="email" placeholder="Enter your email" required />
+        </form>
+
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem; margin-top:0.5rem;">
+          <button class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelaut
+  omate-site/main/Cash-Flow-Forecaster-12-Month-Runway.xlsx')">Download Excel Tool</button>
+          <button class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelaut
+  omate-site/main/Cash-Flow-Forecaster-Quick-Start.pdf')">Quick-Start Guide</button>
+          <button class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelaut
+  omate-site/main/Cash-Flow-Forecaster-Understand-Your-Metrics.pdf')">Understand Metrics</button>
+        </div>
+      </section>
+
+      <!-- Comparison Table Section -->
+      <section class="comparison-section">
+        <h2 style="color:var(--accent)">Excel vs. Robotics vs. AI vs. Software</h2>
+        <p>See how small businesses can achieve the same automation power at a fraction of the cost. Excel-based
+  solutions often provide 80–90% of the efficiency of AI or Robotics tools — at 10–20% of the price.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Approach</th>
+              <th>Cost (USD)</th>
+              <th>Time Savings</th>
+              <th>Complexity</th>
+              <th>ROI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td rowspan="4">Inventory & Replenishment Tracker</td><td>Excel</td><td>$50–$150</td><td><span
+  class="badge time-medium">Medium</span></td><td><span class="badge complexity-low">Low</span></td><td><span
+  class="badge roi-high">High</span></td></tr>
+            <tr><td>Third-Party Software</td><td>$300–$1,000/year</td><td><span class="badge
+  time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge
+  roi-medium">Medium</span></td></tr>
+            <tr><td>AI / Generative Tools</td><td>$400–$1,200</td><td><span class="badge
+  time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge
+  roi-mediumhigh">Med-High</span></td></tr>
+            <tr><td>Robotics / RPA</td><td>$500–$1,500</td><td><span class="badge time-veryhigh">Very
+  High</span></td><td><span class="badge complexity-high">High</span></td><td><span class="badge
+  roi-mediumhigh">Med-High</span></td></tr>
+
+            <tr><td rowspan="4">Cash Flow & Runway Tracker</td><td>Excel</td><td>$50–$120</td><td><span class="badge
+   time-medium">Medium</span></td><td><span class="badge complexity-low">Low</span></td><td><span class="badge
+  roi-high">High</span></td></tr>
+            <tr><td>Third-Party Software</td><td>$200–$800/year</td><td><span class="badge
+  time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge
+  roi-medium">Medium</span></td></tr>
+            <tr><td>AI / Generative Tools</td><td>$300–$900</td><td><span class="badge
+  time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge
+  roi-mediumhigh">Med-High</span></td></tr>
+            <tr><td>Robotics / RPA</td><td>$400–$1,200</td><td><span class="badge time-veryhigh">Very
+  High</span></td><td><span class="badge complexity-high">High</span></td><td><span class="badge
+  roi-mediumhigh">Med-High</span></td></tr>
+
+            <tr><td rowspan="4">Sales Dashboard</td><td>Excel</td><td>$40–$100</td><td><span class="badge
+  time-medium">Medium</span></td><td><span class="badge complexity-low">Low</span></td><td><span class="badge
+  roi-high">High</span></td></tr>
+            <tr><td>Third-Party Software</td><td>$250–$700/year</td><td><span class="badge
+  time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge
+  roi-medium">Medium</span></td></tr>
+            <tr><td>AI / Generative Tools</td><td>$300–$800</td><td><span class="badge
+  time-high">High</span></td><td><span class="badge complexity-medium">Medium</span></td><td><span class="badge
+  roi-mediumhigh">Med-High</span></td></tr>
+            <tr><td>Robotics / RPA</td><td>$400–$1,000</td><td><span class="badge time-veryhigh">Very
+  High</span></td><td><span class="badge complexity-high">High</span></td><td><span class="badge
+  roi-mediumhigh">Med-High</span></td></tr>
+          </tbody>
+        </table>
+
+        <p style="margin-top:1.5rem; font-size:0.95rem;">💡 Excel offers unmatched flexibility and cost-efficiency
+  for small businesses. In most cases, it delivers up to <strong>90% of the benefits of automation tools</strong> at
+   a fraction of the cost.</p>
+      </section>
+
+      <section class="lead-section" style="background:none; border:none;">
+        <h2>Ready to automate your reporting?</h2>
+        <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit" class="cta-button"
+  onclick="trackAuditEmailClick()">Get Your Free Excel Audit</a>
+      </section>
+
+  <!-- AUDIT BOOKING FORM -->
+  <section class="lead-section" style="background:rgba(16,185,129,0.08); border:2px solid var(--accent);
+  text-align:center;">
+    <h2 style="color:var(--accent);">Book Your Free 15-Min Excel Audit</h2>
+    <p>Answer 3 quick questions to We'll review your files and show exactly how to save 20+ hours/week.</p>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIBOTAZYxnwxSkr2igrYE-4A-X0bjr9OQBKEzfZhbLGwZCoQ/viewform"
+       target="_blank"
+       class="cta-button"
+       style="display:inline-block; margin-top:1rem;"
+       onclick="trackAuditFormOpen()">
+       Open Audit Form
+    </a>
+  </section>
+
+    </main>
+
+    <footer>
+      © 2025 ExcelAutomate.pro | Built by Excel Automation Expert GvdHarten<br />
+      <a href="mailto:info@excelautomate.pro">info@excelautomate.pro</a>
+    </footer>
+
+    <div class="floating-icons">
+      <button id="emailBtn" title="Copy Email">✉️</button>
+      <a href="https://www.linkedin.com/in/gvdharten" target="_blank" title="LinkedIn">in</a>
+      <a href="https://x.com/MrBiIIion" target="_blank" title="X (Twitter)">𝕏</a>
+    </div>
+
+    <iframe id="hiddenIframe" name="hiddenIframe"></iframe>
+
+    <script>
+      const FORM_PREFILL_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSeLdgU_O3TOT719-CZjlmZxEbOTAtHcvnToR96GQ_uhh0w37A/formResponse";
+      const FIELD_NAME = "entry.1936655856";
+
+      // ✅ Track Lead Magnet Email Submission
+      function submitEmailForm(e, fileUrl) {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.querySelector("input").value;
+        if (!email) return;
+
+        // Track event in GA4
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'lead_magnet_download', {
+            'event_category': 'Lead Generation',
+            'event_label': '7 Automations PDF',
+            'value': 1
+          });
         }
+
+        const iframe = document.getElementById("hiddenIframe");
+        const tempForm = document.createElement("form");
+        tempForm.action = FORM_PREFILL_URL;
+        tempForm.method = "POST";
+        tempForm.target = "hiddenIframe";
+
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = FIELD_NAME;
+        input.value = email;
+        tempForm.appendChild(input);
+
+        document.body.appendChild(tempForm);
+        tempForm.submit();
+        document.body.removeChild(tempForm);
+
+        window.location.href = fileUrl;
+      }
+
+      // ✅ Track Forecaster Downloads
+      function submitForecaster(fileUrl) {
+        const form = document.getElementById("forecaster-email-form");
+        const email = form.querySelector("input").value;
+        if (!email) {
+          alert("Please enter your email to download.");
+          return;
+        }
+
+        // Track event in GA4
+        if (typeof gtag !== 'undefined') {
+          const fileName = fileUrl.includes('.xlsx') ? 'Excel Tool' :
+                          fileUrl.includes('Quick-Start') ? 'Quick-Start Guide' :
+                          'Understand Metrics';
+          gtag('event', 'forecaster_download', {
+            'event_category': 'Lead Generation',
+            'event_label': 'Cash Flow Forecaster - ' + fileName,
+            'value': 1
+          });
+        }
+
+        const iframe = document.getElementById("hiddenIframe");
+        const tempForm = document.createElement("form");
+        tempForm.action = FORM_PREFILL_URL;
+        tempForm.method = "POST";
+        tempForm.target = "hiddenIframe";
+
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = FIELD_NAME;
+        input.value = email;
+        tempForm.appendChild(input);
+
+        document.body.appendChild(tempForm);
+        tempForm.submit();
+        document.body.removeChild(tempForm);
+
+        window.location.href = fileUrl;
+      }
+
+      // ✅ Track Audit Email CTA Clicks
+      function trackAuditEmailClick() {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'audit_email_click', {
+            'event_category': 'Conversion',
+            'event_label': 'Mailto Audit CTA',
+            'value': 1
+          });
+        }
+      }
+
+      // ✅ Track Audit Form Opens
+      function trackAuditFormOpen() {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'audit_form_open', {
+            'event_category': 'Conversion',
+            'event_label': 'Google Form Audit',
+            'value': 1
+          });
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const body = document.body;
+        const toggle = document.getElementById("theme-toggle");
+        const saved = localStorage.getItem("theme");
+        if (saved === "light") body.classList.replace("dark", "light");
+
+        toggle.addEventListener("click", () => {
+          body.classList.toggle("dark");
+          body.classList.toggle("light");
+          const newTheme = body.classList.contains("dark") ? "dark" : "light";
+          localStorage.setItem("theme", newTheme);
+
+          // ✅ Track theme toggle
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'theme_toggle', {
+              'event_category': 'User Preference',
+              'event_label': newTheme === 'dark' ? 'Dark Mode' : 'Light Mode',
+              'value': 1
+            });
+          }
+        });
+
+        const emailBtn = document.getElementById("emailBtn");
+        const email = "info@excelautomate.pro";
+        emailBtn.addEventListener("click", async () => {
+          // ✅ Track email copy
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'email_copy_click', {
+              'event_category': 'Engagement',
+              'event_label': 'Email Copy Button',
+              'value': 1
+            });
+          }
+
+          try {
+            await navigator.clipboard.writeText(email);
+            emailBtn.textContent = "✅";
+            setTimeout(() => (emailBtn.textContent = "✉️"), 1500);
+          } catch {
+            alert("Email copied to clipboard: " + email);
+          }
+        });
       });
-    });
-  </script>
-</body>
-</html>
+    </script>
+  </body>
+  </html>
