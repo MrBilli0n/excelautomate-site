@@ -61,6 +61,7 @@
       margin: 0;
       line-height: 1.6;
       transition: background-color 0.4s, color 0.4s;
+      overflow-x: hidden;
     }
 
     body.dark { background-color: var(--bg-dark); color: var(--text-light); }
@@ -300,10 +301,16 @@
       text-align: center;
     }
 
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 2rem;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .comparison-section table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 2rem;
+      min-width: 600px;
     }
 
     .comparison-section th, .comparison-section td {
@@ -411,6 +418,7 @@
       <h2 style="color:var(--accent)">Excel vs. Robotică vs. AI vs. Software</h2>
       <p>Vezi cum afacerile mici pot obține aceeași putere de automatizare la o fracțiune din cost. Soluțiile bazate pe Excel oferă adesea 80-90% din eficiența instrumentelor AI sau Robotică — la 10-20% din preț.</p>
 
+      <div class="table-wrapper">
       <table>
         <thead>
           <tr>
@@ -439,6 +447,7 @@
           <tr><td>Robotică / RPA</td><td>$400–$1,000</td><td><span class="badge time-veryhigh">Foarte Ridicat</span></td><td><span class="badge complexity-high">Ridicat</span></td><td><span class="badge roi-medium">Mediu</span></td></tr>
         </tbody>
       </table>
+      </div>
 
       <p style="margin-top:1.5rem; font-size:0.95rem;">💡 Excel oferă flexibilitate și eficiență de cost de neegalat pentru afacerile mici. În majoritatea cazurilor, livrează până la <strong>90% din beneficiile instrumentelor de automatizare</strong> la o fracțiune din cost.</p>
     </section>
