@@ -184,6 +184,7 @@
       left: 1.5rem;
       display: flex;
       gap: 0.5rem;
+      z-index: 10;
     }
 
     .lang-btn {
@@ -217,10 +218,42 @@
       font-size: 1.2rem;
     }
 
+    .cert-badge {
+      position: absolute;
+      top: 7rem;
+      left: 0.5rem;
+      width: 190px;
+      height: 190px;
+      opacity: 0.9;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .cert-badge:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .logo-badge {
+      position: absolute;
+      top: 7rem;
+      right: 0.5rem;
+      width: 190px;
+      height: auto;
+      opacity: 0.9;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .logo-badge:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
     @media (max-width: 600px) {
       header { padding-top: 8rem; }
       #theme-toggle-wrapper { position: static; margin: 1rem auto 0; justify-content: center; }
       .language-toggle { position: static; margin: 1rem auto 0; justify-content: center; }
+      .cert-badge { position: static; width: 80px; height: 80px; margin: 1rem auto; display: block; }
+      .logo-badge { position: static; width: 120px; margin: 1rem auto; display: block; }
     }
 
     /* Email form */
@@ -320,8 +353,11 @@
     <button id="theme-toggle" title="Toggle theme">🌙</button>
   </div>
 
+  <img src="Excel Automation Specialist - Transparent.png" alt="Certified Excel Automation Specialist" class="cert-badge">
+
+  <img src="Logo1.jpg" alt="ExcelAutomate.pro Logo" class="logo-badge">
+
   <header>
-    <img src="Logo1.jpg" alt="ExcelAutomate.pro Logo" style="max-width:200px; margin-bottom:1rem;">
     <h1>Automate Excel. Save Hours. Scale Faster.</h1>
     <p>I build dashboards, reporting tools, and VBA automations that eliminate manual work.</p>
     <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit" class="cta-button" onclick="trackAuditEmailClick()">Book Free Audit Call</a>
