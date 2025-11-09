@@ -61,6 +61,7 @@
       margin: 0;
       line-height: 1.6;
       transition: background-color 0.4s, color 0.4s;
+      overflow-x: hidden;
     }
 
     body.dark { background-color: var(--bg-dark); color: var(--text-light); }
@@ -300,10 +301,16 @@
       text-align: center;
     }
 
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 2rem;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .comparison-section table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 2rem;
+      min-width: 600px;
     }
 
     .comparison-section th, .comparison-section td {
@@ -411,6 +418,7 @@
       <h2 style="color:var(--accent)">Excel vs. Robotics vs. AI vs. Software</h2>
       <p>See how small businesses can achieve the same automation power at a fraction of the cost. Excel-based solutions often provide 80–90% of the efficiency of AI or Robotics tools — at 10–20% of the price.</p>
 
+      <div class="table-wrapper">
       <table>
         <thead>
           <tr>
@@ -439,6 +447,7 @@
           <tr><td>Robotics / RPA</td><td>$400–$1,000</td><td><span class="badge time-veryhigh">Very High</span></td><td><span class="badge complexity-high">High</span></td><td><span class="badge roi-medium">Medium</span></td></tr>
         </tbody>
       </table>
+      </div>
 
       <p style="margin-top:1.5rem; font-size:0.95rem;">💡 Excel offers unmatched flexibility and cost-efficiency for small businesses. In most cases, it delivers up to <strong>90% of the benefits of automation tools</strong> at a fraction of the cost.</p>
     </section>
