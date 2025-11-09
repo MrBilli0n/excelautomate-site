@@ -65,14 +65,14 @@
     }
 
     body.dark {
-      background-color: var(--bg-dark);
-      color: var(--text-light);
+      background-color: var(--bg-dark) !important;
+      color: var(--text-light) !important;
       color-scheme: dark;
     }
 
     body.light {
-      background-color: var(--bg-light);
-      color: var(--text-dark);
+      background-color: var(--bg-light) !important;
+      color: var(--text-dark) !important;
       color-scheme: light;
     }
 
@@ -610,14 +610,22 @@
     document.addEventListener("DOMContentLoaded", () => {
       const body = document.body;
       const toggle = document.getElementById("theme-toggle");
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
       const saved = localStorage.getItem("theme");
-      if (saved === "light") body.classList.replace("dark", "light");
+
+      if (saved === "light") {
+        body.classList.replace("dark", "light");
+        metaTheme.setAttribute("content", "#ffffff");
+      }
 
       toggle.addEventListener("click", () => {
         body.classList.toggle("dark");
         body.classList.toggle("light");
         const newTheme = body.classList.contains("dark") ? "dark" : "light";
         localStorage.setItem("theme", newTheme);
+
+        // Update meta theme color for mobile browsers
+        metaTheme.setAttribute("content", newTheme === "dark" ? "#0d1117" : "#ffffff");
 
         // ✅ Track theme toggle
         if (typeof gtag !== 'undefined') {
