@@ -20,8 +20,8 @@
 
   <!-- ✅ Primary SEO Meta Tags -->
   <meta name="title" content="ExcelAutomate.pro | Expert în Automatizare Excel" />
-  <meta name="description" content="Expert în automatizare Excel care ajută afacerile să economisească peste 20 de ore pe săptămână cu Power Query, VBA și șabloane de dashboard-uri." />
-  <meta name="keywords" content="automatizare Excel, expert Power Query, dashboarduri VBA, consultant Excel, automatizare raportare afaceri, instrumente Excel, dashboarduri Excel, șabloane Excel, automatizare sarcini Excel" />
+  <meta name="description" content="Excel automation expert helping businesses save 20+ hours per week with Power Query, VBA, and dashboard templates." />
+  <meta name="keywords" content="Excel automation, Power Query expert, VBA dashboards, Excel consultant, business reporting automation, Excel tools, Excel dashboards, Excel templates, automate Excel tasks" />
   <meta name="author" content="ExcelAutomate.pro" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://excelautomate.pro/index-ro.html" />
@@ -30,7 +30,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://excelautomate.pro/index-ro.html" />
   <meta property="og:title" content="ExcelAutomate.pro | Expert în Automatizare Excel" />
-  <meta property="og:description" content="Automatizează Excel. Economisește ore. Crește mai rapid. Dashboard-uri, instrumente de raportare și automatizări VBA care elimină munca manuală." />
+  <meta property="og:description" content="Automate Excel. Save hours. Scale faster. Dashboards, reporting tools, and VBA automations that eliminate manual work." />
   <meta property="og:image" content="https://excelautomate.pro/Preview2.jpg?v=3" />
   <meta property="og:site_name" content="ExcelAutomate.pro" />
 
@@ -38,7 +38,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://excelautomate.pro/index-ro.html" />
   <meta name="twitter:title" content="ExcelAutomate.pro | Expert în Automatizare Excel" />
-  <meta name="twitter:description" content="Dashboard-uri Excel, automatizare Power Query și instrumente VBA care economisesc peste 20 de ore pe săptămână." />
+  <meta name="twitter:description" content="Excel dashboards, Power Query automation, and VBA tools that save 20+ hours per week." />
   <meta name="twitter:image" content="https://excelautomate.pro/Preview2.jpg?v=3" />
   <meta name="twitter:creator" content="@MrBiIIion" />
 
@@ -78,6 +78,7 @@
 
     header { text-align: center; padding: 6rem 1rem 3rem; max-width: var(--max-width); margin: 0 auto; }
     h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 1rem; }
+    h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; }
     p { font-size: 1.1rem; margin-bottom: 1.5rem; }
 
     .cta-button {
@@ -96,6 +97,35 @@
     .cta-button:hover { background-color: var(--accent-dark); transform: translateY(-2px); }
 
     main { max-width: var(--max-width); margin: 0 auto; padding: 1rem; }
+
+    /* Social Proof Numbers */
+    .stats-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem 1rem;
+      margin: 2rem 0;
+    }
+
+    .stat-item {
+      text-align: center;
+      min-width: 150px;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
     .case-studies { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 3rem 1rem; }
 
     .case-study {
@@ -139,6 +169,315 @@
     }
 
     body.dark .forecaster-section { background-color: #161b22; color: var(--text-light); }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      padding: 3rem 1rem;
+      margin: 3rem 0;
+    }
+
+    .portfolio-section h2 {
+      text-align: center;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-section > p {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+    }
+
+    .portfolio-filters {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 9999px;
+      border: 2px solid var(--accent);
+      background: transparent;
+      color: currentColor;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .portfolio-card {
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(16,185,129,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(16,185,129,0.2);
+    }
+
+    .portfolio-card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .portfolio-card-image:hover {
+      opacity: 0.85;
+    }
+
+    .portfolio-card-content {
+      padding: 1.5rem;
+    }
+
+    .portfolio-card h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.3rem;
+      color: var(--accent);
+    }
+
+    .portfolio-card-category {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .portfolio-card p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .portfolio-card-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(16,185,129,0.2);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tech-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .tech-badge {
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background-color: rgba(16,185,129,0.15);
+      border: 1px solid rgba(16,185,129,0.3);
+    }
+
+    /* Lightbox for portfolio images */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(16,185,129,0.8);
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 3rem 1rem;
+      margin: 3rem 1rem;
+      border-radius: 12px;
+      border: 2px solid var(--accent);
+      background: rgba(16,185,129,0.05);
+    }
+
+    .about-section h2 {
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-intro {
+      font-size: 1.1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .about-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .about-column h3 {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .about-column li {
+      padding: 0.4rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .about-column li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 3rem 1rem;
+      margin: 3rem 0;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      border: 2px solid rgba(16,185,129,0.3);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 1.2rem;
+      background: rgba(16,185,129,0.08);
+      border: none;
+      text-align: left;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+      color: inherit;
+    }
+
+    .faq-question:hover {
+      background: rgba(16,185,129,0.15);
+    }
+
+    .faq-question::after {
+      content: "+";
+      font-size: 1.5rem;
+      color: var(--accent);
+      transition: transform 0.3s;
+    }
+
+    .faq-question.active::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+      padding: 0 1.2rem;
+    }
+
+    .faq-answer.active {
+      max-height: 500px;
+      padding: 1.2rem;
+    }
+
+    .faq-answer p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
 
     footer {
       text-align: center;
@@ -188,19 +527,6 @@
       gap: 0.4rem;
     }
 
-    #theme-toggle-wrapper span {
-      font-size: 0.9rem;
-    }
-
-    #theme-toggle {
-      cursor: pointer;
-      background: none;
-      border: 2px solid currentColor;
-      border-radius: 50%;
-      padding: 0.4rem 0.6rem;
-      font-size: 1.2rem;
-    }
-
     .language-toggle {
       position: absolute;
       top: 1.5rem;
@@ -234,6 +560,19 @@
       display: inline-block;
       vertical-align: middle;
       margin-right: 4px;
+    }
+
+    #theme-toggle-wrapper span {
+      font-size: 0.9rem;
+    }
+
+    #theme-toggle {
+      cursor: pointer;
+      background: none;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      padding: 0.4rem 0.6rem;
+      font-size: 1.2rem;
     }
 
     .cert-badge {
@@ -271,9 +610,11 @@
     @media (max-width: 600px) {
       header { padding-top: 8rem; }
       #theme-toggle-wrapper { position: static; margin: 1rem auto 0; justify-content: center; }
-      .language-toggle { position: static; justify-content: center; margin: 1rem auto; }
+      .language-toggle { position: static; margin: 1rem auto 0; justify-content: center; }
       .cert-badge { position: static; width: 80px; height: 80px; margin: 1rem auto; display: block; }
       .logo-badge { position: static; width: 100px; height: 100px; margin: 1rem auto; display: block; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .stats-section { flex-direction: column; gap: 1.5rem; }
     }
 
     /* Email form */
@@ -379,17 +720,37 @@
     <button id="theme-toggle" title="Schimbă tema">🌙</button>
   </div>
 
-  <img src="Excel Automation Specialist - Transparent.png" alt="Specialist Certificat în Automatizare Excel" class="cert-badge">
+  <img src="Excel Automation Specialist - Transparent.png" alt="Certified Excel Automation Specialist" class="cert-badge">
 
   <img src="Logo1.jpg" alt="ExcelAutomate.pro Logo" class="logo-badge">
 
   <header>
     <h1>Automatizează Excel. Economisește Ore. Crește Mai Rapid.</h1>
     <p>Construiesc dashboard-uri, instrumente de raportare și automatizări VBA care elimină munca manuală.</p>
-    <a href="mailto:info@excelautomate.pro?subject=Audit Gratuit Automatizare Excel" class="cta-button" onclick="trackAuditEmailClick()">Rezervă Apel de Audit Gratuit</a>
+    <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Consultation" class="cta-button" onclick="trackConsultationEmailClick()">Rezervă Apel de Consultație Gratuit</a>
   </header>
 
   <main>
+    <!-- Social Proof Numbers -->
+    <section class="stats-section">
+      <div class="stat-item">
+        <span class="stat-number">50+</span>
+        <span class="stat-label">Dashboard-uri Livrate</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">20+</span>
+        <span class="stat-label">Ani Experiență</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">10+</span>
+        <span class="stat-label">Industrii Deservite</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Satisfacție Clienți</span>
+      </div>
+    </section>
+
     <section class="case-studies">
       <div class="case-study"><h3>💼 Dashboard Echipă Financiară</h3><p>Redus 6 ore de raportare manuală la 15 minute folosind automatizare Power Query.</p></div>
       <div class="case-study"><h3>🏗️ Urmărire Costuri Construcții</h3><p>Automatizat totalurile de costuri în 12 regiuni folosind macrouri Excel VBA.</p></div>
@@ -397,7 +758,7 @@
     </section>
 
     <section class="lead-section">
-      <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/lead-magnet-thumbnail.jpg" alt="Ghid Gratuit Automatizare Excel" loading="lazy" />
+      <img src="https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/lead-magnet-thumbnail.jpg" alt="Free Excel Automation Guide" loading="lazy" />
       <h2 style="color:var(--accent)">Descărcare Gratuită: 7 Automatizări Excel Care Economisesc Peste 20 de Ore/Săptămână</h2>
       <p>Obține configurațiile exacte VBA + Power Query folosite în afaceri reale. Fără palavre. PDF instant.</p>
 
@@ -409,7 +770,7 @@
 
     <section class="forecaster-section">
       <h2 style="color:var(--accent)">Gratuit: Previzionare Flux de Numerar 12 Luni</h2>
-      <p>Vezi rezerva de numerar în 30 de secunde. Alertă roșie dacă &lt;30 de zile.</p>
+      <p>See your cash runway in 30 seconds. Red alert if &lt;30 days.</p>
 
       <form class="email-form" id="forecaster-email-form">
         <input type="email" placeholder="Introduceți email-ul" required />
@@ -419,6 +780,154 @@
         <button type="button" class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-12-Month-Runway.xlsx')">Descarcă Instrumentul Excel</button>
         <button type="button" class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Quick-Start.pdf')">Ghid de Început Rapid</button>
         <button type="button" class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Understand-Your-Metrics.pdf')">Înțelege Metricile</button>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
+      <h2>Exemple Dovedite de Automatizare</h2>
+      <p>Soluții Excel reale implementate în echipele de finanțe, operațiuni și vânzări. Toate dashboard-urile prezintă automatizare avansată, vizualizări interactive și rezultate dovedite de economisire a timpului.</p>
+
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">Toate (7)</button>
+        <button class="filter-btn" data-filter="finance">Finanțe Finance & AR (3) AR (3)</button>
+        <button class="filter-btn" data-filter="operations">Operațiuni (2)</button>
+        <button class="filter-btn" data-filter="kpi">KPI-uri KPIs & Analytics (2) Analiză (2)</button>
+      </div>
+
+      <div class="portfolio-grid">
+        <!-- Project 1: Instrument de Colectare -->
+        <div class="portfolio-card" data-category="finance">
+          <img src="collections-tool.png" alt="Instrument de Colectare Dashboard" class="portfolio-card-image" onclick="openLightbox(this.src)">
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-category">Finanțe Finance & Accounts Receivable Conturi de Încasat</div>
+            <h3>Instrument de Colectare</h3>
+            <p>Dashboard AR care prioritizează eforturile de colectare cu analiza automată a acțiunilor, urmărirea conturilor restante principale și categorizarea pe intervale de vechime.</p>
+            <div class="portfolio-card-meta">
+              <div class="meta-item">💡 <strong>Rezultat:</strong> Redus DSO cu 12 zile, îmbunătățit fluxul de numerar cu 18%</div>
+              <div class="meta-item">⏱️ <strong>Timp Economisit:</strong> 15 ore/săptămână pentru revizuiri manuale de conturi</div>
+              <div class="tech-badges">
+                <span class="tech-badge">Power Query</span>
+                <span class="tech-badge">VBA</span>
+                <span class="tech-badge">Formatare Condițională</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Unapplied Payments -->
+        <div class="portfolio-card" data-category="finance">
+          <img src="unapplied-payments.png" alt="Unapplied Payments Dashboard" class="portfolio-card-image" onclick="openLightbox(this.src)">
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-category">Finanțe Finance & Accounts Receivable Conturi de Încasat</div>
+            <h3>Raportare Plăți Neaplicate</h3>
+            <p>Dashboard multi-grafic care urmărește deducerile, postările nealocate, angajamentele de plată promise și mișcările zilnice de restanțe colectabile cu analiză de tendințe.</p>
+            <div class="portfolio-card-meta">
+              <div class="meta-item">💡 <strong>Rezultat:</strong> Reducere de 95% în restanța plăților neaplicate</div>
+              <div class="meta-item">⏱️ <strong>Timp Economisit:</strong> 20 ore/săptămână pentru reconcilierea plăților</div>
+              <div class="tech-badges">
+                <span class="tech-badge">Power Query</span>
+                <span class="tech-badge">Grafice Avansate</span>
+                <span class="tech-badge">Design Multi-Tab</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Mass Emailing Tool -->
+        <div class="portfolio-card" data-category="finance">
+          <img src="mass-email-tool.png" alt="Mass Emailing Tool" class="portfolio-card-image" onclick="openLightbox(this.src)">
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-category">Finanțe Finance & Collections Colectări</div>
+            <h3>Instrument de Email în Masă pentru Recuperare</h3>
+            <p>Sistem automat de campanii email pentru colectări cu șabloane personalizabile, urmărire și programare follow-up direct din Excel.</p>
+            <div class="portfolio-card-meta">
+              <div class="meta-item">💡 <strong>Rezultat:</strong> Îmbunătățire de 40% în rata de răspuns la colectări</div>
+              <div class="meta-item">⏱️ <strong>Timp Economisit:</strong> 25 ore/săptămână pentru trimiterea manuală de emailuri</div>
+              <div class="tech-badges">
+                <span class="tech-badge">VBA</span>
+                <span class="tech-badge">Integrare Outlook</span>
+                <span class="tech-badge">Șabloane Email</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: OTC Lead & Scorecard -->
+        <div class="portfolio-card" data-category="operations">
+          <img src="otc-scorecard.png" alt="OTC Lead Scorecard" class="portfolio-card-image" onclick="openLightbox(this.src)">
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-category">Operațiuni Operations & Performance Performanță</div>
+            <h3>Indicator Principal Lead & Scorecard for OTC Scorecard pentru OTC</h3>
+            <p>Dashboard de performanță Order-to-Cash cu scorecarduri vizuale KPI, indicatori de tendințe și metrici operaționale pe întregul ciclu O2C.</p>
+            <div class="portfolio-card-meta">
+              <div class="meta-item">💡 <strong>Rezultat:</strong> Identified $2M in revenue recovery opportunities</div>
+              <div class="meta-item">⏱️ <strong>Timp Economisit:</strong> 10 ore/săptămână pentru raportare manuală</div>
+              <div class="tech-badges">
+                <span class="tech-badge">Scorecarduri</span>
+                <span class="tech-badge">Grafice Interactive</span>
+                <span class="tech-badge">Urmărire KPI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Market Performance Tracker -->
+        <div class="portfolio-card" data-category="operations">
+          <img src="market-performance.png" alt="Market Performance Tracker" class="portfolio-card-image" onclick="openLightbox(this.src)">
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-category">Operațiuni Operations & Sales Vânzări</div>
+            <h3>Urmăritor de Performanță Piață Market Performance & Productivity Tracker Productivitate</h3>
+            <p>Sistem cuprinzător de monitorizare a vânzărilor și productivității cu defalcări regionale, analiză țintă vs. realizat și metrici de performanță echipă.</p>
+            <div class="portfolio-card-meta">
+              <div class="meta-item">💡 <strong>Rezultat:</strong> Creștere de 22% în vizibilitatea productivității echipei</div>
+              <div class="meta-item">⏱️ <strong>Timp Economisit:</strong> 12 ore/săptămână pentru consolidarea datelor</div>
+              <div class="tech-badges">
+                <span class="tech-badge">Power Query</span>
+                <span class="tech-badge">Consolidare Date</span>
+                <span class="tech-badge">Tabele Pivot</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: KPI Reporting -->
+        <div class="portfolio-card" data-category="kpi">
+          <img src="kpi-reporting.png" alt="Dashboard Raportare KPI" class="portfolio-card-image" onclick="openLightbox(this.src)">
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-category">KPIs & Analytics</div>
+            <h3>Dashboard Raportare KPI</h3>
+            <p>Dashboard KPI nivel executiv cu analiză de tendințe, comparații perioadă-cu-perioadă și evidențiere automată a variațiilor pentru toate metricile cheie de afaceri.</p>
+            <div class="portfolio-card-meta">
+              <div class="meta-item">💡 <strong>Rezultat:</strong> Vizibilitate în timp real asupra a 25+ KPI-uri de afaceri</div>
+              <div class="meta-item">⏱️ <strong>Timp Economisit:</strong> 18 ore/săptămână pentru raportare executivă</div>
+              <div class="tech-badges">
+                <span class="tech-badge">Formule Avansate</span>
+                <span class="tech-badge">Analiză Tendințe</span>
+                <span class="tech-badge">Formatare Condițională</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7: Mojo Quantification -->
+        <div class="portfolio-card" data-category="kpi">
+          <img src="mojo-scorecard.png" alt="Mojo Scorecard" class="portfolio-card-image" onclick="openLightbox(this.src)">
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-category">KPI-uri KPIs & Culture Analytics Analiză Cultură</div>
+            <h3>Scorecard "Mojo" Organizațional</h3>
+            <p>Dashboard unic care cuantifică angajamentul angajaților și sănătatea organizațională prin multiple puncte de date, metrici de satisfacție și indicatori culturali.</p>
+            <div class="portfolio-card-meta">
+              <div class="meta-item">💡 <strong>Rezultat:</strong> Identificate 3 domenii cheie pentru îmbunătățirea culturii</div>
+              <div class="meta-item">⏱️ <strong>Timp Economisit:</strong> 8 ore/săptămână pentru analiza angajamentului</div>
+              <div class="tech-badges">
+                <span class="tech-badge">Integrare Sondaje</span>
+                <span class="tech-badge">Metrici Personalizate</span>
+                <span class="tech-badge">Design Vizual</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -440,18 +949,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td rowspan="4">Urmărire Inventar & Reaprovizionare</td><td>Excel</td><td>$50–$150</td><td><span class="badge time-medium">Mediu</span></td><td><span class="badge complexity-low">Redus</span></td><td><span class="badge roi-high">Ridicat</span></td></tr>
-          <tr><td>Software Terță Parte</td><td>$300–$1,000/an</td><td><span class="badge time-high">Ridicat</span></td><td><span class="badge complexity-medium">Mediu</span></td><td><span class="badge roi-low">Redus</span></td></tr>
+          <tr><td rowspan="4">Urmărire Inventar Inventory & Replenishment Tracker Reaprovizionare</td><td>Excel</td><td>$50–$150</td><td><span class="badge time-medium">Mediu</span></td><td><span class="badge complexity-low">Redus</span></td><td><span class="badge roi-high">Ridicat</span></td></tr>
+          <tr><td>Software Terță Parte</td><td>$300–$1,000/year</td><td><span class="badge time-high">Ridicat</span></td><td><span class="badge complexity-medium">Mediu</span></td><td><span class="badge roi-low">Redus</span></td></tr>
           <tr><td>AI / Instrumente Generative</td><td>$400–$1,200</td><td><span class="badge time-high">Ridicat</span></td><td><span class="badge complexity-medium">Mediu</span></td><td><span class="badge roi-medium">Mediu</span></td></tr>
           <tr><td>Robotică / RPA</td><td>$500–$1,500</td><td><span class="badge time-veryhigh">Foarte Ridicat</span></td><td><span class="badge complexity-high">Ridicat</span></td><td><span class="badge roi-medium">Mediu</span></td></tr>
 
-          <tr><td rowspan="4">Urmărire Flux de Numerar & Rezervă</td><td>Excel</td><td>$50–$120</td><td><span class="badge time-medium">Mediu</span></td><td><span class="badge complexity-low">Redus</span></td><td><span class="badge roi-high">Ridicat</span></td></tr>
-          <tr><td>Software Terță Parte</td><td>$200–$800/an</td><td><span class="badge time-high">Ridicat</span></td><td><span class="badge complexity-medium">Mediu</span></td><td><span class="badge roi-low">Redus</span></td></tr>
+          <tr><td rowspan="4">Urmărire Flux de Numerar Cash Flow & Runway Tracker Rezervă</td><td>Excel</td><td>$50–$120</td><td><span class="badge time-medium">Mediu</span></td><td><span class="badge complexity-low">Redus</span></td><td><span class="badge roi-high">Ridicat</span></td></tr>
+          <tr><td>Software Terță Parte</td><td>$200–$800/year</td><td><span class="badge time-high">Ridicat</span></td><td><span class="badge complexity-medium">Mediu</span></td><td><span class="badge roi-low">Redus</span></td></tr>
           <tr><td>AI / Instrumente Generative</td><td>$300–$900</td><td><span class="badge time-high">Ridicat</span></td><td><span class="badge complexity-medium">Mediu</span></td><td><span class="badge roi-medium">Mediu</span></td></tr>
           <tr><td>Robotică / RPA</td><td>$400–$1,200</td><td><span class="badge time-veryhigh">Foarte Ridicat</span></td><td><span class="badge complexity-high">Ridicat</span></td><td><span class="badge roi-medium">Mediu</span></td></tr>
 
           <tr><td rowspan="4">Dashboard Vânzări</td><td>Excel</td><td>$40–$100</td><td><span class="badge time-medium">Mediu</span></td><td><span class="badge complexity-low">Redus</span></td><td><span class="badge roi-high">Ridicat</span></td></tr>
-          <tr><td>Software Terță Parte</td><td>$250–$700/an</td><td><span class="badge time-high">Ridicat</span></td><td><span class="badge complexity-medium">Mediu</span></td><td><span class="badge roi-low">Redus</span></td></tr>
+          <tr><td>Software Terță Parte</td><td>$250–$700/year</td><td><span class="badge time-high">Ridicat</span></td><td><span class="badge complexity-medium">Mediu</span></td><td><span class="badge roi-low">Redus</span></td></tr>
           <tr><td>AI / Instrumente Generative</td><td>$300–$800</td><td><span class="badge time-high">Ridicat</span></td><td><span class="badge complexity-medium">Mediu</span></td><td><span class="badge roi-medium">Mediu</span></td></tr>
           <tr><td>Robotică / RPA</td><td>$400–$1,000</td><td><span class="badge time-veryhigh">Foarte Ridicat</span></td><td><span class="badge complexity-high">Ridicat</span></td><td><span class="badge roi-medium">Mediu</span></td></tr>
         </tbody>
@@ -461,22 +970,159 @@
       <p style="margin-top:1.5rem; font-size:0.95rem;">💡 Excel oferă flexibilitate și eficiență de cost de neegalat pentru afacerile mici. În majoritatea cazurilor, livrează până la <strong>90% din beneficiile instrumentelor de automatizare</strong> la o fracțiune din cost.</p>
     </section>
 
-    <section class="lead-section" style="background:none; border:none;">
-      <h2>Gata să automatizezi raportarea?</h2>
-      <a href="mailto:info@excelautomate.pro?subject=Audit Gratuit Automatizare Excel" class="cta-button" onclick="trackAuditEmailClick()">Obține Auditul Tău Gratuit Excel</a>
+    <!-- About Section -->
+    <section class="about-section">
+      <h2>Despre Mine</h2>
+      <div class="about-content">
+        <p class="about-intro">
+          Cu peste 20 de ani de experiență în medii multinaționale și peste 10 ani specializat în automatizare Excel,
+          am dezvoltat dashboard-uri, șabloane și instrumente de raportare în industrii bancare, asigurări, farmaceutice,
+          bunuri de consum și HORECA.
+        </p>
+
+        <div class="about-details">
+          <div class="about-column">
+            <h3>Industrii</h3>
+            <ul>
+              <li>Farmaceutică</li>
+              <li>Bancar</li>
+              <li>Asigurări</li>
+              <li>Bunuri de Consum</li>
+              <li>HORECA</li>
+            </ul>
+          </div>
+
+          <div class="about-column">
+            <h3>Roluri >Roles & Experience< Experiență</h3>
+            <ul>
+              <li>Specialist Conturi de Încasat</li>
+              <li>Analist Raportare</li>
+              <li>Expert Tematic</li>
+              <li>Manager Operațiuni</li>
+              <li>Consultant Fuziuni</li>
+              <li>Controller Intern</li>
+              <li>Analist Date Financiare</li>
+              <li>Specialist Detecție Fraudă</li>
+              <li>Specialist Automatizare</li>
+            </ul>
+          </div>
+
+          <div class="about-column">
+            <h3>Competențe Tehnice</h3>
+            <ul>
+              <li>Power Query (Avansat)</li>
+              <li>VBA >VBA & Macros< Macrouri</li>
+              <li>Formule >Complex Formulas & Functions< Funcții Complexe</li>
+              <li>Dashboard-uri Interactive</li>
+              <li>Vizualizare Date</li>
+              <li>Automatizare Procese</li>
+              <li>Modelare Financiară</li>
+              <li>Generare Rapoarte</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
-<!-- AUDIT BOOKING FORM -->
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2>Întrebări Frecvente</h2>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Trebuie să cunosc VBA sau Power Query?
+        </button>
+        <div class="faq-answer">
+          <p>
+            Nu! Eu mă ocup de toată munca tehnică. Trebuie doar să explici ce vrei să realizezi,
+            iar eu voi construi soluția. Furnizez documentație pentru a putea folosi și întreține instrumentele,
+            dar nu este necesară cunoaștere de programare din partea ta.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Cât durează de obicei un proiect?
+        </button>
+        <div class="faq-answer">
+          <p>
+            Dashboard-urile simple durează de obicei 3-5 zile. Proiectele complexe de automatizare cu multiple
+            integrări durează de obicei 1-3 săptămâni. După consultația gratuită, voi furniza o estimare detaliată
+            a termenelor bazată pe cerințele tale specifice.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Poți lucra cu fișierele noastre Excel existente?
+        </button>
+        <div class="faq-answer">
+          <p>
+            Absolut. Pot îmbunătăți fișierele tale actuale, integra multiple foi de calcul sau construi
+            soluții complet noi de la zero. În timpul consultației, vom analiza fișierele existente
+            și vom determina cea mai bună abordare.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Ce se întâmplă dacă avem nevoie de modificări ulterior?
+        </button>
+        <div class="faq-answer">
+          <p>
+            Toate proiectele includ documentație cuprinzătoare și o perioadă de suport. Ofer de asemenea
+            pachete de suport continuu pentru actualizări, modificări sau adăugarea de noi funcționalități. Dashboard-urile
+            sunt construite pentru a fi ușor de întreținut și scalabile.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Cu ce industrii lucrezi?
+        </button>
+        <div class="faq-answer">
+          <p>
+            Am construit soluții pentru industrii bancare, asigurări, farmaceutice, bunuri de consum, HORECA,
+            construcții și comerț electronic. Dacă afacerea ta folosește Excel pentru management de date
+            sau raportare, pot ajuta la automatizare—indiferent de industrie.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Care este investiția pentru un dashboard personalizat?
+        </button>
+        <div class="faq-answer">
+          <p>
+            Projects typically range from $500-$3,000 depending on complexity. Most clients see ROI
+            în prima lună doar prin economiile de timp. În timpul consultației gratuite, voi
+            furniza o ofertă detaliată bazată pe nevoile tale specifice și voi calcula ROI-ul așteptat.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lead-section" style="background:none; border:none;">
+      <h2>Gata să automatizezi raportarea?</h2>
+      <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Consultation" class="cta-button" onclick="trackConsultationEmailClick()">Obține Consultația Ta Gratuită Excel</a>
+    </section>
+
+<!-- CONSULTATION BOOKING FORM -->
 <section class="lead-section" style="background:rgba(16,185,129,0.08); border:2px solid var(--accent); text-align:center;">
-  <h2 style="color:var(--accent);">Rezervă Auditul Tău Gratuit Excel de 15 Minute</h2>
+  <h2 style="color:var(--accent);">Rezervă Consultația Ta Gratuită Excel de 15 Minute</h2>
   <p>Răspunde la 3 întrebări rapide. Vom analiza fișierele tale și vom arăta exact cum să economisești peste 20 de ore/săptămână.</p>
 
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIBOTAZYxnwxSkr2igrYE-4A-X0bjr9OQBKEzfZhbLGwZCoQ/viewform"
      target="_blank"
      class="cta-button"
      style="display:inline-block; margin-top:1rem;"
-     onclick="trackAuditFormOpen()">
-     Deschide Formularul de Audit
+     onclick="trackConsultationFormOpen()">
+     Deschide Formularul de Consultație
   </a>
 </section>
 
@@ -493,11 +1139,63 @@
     <a href="https://x.com/MrBiIIion" target="_blank" title="X (Twitter)">𝕏</a>
   </div>
 
+  <!-- Lightbox for portfolio images -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" class="lightbox-content" alt="Portfolio item">
+  </div>
+
   <iframe id="hiddenIframe" name="hiddenIframe"></iframe>
 
   <script>
     const FORM_PREFILL_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeLdgU_O3TOT719-CZjlmZxEbOTAtHcvnToR96GQ_uhh0w37A/formResponse";
     const FIELD_NAME = "entry.1936655856";
+
+    // Portfolio filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Filter cards
+        portfolioCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Lightbox functionality
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightbox.classList.add('active');
+      lightboxImg.src = src;
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+    }
+
+    // FAQ Accordion
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        question.classList.toggle('active');
+        const answer = question.nextElementSibling;
+        answer.classList.toggle('active');
+      });
+    });
 
     // ✅ Track Lead Magnet Email Submission
     function submitEmailForm(e, fileUrl) {
@@ -546,8 +1244,8 @@
       // Track event in GA4
       if (typeof gtag !== 'undefined') {
         const fileName = fileUrl.includes('.xlsx') ? 'Excel Tool' :
-                        fileUrl.includes('Quick-Start') ? 'Quick-Start Guide' :
-                        'Understand Metrics';
+                        fileUrl.includes('Quick-Start') ? 'Ghid de Început Rapid' :
+                        'Înțelege Metricile';
         gtag('event', 'forecaster_download', {
           'event_category': 'Lead Generation',
           'event_label': 'Cash Flow Forecaster - ' + fileName,
@@ -574,23 +1272,23 @@
       window.location.href = fileUrl;
     }
 
-    // ✅ Track Audit Email CTA Clicks
-    function trackAuditEmailClick() {
+    // ✅ Track Consultation Email CTA Clicks
+    function trackConsultationEmailClick() {
       if (typeof gtag !== 'undefined') {
-        gtag('event', 'audit_email_click', {
+        gtag('event', 'consultation_email_click', {
           'event_category': 'Conversion',
-          'event_label': 'Mailto Audit CTA',
+          'event_label': 'Mailto Consultation CTA',
           'value': 1
         });
       }
     }
 
-    // ✅ Track Audit Form Opens
-    function trackAuditFormOpen() {
+    // ✅ Track Consultation Form Opens
+    function trackConsultationFormOpen() {
       if (typeof gtag !== 'undefined') {
-        gtag('event', 'audit_form_open', {
+        gtag('event', 'consultation_form_open', {
           'event_category': 'Conversion',
-          'event_label': 'Google Form Audit',
+          'event_label': 'Google Form Consultation',
           'value': 1
         });
       }
