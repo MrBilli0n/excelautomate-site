@@ -78,6 +78,7 @@
 
     header { text-align: center; padding: 6rem 1rem 3rem; max-width: var(--max-width); margin: 0 auto; }
     h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 1rem; }
+    h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; }
     p { font-size: 1.1rem; margin-bottom: 1.5rem; }
 
     .cta-button {
@@ -96,6 +97,35 @@
     .cta-button:hover { background-color: var(--accent-dark); transform: translateY(-2px); }
 
     main { max-width: var(--max-width); margin: 0 auto; padding: 1rem; }
+
+    /* Social Proof Numbers */
+    .stats-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem 1rem;
+      margin: 2rem 0;
+    }
+
+    .stat-item {
+      text-align: center;
+      min-width: 150px;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
     .case-studies { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 3rem 1rem; }
 
     .case-study {
@@ -139,6 +169,315 @@
     }
 
     body.dark .forecaster-section { background-color: #161b22; color: var(--text-light); }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      padding: 3rem 1rem;
+      margin: 3rem 0;
+    }
+
+    .portfolio-section h2 {
+      text-align: center;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-section > p {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+    }
+
+    .portfolio-filters {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 9999px;
+      border: 2px solid var(--accent);
+      background: transparent;
+      color: currentColor;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .portfolio-card {
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(16,185,129,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(16,185,129,0.2);
+    }
+
+    .portfolio-card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .portfolio-card-image:hover {
+      opacity: 0.85;
+    }
+
+    .portfolio-card-content {
+      padding: 1.5rem;
+    }
+
+    .portfolio-card h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.3rem;
+      color: var(--accent);
+    }
+
+    .portfolio-card-category {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .portfolio-card p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .portfolio-card-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(16,185,129,0.2);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tech-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .tech-badge {
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background-color: rgba(16,185,129,0.15);
+      border: 1px solid rgba(16,185,129,0.3);
+    }
+
+    /* Lightbox for portfolio images */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(16,185,129,0.8);
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 3rem 1rem;
+      margin: 3rem 1rem;
+      border-radius: 12px;
+      border: 2px solid var(--accent);
+      background: rgba(16,185,129,0.05);
+    }
+
+    .about-section h2 {
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-intro {
+      font-size: 1.1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .about-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .about-column h3 {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .about-column li {
+      padding: 0.4rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .about-column li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 3rem 1rem;
+      margin: 3rem 0;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      border: 2px solid rgba(16,185,129,0.3);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 1.2rem;
+      background: rgba(16,185,129,0.08);
+      border: none;
+      text-align: left;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+      color: inherit;
+    }
+
+    .faq-question:hover {
+      background: rgba(16,185,129,0.15);
+    }
+
+    .faq-question::after {
+      content: "+";
+      font-size: 1.5rem;
+      color: var(--accent);
+      transition: transform 0.3s;
+    }
+
+    .faq-question.active::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+      padding: 0 1.2rem;
+    }
+
+    .faq-answer.active {
+      max-height: 500px;
+      padding: 1.2rem;
+    }
+
+    .faq-answer p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
 
     footer {
       text-align: center;
@@ -274,6 +613,8 @@
       .language-toggle { position: static; margin: 1rem auto 0; justify-content: center; }
       .cert-badge { position: static; width: 80px; height: 80px; margin: 1rem auto; display: block; }
       .logo-badge { position: static; width: 100px; height: 100px; margin: 1rem auto; display: block; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .stats-section { flex-direction: column; gap: 1.5rem; }
     }
 
     /* Email form */
@@ -386,10 +727,30 @@
   <header>
     <h1>Automate Excel. Save Hours. Scale Faster.</h1>
     <p>I build dashboards, reporting tools, and VBA automations that eliminate manual work.</p>
-    <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit" class="cta-button" onclick="trackAuditEmailClick()">Book Free Audit Call</a>
+    <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Consultation" class="cta-button" onclick="trackConsultationEmailClick()">Book Free Consultation Call</a>
   </header>
 
   <main>
+    <!-- Social Proof Numbers -->
+    <section class="stats-section">
+      <div class="stat-item">
+        <span class="stat-number">50+</span>
+        <span class="stat-label">Dashboards Delivered</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">20+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">10+</span>
+        <span class="stat-label">Industries Served</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Client Satisfaction</span>
+      </div>
+    </section>
+
     <section class="case-studies">
       <div class="case-study"><h3>💼 Finance Team Dashboard</h3><p>Reduced 6 hours of manual reporting to 15 minutes using Power Query automation.</p></div>
       <div class="case-study"><h3>🏗️ Construction Cost Tracker</h3><p>Automated cost roll-ups across 12 regions using Excel VBA macros.</p></div>
@@ -419,6 +780,154 @@
         <button type="button" class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-12-Month-Runway.xlsx')">Download Excel Tool</button>
         <button type="button" class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Quick-Start.pdf')">Quick-Start Guide</button>
         <button type="button" class="cta-button" onclick="submitForecaster('https://raw.githubusercontent.com/MrBilli0n/excelautomate-site/main/Cash-Flow-Forecaster-Understand-Your-Metrics.pdf')">Understand Metrics</button>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
+      <h2>Proven Automation Examples</h2>
+      <p>Real Excel solutions deployed across finance, operations, and sales teams. All dashboards feature advanced automation, interactive visualizations, and proven time-saving results.</p>
+
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">All (7)</button>
+        <button class="filter-btn" data-filter="finance">Finance & AR (3)</button>
+        <button class="filter-btn" data-filter="operations">Operations (2)</button>
+        <button class="filter-btn" data-filter="kpi">KPIs & Analytics (2)</button>
+      </div>
+
+      <div class="portfolio-grid">
+        <!-- Project 1: Collections Tool -->
+        <div class="portfolio-card" data-category="finance">
+          <img src="portfolio/collections-tool.png" alt="Collections Tool Dashboard" class="portfolio-card-image" onclick="openLightbox(this.src)">
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-category">Finance & Accounts Receivable</div>
+            <h3>Collections Tool</h3>
+            <p>AR dashboard that prioritizes collection efforts with automated action analysis, top delinquent accounts tracking, and aging bucket categorization.</p>
+            <div class="portfolio-card-meta">
+              <div class="meta-item">💡 <strong>Result:</strong> Reduced DSO by 12 days, improved cash flow 18%</div>
+              <div class="meta-item">⏱️ <strong>Time Saved:</strong> 15 hours/week on manual account reviews</div>
+              <div class="tech-badges">
+                <span class="tech-badge">Power Query</span>
+                <span class="tech-badge">VBA</span>
+                <span class="tech-badge">Conditional Formatting</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Unapplied Payments -->
+        <div class="portfolio-card" data-category="finance">
+          <img src="portfolio/unapplied-payments.png" alt="Unapplied Payments Dashboard" class="portfolio-card-image" onclick="openLightbox(this.src)">
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-category">Finance & Accounts Receivable</div>
+            <h3>Unapplied Payments Reporting</h3>
+            <p>Multi-chart dashboard tracking deductions, unallocated posts, promise-to-pay commitments, and daily collectable overdue movements with trend analysis.</p>
+            <div class="portfolio-card-meta">
+              <div class="meta-item">💡 <strong>Result:</strong> 95% reduction in unapplied payment backlog</div>
+              <div class="meta-item">⏱️ <strong>Time Saved:</strong> 20 hours/week on payment reconciliation</div>
+              <div class="tech-badges">
+                <span class="tech-badge">Power Query</span>
+                <span class="tech-badge">Advanced Charts</span>
+                <span class="tech-badge">Multi-Tab Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Mass Emailing Tool -->
+        <div class="portfolio-card" data-category="finance">
+          <img src="portfolio/mass-email-tool.png" alt="Mass Emailing Tool" class="portfolio-card-image" onclick="openLightbox(this.src)">
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-category">Finance & Collections</div>
+            <h3>Mass Emailing Tool for Dunning</h3>
+            <p>Automated email campaign system for collections with customizable templates, tracking, and follow-up scheduling directly from Excel.</p>
+            <div class="portfolio-card-meta">
+              <div class="meta-item">💡 <strong>Result:</strong> 40% improvement in collection response rate</div>
+              <div class="meta-item">⏱️ <strong>Time Saved:</strong> 25 hours/week on manual email sending</div>
+              <div class="tech-badges">
+                <span class="tech-badge">VBA</span>
+                <span class="tech-badge">Outlook Integration</span>
+                <span class="tech-badge">Email Templates</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: OTC Lead & Scorecard -->
+        <div class="portfolio-card" data-category="operations">
+          <img src="portfolio/otc-scorecard.png" alt="OTC Lead Scorecard" class="portfolio-card-image" onclick="openLightbox(this.src)">
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-category">Operations & Performance</div>
+            <h3>Lead & Scorecard for OTC</h3>
+            <p>Order-to-Cash performance dashboard with visual KPI scorecards, trend indicators, and operational metrics across the entire O2C cycle.</p>
+            <div class="portfolio-card-meta">
+              <div class="meta-item">💡 <strong>Result:</strong> Identified $2M in revenue recovery opportunities</div>
+              <div class="meta-item">⏱️ <strong>Time Saved:</strong> 10 hours/week on manual reporting</div>
+              <div class="tech-badges">
+                <span class="tech-badge">Scorecards</span>
+                <span class="tech-badge">Interactive Charts</span>
+                <span class="tech-badge">KPI Tracking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Market Performance Tracker -->
+        <div class="portfolio-card" data-category="operations">
+          <img src="portfolio/market-performance.png" alt="Market Performance Tracker" class="portfolio-card-image" onclick="openLightbox(this.src)">
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-category">Operations & Sales</div>
+            <h3>Market Performance & Productivity Tracker</h3>
+            <p>Comprehensive sales and productivity monitoring system with regional breakdowns, target vs. actual analysis, and team performance metrics.</p>
+            <div class="portfolio-card-meta">
+              <div class="meta-item">💡 <strong>Result:</strong> 22% increase in team productivity visibility</div>
+              <div class="meta-item">⏱️ <strong>Time Saved:</strong> 12 hours/week on data consolidation</div>
+              <div class="tech-badges">
+                <span class="tech-badge">Power Query</span>
+                <span class="tech-badge">Data Consolidation</span>
+                <span class="tech-badge">Pivot Tables</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: KPI Reporting -->
+        <div class="portfolio-card" data-category="kpi">
+          <img src="portfolio/kpi-reporting.png" alt="KPI Reporting Dashboard" class="portfolio-card-image" onclick="openLightbox(this.src)">
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-category">KPIs & Analytics</div>
+            <h3>KPI Reporting Dashboard</h3>
+            <p>Executive-level KPI dashboard with trend analysis, period-over-period comparisons, and automated variance highlighting across all key business metrics.</p>
+            <div class="portfolio-card-meta">
+              <div class="meta-item">💡 <strong>Result:</strong> Real-time visibility into 25+ business KPIs</div>
+              <div class="meta-item">⏱️ <strong>Time Saved:</strong> 18 hours/week on executive reporting</div>
+              <div class="tech-badges">
+                <span class="tech-badge">Advanced Formulas</span>
+                <span class="tech-badge">Trend Analysis</span>
+                <span class="tech-badge">Conditional Formatting</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7: Mojo Quantification -->
+        <div class="portfolio-card" data-category="kpi">
+          <img src="portfolio/mojo-scorecard.png" alt="Mojo Scorecard" class="portfolio-card-image" onclick="openLightbox(this.src)">
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-category">KPIs & Culture Analytics</div>
+            <h3>Organizational "Mojo" Scorecard</h3>
+            <p>Unique dashboard quantifying employee engagement and organizational health through multiple data points, satisfaction metrics, and cultural indicators.</p>
+            <div class="portfolio-card-meta">
+              <div class="meta-item">💡 <strong>Result:</strong> Identified 3 key areas for culture improvement</div>
+              <div class="meta-item">⏱️ <strong>Time Saved:</strong> 8 hours/week on engagement analysis</div>
+              <div class="tech-badges">
+                <span class="tech-badge">Survey Integration</span>
+                <span class="tech-badge">Custom Metrics</span>
+                <span class="tech-badge">Visual Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -461,22 +970,159 @@
       <p style="margin-top:1.5rem; font-size:0.95rem;">💡 Excel offers unmatched flexibility and cost-efficiency for small businesses. In most cases, it delivers up to <strong>90% of the benefits of automation tools</strong> at a fraction of the cost.</p>
     </section>
 
-    <section class="lead-section" style="background:none; border:none;">
-      <h2>Ready to automate your reporting?</h2>
-      <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Audit" class="cta-button" onclick="trackAuditEmailClick()">Get Your Free Excel Audit</a>
+    <!-- About Section -->
+    <section class="about-section">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <p class="about-intro">
+          With 20+ years of experience in multinational environments and 10+ years specializing in Excel automation,
+          I've developed dashboards, templates, and reporting tools across banking, insurance, pharmaceutical,
+          consumer goods, and HORECA industries.
+        </p>
+
+        <div class="about-details">
+          <div class="about-column">
+            <h3>Industries</h3>
+            <ul>
+              <li>Pharmaceutical</li>
+              <li>Banking</li>
+              <li>Insurance</li>
+              <li>Consumer Goods</li>
+              <li>HORECA</li>
+            </ul>
+          </div>
+
+          <div class="about-column">
+            <h3>Roles & Experience</h3>
+            <ul>
+              <li>Accounts Receivable Specialist</li>
+              <li>Reporting Analyst</li>
+              <li>Subject Matter Expert</li>
+              <li>Operations Manager</li>
+              <li>Merger Consultant</li>
+              <li>Internal Controller</li>
+              <li>Financial Data Analyst</li>
+              <li>Fraud Detection Specialist</li>
+              <li>Automation Specialist</li>
+            </ul>
+          </div>
+
+          <div class="about-column">
+            <h3>Technical Skills</h3>
+            <ul>
+              <li>Power Query (Advanced)</li>
+              <li>VBA & Macros</li>
+              <li>Complex Formulas & Functions</li>
+              <li>Interactive Dashboards</li>
+              <li>Data Visualization</li>
+              <li>Process Automation</li>
+              <li>Financial Modeling</li>
+              <li>Report Generation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
-<!-- AUDIT BOOKING FORM -->
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Do I need to know VBA or Power Query?
+        </button>
+        <div class="faq-answer">
+          <p>
+            No! I handle all the technical work. You just need to explain what you want to achieve,
+            and I'll build the solution. I provide documentation so you can use and maintain the tools,
+            but no programming knowledge is required on your end.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How long does a typical project take?
+        </button>
+        <div class="faq-answer">
+          <p>
+            Simple dashboards typically take 3-5 days. Complex automation projects with multiple
+            integrations usually take 1-3 weeks. After our free consultation, I'll provide a detailed
+            timeline estimate based on your specific requirements.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Can you work with our existing Excel files?
+        </button>
+        <div class="faq-answer">
+          <p>
+            Absolutely. I can enhance your current files, integrate multiple spreadsheets, or build
+            entirely new solutions from scratch. During the consultation, we'll review your existing
+            files and determine the best approach.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What if we need changes later?
+        </button>
+        <div class="faq-answer">
+          <p>
+            All projects include comprehensive documentation and a support period. I also offer ongoing
+            support packages for updates, modifications, or new feature additions. Your dashboards are
+            built to be maintainable and scalable.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What industries do you work with?
+        </button>
+        <div class="faq-answer">
+          <p>
+            I've built solutions for banking, insurance, pharmaceutical, consumer goods, HORECA,
+            construction, and e-commerce industries. If your business uses Excel for data management
+            or reporting, I can help automate it—regardless of industry.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What's the investment for a custom dashboard?
+        </button>
+        <div class="faq-answer">
+          <p>
+            Projects typically range from $500-$3,000 depending on complexity. Most clients see ROI
+            within the first month through time savings alone. During our free consultation, I'll
+            provide a detailed quote based on your specific needs and calculate your expected ROI.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lead-section" style="background:none; border:none;">
+      <h2>Ready to automate your reporting?</h2>
+      <a href="mailto:info@excelautomate.pro?subject=Free Excel Automation Consultation" class="cta-button" onclick="trackConsultationEmailClick()">Get Your Free Excel Consultation</a>
+    </section>
+
+<!-- CONSULTATION BOOKING FORM -->
 <section class="lead-section" style="background:rgba(16,185,129,0.08); border:2px solid var(--accent); text-align:center;">
-  <h2 style="color:var(--accent);">Book Your Free 15-Min Excel Audit</h2>
-  <p>Answer 3 quick questions to We'll review your files and show exactly how to save 20+ hours/week.</p>
+  <h2 style="color:var(--accent);">Book Your Free 15-Minute Excel Consultation</h2>
+  <p>Answer 3 quick questions. We'll review your files and show exactly how to save 20+ hours/week.</p>
 
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIBOTAZYxnwxSkr2igrYE-4A-X0bjr9OQBKEzfZhbLGwZCoQ/viewform"
      target="_blank"
      class="cta-button"
      style="display:inline-block; margin-top:1rem;"
-     onclick="trackAuditFormOpen()">
-     Open Audit Form
+     onclick="trackConsultationFormOpen()">
+     Open Consultation Form
   </a>
 </section>
 
@@ -493,11 +1139,63 @@
     <a href="https://x.com/MrBiIIion" target="_blank" title="X (Twitter)">𝕏</a>
   </div>
 
+  <!-- Lightbox for portfolio images -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" class="lightbox-content" alt="Portfolio item">
+  </div>
+
   <iframe id="hiddenIframe" name="hiddenIframe"></iframe>
 
   <script>
     const FORM_PREFILL_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeLdgU_O3TOT719-CZjlmZxEbOTAtHcvnToR96GQ_uhh0w37A/formResponse";
     const FIELD_NAME = "entry.1936655856";
+
+    // Portfolio filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Filter cards
+        portfolioCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Lightbox functionality
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightbox.classList.add('active');
+      lightboxImg.src = src;
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+    }
+
+    // FAQ Accordion
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        question.classList.toggle('active');
+        const answer = question.nextElementSibling;
+        answer.classList.toggle('active');
+      });
+    });
 
     // ✅ Track Lead Magnet Email Submission
     function submitEmailForm(e, fileUrl) {
@@ -574,23 +1272,23 @@
       window.location.href = fileUrl;
     }
 
-    // ✅ Track Audit Email CTA Clicks
-    function trackAuditEmailClick() {
+    // ✅ Track Consultation Email CTA Clicks
+    function trackConsultationEmailClick() {
       if (typeof gtag !== 'undefined') {
-        gtag('event', 'audit_email_click', {
+        gtag('event', 'consultation_email_click', {
           'event_category': 'Conversion',
-          'event_label': 'Mailto Audit CTA',
+          'event_label': 'Mailto Consultation CTA',
           'value': 1
         });
       }
     }
 
-    // ✅ Track Audit Form Opens
-    function trackAuditFormOpen() {
+    // ✅ Track Consultation Form Opens
+    function trackConsultationFormOpen() {
       if (typeof gtag !== 'undefined') {
-        gtag('event', 'audit_form_open', {
+        gtag('event', 'consultation_form_open', {
           'event_category': 'Conversion',
-          'event_label': 'Google Form Audit',
+          'event_label': 'Google Form Consultation',
           'value': 1
         });
       }
